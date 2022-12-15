@@ -1,0 +1,720 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+.fa-2x {
+font-size: 2em;
+}
+.fa {
+position: relative;
+display: table-cell;
+width: 60px;
+height: 36px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
+}
+#corazon{
+  color: rgb(11, 54, 24);
+  margin-top: 4px;
+}
+#icon-color{
+  color: black;
+}
+#icon-color:hover{
+    color: black;
+}
+
+.main-menu:hover,nav.main-menu.expanded {
+width:250px;
+overflow:visible;
+}
+
+.main-menu {
+background: #C3C3C3;
+border-right:1px solid #e5e5e5;
+position: relative;
+margin-top: 50px;
+bottom:0;
+height: 95%;
+left:0;
+width:  55px;
+overflow:hidden;
+-webkit-transition:width .05s linear;
+transition:width .05s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+z-index:1000;
+}
+
+.main-menu>ul {
+margin:7px 0;
+}
+
+.main-menu li {
+position:relative;
+display:block;
+width:250px;
+}
+
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:rgb(255, 255, 255);
+ font-family: arial;
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition:all .1s linear;
+  
+}
+
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:60px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
+}
+
+.main-menu .nav-text {
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+position:absolute;
+left:0;
+bottom:0;
+}
+
+.no-touch .scrollable.hover {
+overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
+}
+
+a:hover,a:focus {
+text-decoration:none;
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+}
+
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color: black;
+background-color:#FAF9F9;
+width: 100%;
+
+}
+
+.area {
+float: left;
+background: #e2e2e2;
+width: 100%;
+height: 100%;
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+:root {
+  --header-height: 3rem;
+  --nav-width: 90px;
+  --first-color: #F2F3F4;
+  --first-color-light: #2E4053 ;
+  --white-color: #16428E;
+  --body-font: italic;
+  --normal-font-size: 19px;
+  --z-fixed: 100
+}
+
+.headerinfarto {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #900C3F;
+  z-index: 99;
+  transition: .5s
+}
+.headercancermama {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #FC71D4;
+  z-index: 99;
+  transition: .5s
+}
+.headerartritis {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #14BEE0;
+  z-index: 99;
+  transition: .5s
+}
+.header.white {
+  background: #F2F3F4;
+  box-shadow: 0px 4px 10px gray;
+}
+
+.header.white h1 {
+  color: blue;
+}
+
+.header:hover {
+  background: #0371A8;
+
+}
+#cabecera{
+  color: rgb(255, 255, 255); 
+  font-style: normal; 
+  font-size: 30px;
+  text-align: center;
+}
+#tabla_resultado{
+    font-size: 12px; 
+    width: 100%; 
+    height: auto; 
+    margin-left: 0px; 
+    background: white; 
+    margin-top: 0px; 
+    padding: 5px;
+}
+#tabla_resultadobus{
+  width: 30%;
+  height: auto;
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  margin-top: 90px;
+  resize: horizontal; overflow: auto;
+  font-size: 12px;
+}
+.adaptar{
+  width: 100%;
+  height: 80em;
+  font-size: 12px;
+  position: relative;
+  resize: horizontal; overflow: auto;
+  margin-left: 5px;
+  overflow-x: auto;
+
+}
+#boton_paciente{
+    text-decoration: none; 
+    background-color: #CD114E; 
+    color: white; 
+    cursor: pointer; 
+    width: 120px; 
+    height: 25px; 
+    font-size: 12px; 
+    border: 5px; 
+    margin-left: 0px; 
+    margin-top: 5px;
+}
+#boton_cancerdemama{
+  text-decoration: none; 
+  background-color: #FC71D4; 
+  color: white; 
+  cursor: pointer; 
+  width: 120px; 
+  height: 25px; 
+  font-size: 12px; 
+  border: 5px; 
+  margin-left: 0px; 
+  margin-top: 5px;
+}
+#boton_artritis{
+  text-decoration: none; 
+  background-color: #14BEE0; 
+  color: white; 
+  cursor: pointer; 
+  width: 120px; 
+  height: 25px; 
+  font-size: 12px; 
+  border: 5px; 
+  margin-left: 0px; 
+  margin-top: 5px;
+}
+#boton_seguimiento{
+  text-decoration: none; 
+  background-color: #026f12; 
+  color: white; 
+  cursor: pointer; 
+  width: 120px; 
+  height: 25px; 
+  font-size: 12px; 
+  border: 5px; 
+  margin-left: 10px; 
+  margin-top: 50px;
+}
+.boton_rangos{
+    text-decoration: none; 
+    background-color: #ffffff; 
+    color: rgb(255, 157, 66); 
+    cursor: pointer; 
+    width: 140px; 
+    height: 25px; 
+    font-size: 12px; 
+    border: 1px; 
+    margin-left: 10px; 
+    margin-top: 10px;
+}
+#boton_paciente:hover{
+    background-color: #3A97F9;
+    opacity: 0.7;
+    color: yellow;
+}
+.boton_rangos:hover{
+    color: #FF9043;
+    opacity: 0.7;
+    
+}
+#registrar{
+    width: 170px; 
+    height: 27px; 
+    background-color: rgb(250, 242, 7);
+    text-decoration: none; 
+    color: white; 
+    cursor: pointer;  
+    font-size: 13px; 
+    border: 5px; 
+    margin-left: 0px; 
+    margin-top: 10px;
+}
+#registrar:hover{
+    background-color: #3A97F9;
+    opacity: 0.7;
+    color: yellow;
+}
+#cabeceramama{
+  
+  background-color: #FC71D4;
+}
+#cabeceraModalaMama {
+  background-color: #FC71D4;
+}
+#cabecerainfartoce{
+  background-color: #CD114E;
+}
+#cabecerainfartose{
+  background-color: #CD114E;
+}
+#cabeceramodalartritis{
+  background-color: #14BEE0;
+}
+
+#recargar{
+  width: 170px; 
+  height: 27px; 
+  background-color: rgb(250, 35, 7);
+  text-decoration: none; 
+  color: white; 
+  cursor: pointer;  
+  font-size: 13px; 
+  border: 5px; 
+  margin-left: 0px; 
+  margin-top: 10px;
+}
+#recargar:hover{
+    background-color: #E84C37;
+    opacity: 0.7;
+    color: yellow;
+}
+.check{
+    transform : scale(1.5);
+    cursor: pointer;
+    padding: 0%;
+}
+.checkderivaciones{
+  transform : scale(1.5);
+  cursor: pointer;
+  padding: 0%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+#busqueda{
+  float: left;
+  margin-left: 9px;
+  margin-top: 50px; 
+  width: 22%;
+  position: absolute;
+ 
+}
+#totalregistro{
+  float: right; 
+  margin-right: 0%; 
+  width: 70px; 
+  height: 25px; 
+  font-size: 12px; 
+  margin-top: 5px; 
+  font-style: normal;
+  border: 0px;
+  background-color: #00AD22; 
+  color: white;
+}
+#lista-comentarios {
+    margin-top: 5px;
+}
+#cabeceraModalInfarto {
+  background: #CD114E;
+  color: white;
+  height: 50px;
+}
+#cabeceraModalArtritis {
+  background: #14BEE0;
+  color: white;
+  height: 50px;
+}
+#cabeceraModalMama{
+  background: #FC71D4;
+  color: white;
+  height: 50px;
+}
+.box1{
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  color: black;
+  display: flex;
+  position: absolute;
+  overflow-y:hidden;
+
+}
+thead{
+  background-color: #ACAEAD;
+  
+}
+thead tr th{
+  color: white;
+}
+.main-move{
+    left: 40px;
+}
+hr{
+  background-color: grey;
+  height: 1px;
+  margin: 0px 0px;
+}
+.parent{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 8px;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+  background-color: white;
+  padding: 10px;
+  overflow-y: scroll;
+
+ 
+}
+.autoheight {
+  width:100%;
+  height: 100%;
+  background: white;
+  color: black;
+  display: flex;
+ 
+} 
+
+
+p{
+  text-align: center;
+  font-size: 16px;
+  font-style: oblique;
+  color: black;
+  margin-top: 10px;
+}
+
+#link{
+  border: 1px dotted springgreen;
+  text-align: center;
+  height: 25px;
+  width: 155px;
+  font-size: 12px;
+  color: white;
+
+}
+.btn{
+  justify-content: flex-end; 
+  display: flex;
+  margin-top: 33%;
+  margin-left: 20px;
+  
+}
+
+#hr1{
+  background-color: #5fa2db;
+  height: 5px;
+  margin-top: 0px;
+}
+#hr2{
+  background-color: #5fbedb;
+  height: 5px;
+  margin-top: 0px;
+}
+
+#hr3{
+  background-color: #427dfc;
+  height: 5px;
+  margin-top: 0px;
+}
+#hr4{
+  background-color: #5f67db;
+  height: 5px;
+  margin-top: 0px;
+}
+#hr5{
+  background-color: #b45fdb;
+  height: 5px;
+  margin-top: 0px;
+}
+#hr6{
+  background-color: #3b5d7a;
+  height: 5px;
+  margin-top: 0px;
+}
+#hr7{
+  background-color: #5fd3db;
+  height: 5px;
+  margin-top: 0px;
+}
+#hr8{
+  background-color: #07253f;
+  height: 5px;
+  margin-top: 0px;
+}
+#hr9{
+  background-color: #c3bee9;
+  height: 5px;
+  margin-top: 0px;
+} 
+#hr10{
+  background-color: #515155;
+  height: 5px;
+  margin-top: 0px;
+}
+#icono{
+
+ color: red;
+}
+
+
+::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-track{
+  background: #ACAEAD;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb{
+  background: #fff;
+  border-radius: 50px;
+}
+/*estilos formularios*/
+
+#form-ai{
+  width: 100%;
+  height: auto;
+  background-color: rgb(250, 250, 250);
+}
+#form-iam{
+  width: 100%;
+  height: auto;
+  background-color: rgb(250, 250, 250);
+}
+
+nav li ul{
+  display: none;
+  position:absolute;
+  top:0px;
+  left: 250px;
+  background: #e5e5e5;
+  width: 150px;
+  padding: 0px;
+  
+
+}
+      
+nav li:hover ul, #nav-text {
+  font-family: 'Titillium Web', sans-serif;
+  display:block;
+  width: 150px;
+
+}
+
+
+#container {
+    height: 200px;
+}
+.titulo {
+            
+    font-size: 27px;
+    color:blue;
+    text-align : center;
+        }
+.titulo2 {
+            
+    font-size: 27px;
+    color : red;
+    text-align : center;
+        }
+td:hover{
+    background: #eeeeee;
+    color: rgb(208, 208, 208);
+
+        }
+td{
+    cursor: pointer;
+        }
+
+/*estilos de la tabla vistapacientesbusqueda*/
+#tabla {
+  margin-top: 50px;
+}
+
+th {
+
+  font-size: 14px;
+  background-color: #A8A8A8;
+  color: black;
+  text-align: left;
+}
+
+
+td {
+  width: 85rem;
+  cursor: pointer;
+  font-size: 13px;
+
+}
+
+
+.mandaid {
+  color: orange;
+  font-size: 13px;
+}
+
+
+.imcbajo {
+
+  font-size: 15px;
+  color: orange;
+  text-align: center;
+  float: right;
+  margin-right: 5px;
+}
+
+.imcok {
+
+  font-size: 15px;
+  color: green;
+  text-align: center;
+  float: right;
+  margin-right: 5px;
+}
+
+.imcsobre {
+
+  font-size: 15px;
+  color: #FF4949;
+  text-align: center;
+  float: right;
+  margin-right: 5px;
+}
+
+.odesidad1 {
+
+  font-size: 15px;
+  color: #FF1313;
+  text-align: center;
+  float: right;
+  margin-right: 5px;
+}
+
+.obesidad2 {
+
+  font-size: 15px;
+  color: #D91E1E;
+  text-align: center;
+  float: right;
+  margin-right: 5px;
+}
+
+td:hover {
+  background: rgb(224, 224, 224);
+  color: black;
+
+}
+
+td {
+  cursor: pointer;
+}
+/*finalizan estilos de tabla vistapacientesbusqueda*/
+
+.datosPersonales {
+  width: 150px;
+  height: 25px;
+  font-size: 12px;
+  background-color: #16428E;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+  #fecha,
+  #curp,
+  #nombrecompleto,
+  #edad {
+      text-transform: uppercase;
+    }
+

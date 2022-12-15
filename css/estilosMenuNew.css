@@ -1,0 +1,821 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+#corazon {
+  color: rgb(11, 54, 24);
+  margin-top: 4px;
+}
+
+#icon-color {
+  color: #022061;
+}
+
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 250px;
+  overflow: visible;
+}
+
+.main-menu {
+  background: #ffffff;
+  border-right: 1px solid #e5e5e5;
+  position: fixed;
+  top: 55px;
+  bottom: 0;
+  height: 94%;
+  left: 0;
+  width: 55px;
+  overflow: hidden;
+  -webkit-transition: width .05s linear;
+  transition: width .05s linear;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  z-index: 1000;
+}
+
+.main-menu>ul {
+  margin: 7px 0;
+}
+
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.main-menu li>a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-family: arial;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 50px;
+  height: 26px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li:hover>a,
+nav.main-menu li.active>a,
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+  color: white;
+  background-color: #5fa2db;
+  width: 100%;
+
+}
+
+.area {
+  float: left;
+  background: #e2e2e2;
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+:root {
+  --header-height: 3rem;
+  --nav-width: 90px;
+  --first-color: #F2F3F4;
+  --first-color-light: #2E4053 ;
+  --white-color: #16428E;
+  --body-font: italic;
+  --normal-font-size: 19px;
+  --z-fixed: 100
+}
+
+.header {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #366FD3;
+  z-index: 99;
+  transition: .5s
+}
+
+.header.white {
+  background: #F2F3F4;
+  box-shadow: 0px 4px 10px gray;
+}
+
+.header.white h1 {
+  color: blue;
+}
+
+.header:hover {
+  background: #0371A8;
+
+}
+#cabecera{
+  color: rgb(255, 255, 255); 
+  font-style: normal; 
+  font-size: 30px;
+  text-align: center;
+}
+
+/*
+.box1{
+  width: auto;
+  height: auto;
+  background: #ffffff;
+  color: black;
+  display: grid;
+
+}
+
+*/
+.main-move {
+  left: 40px;
+}
+
+/*
+.parent{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 8px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  background-color: white;
+ 
+  padding: 1px;
+      overflow-x: hidden;
+}
+*/
+hr{
+  background-color: grey;
+  height: 1px;
+  margin: 0px 0px;
+}
+.card {
+  overflow: hidden;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 10px 5px 5px #ABAAAA;
+  border-radius: 10px;
+  border-radius: 0.3rem;
+  color: #333;
+  cursor: pointer;
+
+}
+
+.card:hover {
+  box-shadow: 10px 5px 5px green;
+
+}
+
+.gallery {
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 15rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  margin-top: 50px;
+  margin-left: 57px;
+  padding: 10px;
+
+}
+
+p {
+  text-align: center;
+  font-size: 20px;
+  font-style: oblique;
+  color: black;
+  margin-top: 0px;
+  text-decoration: none;
+
+}
+
+p:hover {
+  color: blue;
+
+}
+
+#link {
+  border: 1px dotted springgreen;
+  text-align: center;
+  height: 25px;
+  width: 130px;
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+
+
+}
+
+#linkcancer {
+  font-size: 12px;
+  color: white;
+  background: pink;
+
+
+}
+
+#linkcancer:hover {
+  background: white;
+  color: black;
+}
+
+#link:hover {
+  background: white;
+  color: black;
+}
+
+#linkestructura {
+  font-size: 12px;
+  color: white;
+  background: rgb(96, 46, 124);
+}
+
+#linkestructura:hover {
+  background: white;
+  color: black;
+}
+
+#linkdatostrabajador {
+  font-size: 12px;
+  color: white;
+  background: rgb(2, 104, 145);
+}
+
+#linkdatostrabajador:hover {
+  background: white;
+  color: black;
+}
+
+.btn {
+  height: 25px;
+  width: 130px;
+  justify-content: flex-end;
+  display: flex;
+  margin-top: 35%;
+  margin-left: 10px;
+
+}
+
+#hr1datostrabajador {
+  background-color: #5fff02;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr1cursosdiplomas{
+  background-color: #270338;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hrinfarto {
+  border-radius: 40px;
+  width: 300px;
+  background-color: red;
+  height: 5px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr2 {
+  background-color: #5fbedb;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr3 {
+  background-color: #427dfc;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr4 {
+  background-color: #5f67db;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr5 {
+  background-color: #b45fdb;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr6 {
+  background-color: #3b5d7a;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr7 {
+  background-color: #5fd3db;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr8 {
+  background-color: #07253f;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr9 {
+  background-color: #c3bee9;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hr10 {
+  background-color: #515155;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hrcancermama {
+  background-color: #FF4AEF;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#hrestructura-organizacional {
+  background-color: blue;
+  height: 5px;
+  margin-top: 0px;
+  border-radius: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#icono {
+
+  color: red;
+}
+#tresmeses {
+
+  background-image: url(../img/tresmeses.jpg);
+  background-repeat: no-repeat;
+  background-size: 65% 75%;
+  background-position: 95% 85%;
+
+}
+#seismeses{
+
+  background-image: url(../img/seismeses.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 80%;
+  background-position: 95% 85%;
+
+}
+#oneyear {
+
+  background-image: url(../img/oneyear.png);
+  background-repeat: no-repeat;
+  background-size: 70% 80%;
+  background-position: 95% 85%;
+
+}
+#datosTrabajador {
+
+  background-image: url(../img/datos.png);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#datosTrabajador:hover {
+  box-shadow: 10px 5px 5px green;
+}
+
+#cursosDiplomas {
+
+  background-image: url(../img/diploma.jpg);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#solicitudCursos {
+  background-image: url(../img/solicitudCurso.png);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#formatoIncidencia {
+  background-image: url(../img/images.png);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#cardio1 {
+  background-image: url(../img/infartoagudo.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#cancer {
+  background-image: url(../img/cancer.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#cancer-mama {
+  background-image: url(../img/cancerdemama.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+}
+#cancer-ovario {
+  background-image: url(../img/cancer-ovario.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#cancer-testiculo {
+  background-image: url(../img/cancer-testiculo.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#cancer-colon {
+  background-image: url(../img/cancer-colon.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#infartoelevacion {
+  background-image: url(../img/INFARTOELEVACION.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#cisfa {
+  background-image: url(../img/cisfa.png);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#infartosinelevacion {
+  background-image: url(../img/sinelevacion.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#esclerosis {
+  background-image: url(../img/multipleesclerosis.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#angina {
+  background-image: url(../img/angina.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#anginaprinzmetal {
+  background-image: url(../img/anginaprinzmetal.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#hemodinamia {
+  background-image: url(../img/hemodimania.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+}
+
+#anginainestable {
+  background-image: url(../img/anginainestable.jpg);
+  background-repeat: no-repeat;
+  background-size: 60% 60%;
+  background-position: 85% 75%;
+
+}
+
+#anginaestable {
+  background-image: url(../img/angina.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#rehabilitacion {
+  background-image: url(../img/rehabilitar5.jpg);
+  background-repeat: no-repeat;
+  background-size: 60% 60%;
+  background-position: 95% 90%;
+
+}
+
+#anginapostinfarto {
+  background-image: url(../img/postinfarto.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 95% 85%;
+
+}
+
+#evaluacion {
+  background-image: url(../img/compatibilidad3.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 95% 90%;
+
+}
+
+
+#cardio7 {
+
+  background-image: url(../img/balon2.jpg);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#reclutamiento {
+  background-image: url(../img/reclutameinto.png);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#cardio8 {
+  background-image: url(../img/AMI_scheme.png);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#cardio9 {
+  background-image: url(../img/AMI_scheme.png);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#cardio10 {
+  background-image: url(../img/AMI_scheme.png);
+  background-repeat: no-repeat;
+  background-size: 20% 40%;
+  background-position: 95% 85%;
+
+}
+
+#compatibilidad {
+  background-image: url(../img/compatibilidad4.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#evc {
+  background-image: url(../img/evc.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#artritis {
+  background-image: url(../img/artritis.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+
+#buzon {
+  background-image: url(../img/buzon.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#estructura-organizacional {
+  background-image: url(../img/estructura-organizacional.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#activostecnologia{
+  background-image: url(../img/gestion-emrepsa.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ACAEAD;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 50px;
+}
+
+/*estilos formularios*/
+
+#form-ai {
+  width: 100%;
+  height: auto;
+  background-color: rgb(250, 250, 250);
+}
+
+#form-iam {
+  width: 100%;
+  height: auto;
+  background-color: rgb(250, 250, 250);
+}
+
+nav li ul {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 250px;
+  background: #e5e5e5;
+  width: 150px;
+  padding: 0px;
+
+
+}
+
+nav li:hover ul,
+#nav-text {
+  font-family: 'Titillium Web', sans-serif;
+  display: block;
+  width: 150px;
+
+}
+
+/*segundo grafico*/
