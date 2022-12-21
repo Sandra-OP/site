@@ -102,7 +102,7 @@ date_default_timezone_set('America/Mexico_City');
                 if (isset($_SESSION['usuarioAdmin']) or isset($_SESSION['usuarioMedico'])) { ?>
             <a href="#" onclick="editarRegistro();" id="expediente"
                 style="float: right; margin-top: -30px; color: blue;">Editar registro</a>
-                <?}?>
+                <?php };?>
             <a href="#" onclick="eliminarRegistro();" id="expediente"
                 style="float: right; margin-top: -10px; color: red;">Eliminar registro</a>
         </td>
@@ -219,7 +219,7 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
          $query_s = $conexion2->query("SELECT id_mastecto, tipomastecto, fecha from mastecto where id_tipo = $id_quiru_mastecto");
         $row_s = mysqli_fetch_assoc($query_s);
         $id_mastecto1 = $row_s['id_mastecto'];
-        echo 'Tipo mastectomia:&nbsp'.$row_s['tipomastecto'].'<br>'.'Fecha:&nbsp'.$row_s['fecha']?>
+        echo 'Tipo mastectomia:&nbsp'.$row_s['tipomastecto'].'<br>'.'Fecha:&nbsp'.$row_s['fecha'];?>
         </td>
     </tr>
      <tr>
@@ -228,7 +228,7 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
         $query_r = $conexion2->query("SELECT id_ganglionar, tipoganglionar, fecha from ganglionar where id_tipo = $id_quiru_ganglio");
         $row_r = mysqli_fetch_assoc($query_r);
         $id_ganglio1 = $row_r['id_ganglionar'];
-        echo 'Tipo ganglionar:&nbsp'.$row_r['tipoganglionar'].'<br>'.'Fecha:&nbsp'.$row_r['fecha']?>
+        echo 'Tipo ganglionar:&nbsp'.$row_r['tipoganglionar'].'<br>'.'Fecha:&nbsp'.$row_r['fecha'];?>
         </td>
     </tr>
      <tr>
@@ -236,7 +236,7 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
         <td><?php 
         $query_q = $conexion2->query("SELECT reconstruccion, tiporeconstruccion, fecha from reconstruccion where id_mastecto_ganglio = $id_mastecto1");
         $row_q = mysqli_fetch_assoc($query_q);
-        echo 'Reconstruccion:&nbsp'.$row_q['reconstruccion'].'<br>'.'Tipo reconstruccion:&nbsp'.$row_q['tiporeconstruccion'].'<br>'.'Fecha:&nbsp'.$row_q['fecha']?>
+        echo 'Reconstruccion:&nbsp'.$row_q['reconstruccion'].'<br>'.'Tipo reconstruccion:&nbsp'.$row_q['tiporeconstruccion'].'<br>'.'Fecha:&nbsp'.$row_q['fecha'];?>
         </td>
     </tr>
     <tr>
@@ -244,17 +244,17 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
         <td><?php 
         $query_l = $conexion2->query("SELECT reconstruccion, tiporeconstruccion, fecha from reconstruccion where id_mastecto_ganglio = $id_ganglio1");
         $row_l = mysqli_fetch_assoc($query_l);
-        echo 'Reconstruccion:&nbsp'.$row_l['reconstruccion'].'<br>'.'Tipo reconstruccion:&nbsp'.$row_l['tiporeconstruccion'].'<br>'.'Fecha:&nbsp'.$row_l['fecha']?>
+        echo 'Reconstruccion:&nbsp'.$row_l['reconstruccion'].'<br>'.'Tipo reconstruccion:&nbsp'.$row_l['tiporeconstruccion'].'<br>'.'Fecha:&nbsp'.$row_l['fecha'];?>
         </td>
     </tr>
     <tr>
         <th id="th">Radioterapia</th>
-        <td><?php echo 'Se aplico radioterapia:&nbsp'.$dataRegistro['aplicoradio'].'<br>'.'Tipo radioterapia:&nbsp'.$dataRegistro['decripcionradio'].'<br>'.'Fecha de incio de radioterapia:&nbsp'.$dataRegistro['fecharadio'].'<br>'.'N° de sesiones:&nbsp'.$dataRegistro['numerosesiones']?>
+        <td><?php echo 'Se aplico radioterapia:&nbsp'.$dataRegistro['aplicoradio'].'<br>'.'Tipo radioterapia:&nbsp'.$dataRegistro['decripcionradio'].'<br>'.'Fecha de incio de radioterapia:&nbsp'.$dataRegistro['fecharadio'].'<br>'.'N° de sesiones:&nbsp'.$dataRegistro['numerosesiones'];?>
         </td>
     </tr>
     <tr>
         <th id="th">Braquiterapia</th>
-        <td><?php echo 'Se aplico braquiterapia:&nbsp'.$dataRegistro['aplicobraquiterapia'].'<br>'.'Fecha:&nbsp'.$dataRegistro['fechabraquiterapia']?>
+        <td><?php echo 'Se aplico braquiterapia:&nbsp'.$dataRegistro['aplicobraquiterapia'].'<br>'.'Fecha:&nbsp'.$dataRegistro['fechabraquiterapia'];?>
         </td>
     </tr>
 
@@ -265,7 +265,7 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
 <script>
 function eliminarRegistro() {
     var id = $("#idcurp").val();
-    var mensaje = confirm("el registro se eliminara")
+    var mensaje = confirm("el registro se eliminara");
     let parametros = {
         id: id
     }
@@ -293,4 +293,5 @@ function eliminarRegistro() {
         });
     }
 }
+
 </script>
