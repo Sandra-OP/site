@@ -15,7 +15,7 @@
     $result = mysqli_query($conexion2, $sql);
     $fila = mysqli_fetch_assoc($result);
 
-    $query= $conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.curp, dato_usuario.nombrecompleto, dato_usuario.poblacionindigena, dato_usuario.escolaridad, dato_usuario.fechanacimiento, dato_usuario.edad, dato_usuario.sexo, dato_usuario.raza, dato_usuario.estado, dato_usuario.municipio FROM dato_usuario order by dato_usuario.id DESC LIMIT 15 ");
+    $query= $conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.curp, dato_usuario.nombrecompleto, dato_usuario.poblacionindigena, dato_usuario.escolaridad, dato_usuario.fechanacimiento, dato_usuario.edad, dato_usuario.sexo, dato_usuario.raza, dato_usuario.estado, dato_usuario.municipio FROM dato_usuario order by dato_usuario.id DESC LIMIT 5 ");
     if(isset($_POST['pacientes']))
 {
 	$q=$conexion2->real_escape_string($_POST['pacientes']);
@@ -128,7 +128,7 @@ function pageScroll() {
     $("#tabla_resultadobus").on("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPos = $("#tabla_resultadobus").height() + $("#tabla_resultadobus").scrollTop();
-        var totalregistro = $("#totalregistro").val();
+        var totalregistro = $("#total_registro").val();
 
         if ((((scrollHeight - 250) >= scrollPos) / scrollHeight == 0) || (((scrollHeight - 300) >=
                 scrollPos) / scrollHeight == 0) || (((scrollHeight - 350) >= scrollPos) / scrollHeight ==

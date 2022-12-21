@@ -66,7 +66,14 @@
                                         })
                                     })
                                     </script>
-
+                                    <style>
+                                        .control{
+                                            border: none;
+                                            outline: none;
+                                            border-bottom: 1px solid grey;
+                                            font-size: 12px;
+                                        }
+                                        </style>
                                     <div class="col-md-6" autocomplete="off">
 
                                         <input id="year" name="year" class="form-control" type="hidden" value="2022"
@@ -78,22 +85,22 @@
                                     </div>
                                     <div class="col-md-3">
                                         <strong>CURP</strong>
-                                        <input id="curp" name="curp" type="text" class="form-control" value=""
+                                        <input id="curp" name="curp" type="text" class="control col-md-12" value=""
                                             onblur="curp2date();" minlength="18" maxlength="18" required>
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Nombre Completo</strong>
                                         <input id="nombrecompleto" name="nombrecompleto" onblur="calcularEdad();"
-                                            type="text" class="form-control" value="" required>
+                                            type="text" class="control control col-md-12" value="" required>
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Población indigena</strong>
                                         <input id="poblacionindigena" name="poblacionindigena" type="text"
-                                            class="form-control" value="" required>
+                                            class="control control col-md-12" value="" required>
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Discapacidad</strong>
-                                        <select name="discapacidad" id="discapacidad" class="form-control">
+                                        <select name="discapacidad" id="discapacidad" class="control control col-md-12">
                                             <option value="">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -101,7 +108,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Escolaridad</strong>
-                                        <select id="escolaridad" name="escolaridad" class="form-control">
+                                        <select id="escolaridad" name="escolaridad" class="control control col-md-12">
                                             <option value="0">Seleccione </option>
                                             <?php 
 				    require 'conexionInfarto.php';
@@ -119,34 +126,34 @@
                                     <div class="col-md-3">
                                         <strong>Fecha de nacimiento</strong>
                                         <input id="fecha" name="fecha" type="date" value="" onblur="curp2date();"
-                                            class="form-control" readonly>
+                                            class="control control col-md-12" readonly>
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Edad</strong>
-                                        <input id="edad" name="edad" type="text" class="form-control" value="" readonly>
+                                        <input id="edad" name="edad" type="text" class="control control col-md-12" value="" readonly>
                                     </div>
 
                                     <div class="col-md-2">
                                         <strong>Sexo</strong>
-                                        <input type="text" class="form-control" id="sexo" onclick="curp2date();"
+                                        <input type="text" class="control control col-md-12" id="sexo" onclick="curp2date();"
                                             name="sexo" readonly>
 
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Raza</strong>
-                                        <input type="text" class="form-control" id="raza" onclick="curp2date();"
+                                        <input type="text" class="control control col-md-12" id="raza" onclick="curp2date();"
                                             name="raza">
 
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Frecuencia cardiaca</strong>
-                                        <input type="text" class="form-control" id="frecuenciacardiaca"
+                                        <input type="text" class="control control col-md-12" id="frecuenciacardiaca"
                                             name="frecuenciacardiaca">
 
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Presión arterial</strong>
-                                        <input type="text" class="form-control" id="presionarterial"
+                                        <input type="text" class="control control col-md-12" id="presionarterial"
                                             name="presionarterial">
 
                                     </div>
@@ -160,19 +167,19 @@
                                     </script>
                                     <div class="col-md-2">
                                         <strong>Talla</strong>
-                                        <input type="number" step="any" class="form-control" id="talla" name="talla"
+                                        <input type="number" step="any" class="control control col-md-12" id="talla" name="talla"
                                             required>
 
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Peso</strong>
-                                        <input type="number" step="any" class="form-control" id="peso"
+                                        <input type="number" step="any" class="control control col-md-12" id="peso"
                                             onblur="calculaIMC();" name="peso" required>
 
                                     </div>
                                     <div class="col-md-2">
                                         <strong>IMC</strong>
-                                        <input type="text" class="form-control" id="imc" onblur="calculaIMC();"
+                                        <input type="text" class="control control col-md-12" id="imc" onblur="calculaIMC();"
                                             name="imc" value="" readonly>
 
                                     </div>
@@ -180,7 +187,7 @@
                                     <div class="col-md-6">
                                         <strong>Estado de residencia</strong>
 
-                                        <select name="cbx_estado" id="cbx_estado" class="form-control"
+                                        <select name="cbx_estado" id="cbx_estado" class="control control col-md-12"
                                             style="width: 100%;" required>
                                             <option value="" selected></option>
                                             <?php 
@@ -199,14 +206,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <strong>Delegación o Municipio</strong>
-                                        <select name="cbx_municipio" id="cbx_municipio" class="form-control"
+                                        <select name="cbx_municipio" id="cbx_municipio" class="control control col-md-12"
                                             style="width: 100%;">
 
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <strong>Referenciado</strong>
-                                        <select name="referenciado" id="referenciado" class="form-control">
+                                        <select name="referenciado" id="referenciado" class="control control col-md-12">
                                             <option value="">Seleccione una opción</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -215,7 +222,7 @@
                                     <div class="col-md-6" id="medioreferencia">
                                         <strong>Unidad referencia</strong>
                                         <input list="referencias" name="unidadreferencia" id="unidadreferencia"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                         <datalist id="referencias">
                                             <option value="">Seleccione</option>
                                             <?php 
@@ -270,7 +277,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <strong>Cancer</strong>
-                                        <select name="tipodecancer" id="tipodecancer" class="form-control">
+                                        <select name="tipodecancer" id="tipodecancer" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcioncancer FROM tipocancer");
@@ -286,7 +293,7 @@
                                     <div class="col-md-6">
                                         <strong>Antecedentes familiares</strong>
                                         <select id="mscancer" name="mscancer[]" multiple="multiple"
-                                            class="form-control">
+                                            class="control control col-md-12">
 
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT relacion FROM antecedentescancer");
@@ -306,25 +313,25 @@
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Menarca</strong>
-                                        <input type="text" class="form-control" id="menarca" name="menarca">
+                                        <input type="text" class="control control col-md-12" id="menarca" name="menarca">
 
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Ultima mestruación</strong>
-                                        <input type="date" class="form-control" id="fechaultimamestruacion"
+                                        <input type="date" class="control control col-md-12" id="fechaultimamestruacion"
                                             name="fechaultimamestruacion" onblur="calcularmestruacion();">
 
                                     </div>
                                     <div class="col-md-3" id="menopauperimenopau">
                                         <strong>Cuenta con:</strong>
-                                        <input type="text" class="form-control" id="menopausea" name="menopausea"
+                                        <input type="text" class="control control col-md-12" id="menopausea" name="menopausea"
                                             readonly>
 
                                     </div>
 
                                     <div class="col-md-2">
                                         <strong>Gestas</strong>
-                                        <select name="gestas" id="gestas" class="form-control">
+                                        <select name="gestas" id="gestas" class="control control col-md-12">
                                             <option value="0">Ninguna</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -341,26 +348,26 @@
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Parto</strong>
-                                        <input type="number" class="form-control" id="parto" onblur="validaparto();"
+                                        <input type="number" class="control control col-md-12" id="parto" onblur="validaparto();"
                                             name="parto">
 
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Aborto</strong>
-                                        <input type="number" class="form-control" id="aborto" onblur="validaparto();"
+                                        <input type="number" class="control control col-md-12" id="aborto" onblur="validaparto();"
                                             name="aborto">
 
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Cesarea</strong>
-                                        <input type="number" class="form-control" id="cesarea" onblur="validaparto();"
+                                        <input type="number" class="control control col-md-12" id="cesarea" onblur="validaparto();"
                                             name="cesarea">
 
                                     </div>
                                     <div class="col-md-4">
                                         <strong>Terapia de remplazo hormonal</strong>
                                         <select name="planificacionfamiliar" id="planificacionfamiliar"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="si">si</option>
                                             <option value="no">no</option>
@@ -370,7 +377,7 @@
 
                                     <div class="col-md-2" id="tipolactancia">
                                         <strong>Lactancia</strong>
-                                        <select name="lactancia" id="lactancia" class="form-control">
+                                        <select name="lactancia" id="lactancia" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -379,7 +386,7 @@
                                     </div>
                                     <div class="col-md-2" id="tiempodelactancia">
                                         <strong>Tiempo</strong>
-                                        <input type="text" class="form-control" id="tiempolactancia"
+                                        <input type="text" class="control control col-md-12" id="tiempolactancia"
                                             name="tiempolactancia">
 
                                     </div>
@@ -391,7 +398,7 @@
                                     <div class="col-md-12">
                                         <strong>Antecedentes familiares</strong>
                                         <select id="mspato" name="check_listapato[]" multiple="multiple"
-                                            class="form-control">
+                                            class="control control col-md-12">
 
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcionantecedente FROM antecedentespersonalespatologicos");
@@ -434,11 +441,11 @@
                                     <div class="col-md-3">
                                         <strong>Fecha primer atencion</strong>
                                         <input type="date" id="fechaatencioninicial" name="fechaatencioninicial"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3">
                                         <strong>BIRADS de referencia</strong>
-                                        <select name="biradsreferencia" id="biradsreferencia" class="form-control">
+                                        <select name="biradsreferencia" id="biradsreferencia" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcion_brad_referencia FROM brads_referencia");
@@ -454,7 +461,7 @@
 
                                     <div class="col-md-3">
                                         <strong>BIRADS HRAEI</strong>
-                                        <select name="biradshraei" id="biradshraei" class="form-control">
+                                        <select name="biradshraei" id="biradshraei" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				            $query = $conexionCancer->prepare("SELECT descripcionbrad FROM birads_atencion_inicial");
@@ -469,7 +476,7 @@
                                     </div>
                                     <div class="col-md-3" id="lateralidadinicio">
                                         <strong>Lateralidad</strong>
-                                        <select name="lateralidadprimero" id="lateralidadprimero" class="form-control">
+                                        <select name="lateralidadprimero" id="lateralidadprimero" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Derecha">Derecha</option>
                                             <option value="Izquierda">Izquierda</option>
@@ -479,14 +486,14 @@
                                     </div>
                                     <div class="col-md-4">
                                         <strong>Etapa clinica</strong>
-                                        <select name="etapasclinicas" id="etapasclinicas" class="form-control" readonly>
+                                        <select name="etapasclinicas" id="etapasclinicas" class="control control col-md-12" readonly>
                                             <option value="TNM" selected>TNM</option>
 
                                         </select>
                                     </div>
                                     <div class="col-md-4">
                                         <strong>Tamaño tumoral</strong>
-                                        <select name="tamaniotumoral" id="tamaniotumoral" class="form-control">
+                                        <select name="tamaniotumoral" id="tamaniotumoral" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcion_size_tumoral FROM size_tumoral");
@@ -502,7 +509,7 @@
 
                                     <div class="col-md-4">
                                         <strong>Compromiso linfatico nodal</strong>
-                                        <select name="linfaticonodal" id="linfaticonodal" class="form-control">
+                                        <select name="linfaticonodal" id="linfaticonodal" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcion_linfatico_nodal FROM compromiso_linfatico_nodal");
@@ -517,7 +524,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <strong>Metastasis</strong>
-                                        <select name="metastasis" id="metastasis" class="form-control">
+                                        <select name="metastasis" id="metastasis" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcion_metastasis FROM metastasis");
@@ -532,7 +539,7 @@
                                     </div>
                                     <div class="col-md-4" id="metastasissitio">
                                         <strong>Sitio de metastasis</strong>
-                                        <select name="sitiometastasis" id="sitiometastasis" class="form-control">
+                                        <select name="sitiometastasis" id="sitiometastasis" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcionsitiometastasis FROM sitiometastasis");
@@ -548,7 +555,7 @@
                                     <div class="col-md-4" id="etapas">
                                         <strong>Clasificación etapas</strong>
                                         <select name="clasificaciondeetapas" id="clasificaciondeetapas"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT etapaclasificacion FROM clasificacionetapas");
@@ -564,7 +571,7 @@
 
                                     <div class="col-md-4">
                                         <strong>Calidad de vida ECOG</strong>
-                                        <select name="calidaddevidaecog" id="calidaddevidaecog" class="form-control">
+                                        <select name="calidaddevidaecog" id="calidaddevidaecog" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcionecog FROM calidadvidaecog");
@@ -584,7 +591,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <strong>DX HISTOPATOLOGICO</strong>
-                                        <select name="dxhistopatologico" id="dxhistopatologico" class="form-control">
+                                        <select name="dxhistopatologico" id="dxhistopatologico" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcion_dx_histopalogico FROM dxhistopalogico");
@@ -600,11 +607,11 @@
                                     <div class="col-md-3" id="fechadx">
                                         <strong>Fecha dx histopatologico</strong>
                                         <input type="date" id="fechadxhistopatologico" name="fechadxhistopatologico"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-6">
                                         <strong>ESCALA SBR (SCARLET-BLOOM-RICHARDSON)</strong>
-                                        <select name="escalasbr" id="escalasbr" class="form-control">
+                                        <select name="escalasbr" id="escalasbr" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcionescalasbr FROM escalasbr");
@@ -626,28 +633,28 @@
                                         <div class="input-group pull-left">
                                             <span>Receptores de estrogenos (RE)</span>&nbsp;&nbsp;
                                             <input type="number" id="receptoresestrogenos" name="receptoresestrogenos"
-                                                placeholder="%" class="form-control">
+                                                placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group pull-left">
                                             <span>Receptores de progesterona (RP)</span>&nbsp;&nbsp;
                                             <input type="number" id="receptoresprogesterona"
-                                                name="receptoresprogesterona" placeholder="%" class="form-control">
+                                                name="receptoresprogesterona" placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div><br><br>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
                                             <span>KI-67</span>&nbsp;&nbsp;
                                             <input type="number" id="ki67" name="ki67" placeholder="%"
-                                                class="form-control">
+                                                class="control control col-md-12">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
                                             <span>Triple negativo</span>
-                                            <select name="triplenegativo" id="triplenegativo" class="form-control">
+                                            <select name="triplenegativo" id="triplenegativo" class="control control col-md-12">
                                                 <option value="0">Seleccione</option>
                                                 <option value="Si">Si</option>
                                                 <option value="No">No</option>
@@ -670,14 +677,14 @@
                                         <div class="input-group pull-left">
                                             <span>PDL</span>&nbsp;&nbsp;
                                             <input type="number" id="pdl" name="pdl" placeholder="%"
-                                                class="form-control" value="0">
+                                                class="control control col-md-12" value="0">
                                         </div>
                                     </div>
 
                                     <div class="col-md-8">
                                         <div class="input-group pull-left">
                                             <strong>ONCOGEN HER2</strong>&nbsp;&nbsp;
-                                            <select name="oncogen" id="oncogen" class="form-control">
+                                            <select name="oncogen" id="oncogen" class="control control col-md-12">
                                                 <option value="0">Seleccione</option>
                                                 <option value="Una cruz">+</option>
                                                 <option value="Dos cruces">++</option>
@@ -688,7 +695,7 @@
                                     </div>
                                     <div class="col-md-12" id="muestrafish">
                                         <strong>FISH</strong>
-                                        <select name="fish" id="fish" class="form-control">
+                                        <select name="fish" id="fish" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Positivo">Positivo</option>
                                             <option value="Negativo">Negativo</option>
@@ -702,7 +709,7 @@
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6; ">
                                         <strong>QUIRURGICO</strong>
-                                        <select name="quirurgico" id="quirurgico" class="form-control">
+                                        <select name="quirurgico" id="quirurgico" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -711,7 +718,7 @@
                                     </div>
                                     <div class="col-md-3" id="lateralidad">
                                         <strong>Lateralidad QX</strong>
-                                        <select name="lateralidadsegundo" id="lateralidadsegundo" class="form-control">
+                                        <select name="lateralidadsegundo" id="lateralidadsegundo" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Derecha">Derecha</option>
                                             <option value="Izquierda">Izquierda</option>
@@ -721,7 +728,7 @@
                                     </div>
                                     <div class="col-md-3" id="tipoquirurgico">
                                         <strong>Tipo</strong>
-                                        <select name="quirurgicotipo" id="quirurgicotipo" class="form-control">
+                                        <select name="quirurgicotipo" id="quirurgicotipo" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Mastectomia">Mastectomia</option>
                                             <option value="Ganglionar">Ganglionar</option>
@@ -731,7 +738,7 @@
 
                                     <div class="col-md-3" id="tipomastectomia">
                                         <strong>Tipo de mastectomia</strong>
-                                        <select name="mastectomiatipo" id="mastectomiatipo" class="form-control">
+                                        <select name="mastectomiatipo" id="mastectomiatipo" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Mastectomia total">Mastectomia total</option>
                                             <option value="Mastectomia conservadora">Mastectomia conservadora</option>
@@ -741,7 +748,7 @@
                                     </div>
                                     <div class="col-md-3" id="tipoganglionar">
                                         <strong>Tipo de ganglionar</strong>
-                                        <select name="ganglionartipo" id="ganglionartipo" class="form-control">
+                                        <select name="ganglionartipo" id="ganglionartipo" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="GANGLIO CENTINELA">GANGLIO CENTINELA</option>
                                             <option value="DISECCION AXILAR">DISECCION AXILAR</option>
@@ -751,16 +758,16 @@
                                     <div class="col-md-3" id="fechatipomastectomia">
                                         <strong>Fecha</strong>
                                         <input type="date" id="fechatipomastecto" name="fechatipomastecto"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="fechatipoganglionar">
                                         <strong>Fecha</strong>
                                         <input type="date" id="fechatipoganglio" name="fechatipoganglio"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="reconstruccion">
                                         <strong>Reconstruccion</strong>
-                                        <select name="reconstruccionsino" id="reconstruccionsino" class="form-control">
+                                        <select name="reconstruccionsino" id="reconstruccionsino" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -769,7 +776,7 @@
                                     </div>
                                     <div class="col-md-3" id="tiporeconstruccion">
                                         <strong>Tipo</strong>
-                                        <select name="reconstrucciontipo" id="reconstrucciontipo" class="form-control">
+                                        <select name="reconstrucciontipo" id="reconstrucciontipo" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Expansor tisular">Expansor tisular</option>
                                             <option value="Implante mamario">Implante mamario</option>
@@ -781,7 +788,7 @@
                                     <div class="col-md-3" id="reconstrucciontipofecha">
                                         <strong>Fecha</strong>
                                         <input type="date" id="fechatiporeconstruccion" name="fechatiporeconstruccion"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-12"></div>
                                     <input type="button" name="enviar" value="Save Tratamiento" onclick="Hola();"
@@ -846,7 +853,7 @@
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6;">
                                         <strong>QUIMIOTERAPIA</strong>
-                                        <select name="aplicoquimio" id="aplicoquimio" class="form-control">
+                                        <select name="aplicoquimio" id="aplicoquimio" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -856,11 +863,11 @@
                                     <div class="col-md-3" id="fechainicioquimio">
                                         <strong>Fecha inicio</strong>
                                         <input type="date" id="fechadeinicioquimio" name="fechadeinicioquimio"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="atracicilassi">
                                         <strong>Antraciclinas</strong>
-                                        <select name="antraciclinas" id="antraciclinas" class="form-control">
+                                        <select name="antraciclinas" id="antraciclinas" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcion FROM atraciclina");
@@ -875,7 +882,7 @@
                                     </div>
                                     <div class="col-md-3" id="quimiomomento">
                                         <strong>Momento de la QT</strong>
-                                        <select name="momentoquimio" id="momentoquimio" class="form-control">
+                                        <select name="momentoquimio" id="momentoquimio" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Neoadyuvante">Neoadyuvante</option>
                                             <option value="Coadyuvante">Coadyuvante</option>
@@ -890,7 +897,7 @@
                                     </fieldset>
                                     <div class="col-md-4" id="esquemaher">
                                         <strong>Esquema HER 2 ++</strong>
-                                        <select name="esquemaherdos" id="esquemaherdos" class="form-control">
+                                        <select name="esquemaherdos" id="esquemaherdos" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="TRASTUZUMAB/PERTUZUMAB">TRASTUZUMAB/PERTUZUMAB</option>
                                             <option value="TRASTUZUMAB/EMTANSINA">TRASTUZUMAB/EMTANSINA</option>
@@ -905,7 +912,7 @@
                                     </fieldset>
                                     <div class="col-md-4" id="tripleesquema">
                                         <strong>Esquema triple negativo</strong>
-                                        <select name="esquematriple" id="esquematriple" class="form-control">
+                                        <select name="esquematriple" id="esquematriple" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="ATEZOLIZUMAB">ATEZOLIZUMAB</option>
                                             <option value="PEMBROLIZUMAB">PEMBROLIZUMAB</option>
@@ -922,7 +929,7 @@
                                     <div class="col-md-4" id="hormonoesquema">
                                         <strong>Esquema hormonosensible</strong>
                                         <select name="esquemahormonosensible" id="esquemahormonosensible"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="PALBOCICLIB">PALBOCICLIB</option>
                                             <option value="RIBOCICLIB">RIBOCICLIB</option>
@@ -932,7 +939,7 @@
                                     <div class="col-md-3">
                                         <strong>Tipo de tratamiento</strong>
                                         <select name="esquemhormosensible" id="esquemahormosensible"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="ADYUVANTE">ADYUVANTE</option>
                                             <option value="PALIATIVO">PALIATIVO</option>
@@ -947,7 +954,7 @@
                                     </fieldset>
                                     <div class="col-md-3" id="esquemaquimio">
                                         <strong>Causa QT incompleta</strong>
-                                        <select name="quimioesquema" id="quimioesquema" class="form-control">
+                                        <select name="quimioesquema" id="quimioesquema" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="EVENTO ADVERSO">EVENTO ADVERSO</option>
                                             <option value="PROGRESION DE LA ENFERMEDAD">PROGRESION DE LA ENFERMEDAD
@@ -961,26 +968,26 @@
                                     <div class="col-md-3" id="eventoadverso">
                                         <strong>Fecha evento adverso</strong>
                                         <input type="date" id="fechaeventoadverso" name="fechaeventoadverso"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="eventoprogresivo">
                                         <strong>Fecha progresion</strong>
                                         <input type="date" id="fechaprogresion" name="fechaprogresion"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="eventorecurrencia">
                                         <strong>Fecha recurrencia</strong>
                                         <input type="date" id="fecharecurrencia" name="fecharecurrencia"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="eventodefuncion">
                                         <strong>Fecha defunción</strong>
                                         <input type="date" id="fechadefuncion" name="fechadefuncion"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="causaonco">
                                         <strong>Causa</strong>
-                                        <select name="otracausa" id="otracausa" class="form-control">
+                                        <select name="otracausa" id="otracausa" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="ONCOLOGICA">ONCOLOGICA</option>
                                             <option value="EVENTO ADVERSO">EVENTO ADVERSO</option>
@@ -990,7 +997,7 @@
                                     <div class="col-md-3" id="especausa">
                                         <strong>Especifique</strong>
                                         <input type="text" id="especifiquecausa" name="especifiquecausa"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
 
                                     <div class="col-md-12"
@@ -999,7 +1006,7 @@
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6; ">
                                         <strong>RADIOTERAPIA</strong>
-                                        <select name="radioterapia" id="radioterapia" class="form-control">
+                                        <select name="radioterapia" id="radioterapia" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -1007,7 +1014,7 @@
                                     </div>
                                     <div class="col-md-3" id="seaplicoradio">
                                         <strong>Tipo Radioterapia</strong>
-                                        <select name="aplicoradioterapia" id="aplicoradioterapia" class="form-control">
+                                        <select name="aplicoradioterapia" id="aplicoradioterapia" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="CICLO MAMARIO COMPLETO">CICLO MAMARIO COMPLETO</option>
                                             <option value="TANGENCIAL">TANGENCIAL</option>
@@ -1016,12 +1023,12 @@
                                     <div class="col-md-3" id="fechadelaradio">
                                         <strong>Fecha de inicio</strong>
                                         <input type="date" id="fechainicioradio" name="fechainicioradio"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="sesionescantidad">
                                         <strong>N° de sesiones</strong>
                                         <input type="number" id="numerosesiones" name="numerosesiones"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
@@ -1029,7 +1036,7 @@
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6; ">
                                         <strong>BRAQUITERAPIA</strong>
-                                        <select name="braquiterapia" id="braquiterapia" class="form-control">
+                                        <select name="braquiterapia" id="braquiterapia" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -1038,7 +1045,7 @@
                                     <div class="col-md-3">
                                         <strong>Fecha braquiterapia</strong>
                                         <input type="date" id="fechadebraquiterapia" name="fechadebraquiterapia"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                 </div>
                                 <div class="col-md-12"></div>
@@ -1051,8 +1058,8 @@
 
                                 <br>
                         </div>
-                        </form>
-                        <div id="tabla_resultado2"></div>
+                                    </form>
+                     <div id="tabla_resultado2"></div>
                     </div>
 
 

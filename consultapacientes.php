@@ -3,65 +3,62 @@
 </script>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
+<style>
+    .ver-info:hover{
+        background: grey;
+        color: white;
+        cursor: pointer;
+    }
+    </style>
+<div id="lista-comentarios">
 <?php 
 
-	require 'conexionInfarto.php';
-    $sqlQueryComentarios  = $conexion2->query("SELECT dato_personal.id, dato_personal.nombrecompleto, dato_personal.edad, dato_personal.curp, dato_personal.sexo, dato_personal.fechanacimiento, tratamiento.identificador, tratamiento.seguimiento FROM dato_personal left outer join tratamiento on tratamiento.id_paciente = dato_personal.id where tratamiento.identificador = 'cest' and tratamiento.seguimiento = 'inicial'");
+	require 'conexionCancer.php';
+    $sqlQueryComentarios  = $conexion2->query("SELECT dato_usuario.id, tratamiento.identificador, tratamiento.id_paciente FROM dato_usuario inner join tratamiento on tratamiento.id_paciente = dato_usuario.id where tratamiento.identificador = 'cest' and tratamiento.seguimiento = 'inicial'");
     $total_registro       = mysqli_num_rows($sqlQueryComentarios);
     
-	$sql = "SELECT COUNT(*) total FROM tratamiento where identificador = 'cest' and seguimiento = 'inicial'";
-    $result = mysqli_query($conexion2, $sql);
-    $fila = mysqli_fetch_assoc($result);
 
-    $query= $conexion->prepare("SELECT dato_personal.id, dato_personal.nombrecompleto, dato_personal.edad, dato_personal.curp, dato_personal.sexo, dato_personal.fechanacimiento, tratamiento.identificador, tratamiento.seguimiento FROM dato_personal left outer join tratamiento on tratamiento.id_paciente = dato_personal.id where tratamiento.identificador = 'cest' and tratamiento.seguimiento = 'inicial' order by dato_personal.id DESC LIMIT 15 ");
+    $query= $conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.nombrecompleto, dato_usuario.edad, dato_usuario.curp, dato_usuario.sexo, dato_usuario.fechanacimiento, tratamiento.identificador, tratamiento.seguimiento FROM dato_usuario inner join tratamiento on tratamiento.id_paciente = dato_usuario.id where tratamiento.identificador = 'cest' and tratamiento.seguimiento = 'inicial' order by dato_usuario.id DESC LIMIT 5 ");
     if(isset($_POST['pacientes']))
 {
 	$q=$conexion2->real_escape_string($_POST['pacientes']);
-	$query=$conexion->prepare("SELECT dato_personal.id, dato_personal.nombrecompleto, dato_personal.edad, dato_personal.curp, dato_personal.sexo, dato_personal.fechanacimiento, tratamiento.identificador, tratamiento.seguimiento FROM dato_personal left outer join tratamiento on tratamiento.id_paciente = dato_personal.id  where
-		dato_personal.id LIKE '%".$q."%' OR
-        dato_personal.nombrecompleto LIKE '%".$q."%' OR
-		dato_personal.fechanacimiento LIKE '%".$q."%' OR
-		dato_personal.edad LIKE '%".$q."%' OR
-		dato_personal.sexo LIKE '%".$q."%' OR
-		dato_personal.curp LIKE '%".$q."%' AND tratamiento.seguimiento = 'incial' group by dato_personal.id");
+	$query=$conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.nombrecompleto, dato_usuario.edad, dato_usuario.curp, dato_usuario.sexo, dato_usuario.fechanacimiento, tratamiento.identificador, tratamiento.seguimiento FROM dato_usuario inner join tratamiento on tratamiento.id_paciente = dato_usuario.id  where
+		dato_usuario.id LIKE '%".$q."%' OR
+        dato_usuario.nombrecompleto LIKE '%".$q."%' OR
+		dato_usuario.fechanacimiento LIKE '%".$q."%' OR
+		dato_usuario.edad LIKE '%".$q."%' OR
+		dato_usuario.sexo LIKE '%".$q."%' OR
+		dato_usuario.curp LIKE '%".$q."%' AND tratamiento.seguimiento = 'incial' group by dato_usuario.id");
 }
         ?>
-<input type="submit" id="totalregistro" value="Total:&nbsp;<?php echo $fila['total']; ?>">
+<input type="submit" id="totalregistro" value="<?php echo $total_registro; ?>">
 
 <input type="submit" data-bs-toggle="modal" data-bs-target="#pacienteconelevacion" value="+Cargar Paciente"
     id="boton_paciente">
-
-<table class="table table-responsive  table-bordered table-striped table-hover display" id="lista-comentarios">
-
-
-    <tbody>
-        <input type="hidden" name="total_registro" id="total_registro" value="<?php echo $total_registro; ?>" />
+<hr>
+    <input type="hidden" name="total_registro" id="total_registro" value="<?php echo $total_registro; ?>" />
         <?php
         $query->execute();
         $query->setFetchMode(PDO::FETCH_ASSOC);
         while($dataRegistro= $query->fetch())
         { ?>
-        <div class="row border_special item-comentario" id="<?php echo $dataRegistro['id']; ?>">
+        <div class="item-comentario" id="<?php echo $dataRegistro['id']; ?>">
             <?php
             $id = $dataRegistro['id'];
 
                 if($dataRegistro['identificador'] == 'cest' and $dataRegistro['seguimiento'] == 'inicial'){
             ?>
-            <tr>
-                <td id='<?php echo $id ?>' class='ver-info' style="font-size: 12px">
-                    <?php echo $dataRegistro['nombrecompleto'].'<br>'.'<strong style="font-size: 9px;">'.$dataRegistro['curp'].'</strong>'.'<br>'.'<strong style="float:right; font-size: 7px; margin-top: -20px;">&nbsp'.$dataRegistro['sexo'].'</strong>' ?>
-                </td>
-
-            </tr>
-            <?php } 
+                <div id='<?php echo $id ?>' class='ver-info'>
+                    <?php echo '<strong style="font-size: 12px; margin-left: 7px; text-transform: uppercase;">&nbsp'.$dataRegistro['nombrecompleto'].'</strong>'.'<br>'.'<strong style="font-size: 9px; margin-left: 7px;">&nbsp'.$dataRegistro['curp'].'</strong>'.'<br>'.'<strong style="float:right; font-size: 8px; margin-top: -20px; margin-right: 8px;">&nbsp'.$dataRegistro['sexo'].'</strong>' ?>
+            </div> 
+                    <hr>
+               
+            <?php } ?>
+            </div>
+            <?php
         }?>
-    </tbody>
-
-</table>
-</script>
-
+    
+    </div>
 <div class="col-md-12 col-sm-12">
     <div class="ajax-loader text-center">
         <img src="img/cargando.svg">
@@ -74,7 +71,7 @@
 <script>
 $(function() {
 
-    $('table').on('click', '.ver-info', function() {
+    $('.item-comentario').on('click', '.ver-info', function() {
 
         var id = $(this).prop('id');
 
@@ -98,7 +95,7 @@ $(function() {
     });
 });
 $(document).ready(function() {
-    $('table').on('click', '.ver-info', function() {
+    $('.item-comentario').on('click', '.ver-info', function() {
 
         //Añadimos la imagen de carga en el contenedor
         $('#tabla_resultado').html(
@@ -129,7 +126,7 @@ function pageScroll() {
     $("#tabla_resultadobus").on("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPos = $("#tabla_resultadobus").height() + $("#tabla_resultadobus").scrollTop();
-        var totalregistro = $("#totalregistro").val();
+        var totalregistro = $("#total_registro").val();
 
         if ((((scrollHeight - 250) >= scrollPos) / scrollHeight == 0) || (((scrollHeight - 300) >=
                 scrollPos) / scrollHeight == 0) || (((scrollHeight - 350) >= scrollPos) / scrollHeight ==
@@ -138,12 +135,13 @@ function pageScroll() {
                 0)) {
             if ($(".item-comentario").length < $("#total_registro").val()) {
                 var utimoId = $(".item-comentario:last").attr("id");
-
+                let datos = {totalregistro:totalregistro, utimoId:utimoId};
 
                 $("#tabla_resultadobus").off("scroll");
                 $.ajax({
-                    url: 'obteniedoMasDatos.php?utimoId=' + utimoId + '&totalregistro' + totalregistro,
-                    type: "get",
+                    url: 'obteniedoMasDatos.php',
+                    data: datos,
+                    type: "POST",
                     beforeSend: function() {
                         $('.ajax-loader').show();
                     },

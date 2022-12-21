@@ -1,57 +1,92 @@
 <?php 
 sleep(0.5);
 
-$utimoId = $_REQUEST['utimoId'];
-$totalRegist = $_REQUEST['totalregistro'];
+$utimoId = $_POST['utimoId'];
 $limite  = 3;
-	require 'conexionInfarto.php';
-    
-    $sql = $conexion->prepare("SELECT COUNT(*) total FROM tratamiento where identificador = 'cest'");
-    $sql->execute();
-    $fila = $sql->fetch(PDO::FETCH_ASSOC);
+	require 'conexionCancer.php';
+    $sqlQueryComentarios  = $conexion2->query("SELECT dato_usuario.id, tratamiento.identificador, tratamiento.id_paciente FROM dato_usuario inner join tratamiento on tratamiento.id_paciente = dato_usuario.id where tratamiento.identificador = 'cest' and tratamiento.seguimiento = 'inicial'");
+    $total_registro       = mysqli_num_rows($sqlQueryComentarios);
 
-    $sqlComentLimit = $conexion->prepare("SELECT dato_personal.id, dato_personal.nombrecompleto, dato_personal.edad, dato_personal.curp, dato_personal.sexo, dato_personal.fechanacimiento, tratamiento.identificador FROM dato_personal left outer join tratamiento on tratamiento.id_paciente = dato_personal.id WHERE dato_personal.id < '".$utimoId."' ORDER BY dato_personal.id DESC LIMIT ".$limite."");
+    $sqlComentLimit = $conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.nombrecompleto, dato_usuario.edad, dato_usuario.curp, dato_usuario.sexo, dato_usuario.fechanacimiento, tratamiento.identificador FROM dato_usuario inner join tratamiento on tratamiento.id_paciente = dato_usuario.id WHERE dato_usuario.id < '".$utimoId."' ORDER BY dato_usuario.id DESC LIMIT ".$limite."");
     $sqlComentLimit->execute();
 	?>
-<table>
 
     <?php
         $sqlComentLimit->fetch(PDO::FETCH_ASSOC);
         while($dataRegistro= $sqlComentLimit->fetch())
         { ?>
 
-    <div class="row border_special item-comentario" id="<?php echo $dataRegistro['id']; ?>">
+    <div class="item-comentario" id="<?php echo $dataRegistro['id']; ?>">
         <?php
-            $id_paciente = $dataRegistro['id'];
+            $id = $dataRegistro['id'];
 
             if($dataRegistro['identificador'] == 'cest'){
             ?>
 
-        <tr>
-            <td id='<?php echo $id_paciente ?>' class='ver-info'>
-                <?php echo $dataRegistro['nombrecompleto'].'<br>'.$dataRegistro['curp'].'<br>'.'<strong style="float:right; font-size: 10px; margin-top: -20px;">&nbsp'.$dataRegistro['sexo']; ?>
-            </td>
+<div id='<?php echo $id ?>' class='ver-info' style="cursor: pointer;">
+                   <?php echo '<strong style="font-size: 12px; margin-left: 7px; text-transform: uppercase;">&nbsp'.$dataRegistro['nombrecompleto'].'</strong>'.'<br>'.'<strong style="font-size: 9px; margin-left: 7px;">&nbsp'.$dataRegistro['curp'].'</strong>'.'<br>'.'<strong style="float:right; font-size: 8px; margin-top: -20px; margin-right: 8px;">&nbsp'.$dataRegistro['sexo'].'</strong>' ?>
+           </div> 
+                <hr>
 
-        </tr>
-
-        <?php } 
+        <?php } ?>
+        </div>
+        <?php
         }?>
+<script>
+$(function() {
 
-</table>
+    $('.item-comentario').on('click', '.ver-info', function() {
+
+        var id = $(this).prop('id');
+
+        let ob = {
+            id: id
+        };
+        $.ajax({
+            type: "POST",
+            url: "consultaPacienteBusqueda.php",
+            data: ob,
+            beforeSend: function() {
+
+            },
+            success: function(data) {
+
+                $("#tabla_resultado").html(data);
+
+            }
+        });
+
+    });
+});
+$(document).ready(function() {
+    $('.item-comentario').on('click', '.ver-info', function() {
+
+        //Añadimos la imagen de carga en el contenedor
+        $('#tabla_resultado').html(
+            '<div id="tabla_resultado" style="position: fixed;  top: 0px; left: 0px;  width: 100%; height: 100%; z-index: 9999;  opacity: .7; background: url(imagenes/loader2.gif) 50% 50% no-repeat rgb(249,249,249);"><br/></div>'
+        );
+
+
+        return false;
+    });
+});
+</script>
 
 <?php
     
-if ($totalRegist < $fila) { ?>
+if ($total_registro <= $limite) { ?>
 
-
+<div class="col-md-12 col-sm-12">
+    <h4>No hay más Registros ...</h4>
+</div>
 <?php }else{ ?>
-
+<!--
 <div class="col-md-12 col-sm-12">
     <div class="ajax-loader text-center">
         <img src="img/cargando.svg">
         <br>
         Cargando los Registros...
     </div>
-</div>
+</div>-->
 <?php } 
 ?>

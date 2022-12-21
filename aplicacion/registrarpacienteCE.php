@@ -1,5 +1,5 @@
 <?php
-include("../conexionInfarto.php");
+include("../conexionCancer.php");
 date_default_timezone_set('America/Mexico_City');
 $hoy = date("d-m-Y");
     extract($_POST);
@@ -10,24 +10,27 @@ $hoy = date("d-m-Y");
 	// SI EL EMAIL NO EXISTE, REGISTRAMOS LOS DATOS EN LA TABLA USUARIO
 
     
-	$sql = $conexion->prepare("INSERT into dato_personal(curp, nombrecompleto, fechanacimiento, edad, localidad, municipio, estado, sexo, year) 
+	$sql = $conexionCancer->prepare("INSERT into dato_usuario(curp, nombrecompleto, poblacionindigena, escolaridad, fechanacimiento, edad, sexo, raza, estado, municipio,  year) 
     
-                                    values (:curp,:nombrecompleto, :fechanacimiento, :edad, '-', :municipio, :estado, :sexo, :year)");
+                                    values (:curp, :nombrecompleto, :poblacionindigena, :escolaridad, :fechanacimiento, :edad, :sexo, :raza, :estado, :municipio, :year)");
                     
-                                $sql->bindParam(':curp', $curp, PDO::PARAM_STR, 22);
-                                $sql->bindParam(':nombrecompleto',$nombrecompleto, PDO::PARAM_STR, 22);
-                                $sql->bindParam(':fechanacimiento',$fecha, PDO::PARAM_STR); 
-                                $sql->bindParam(':edad',$edad, PDO::PARAM_INT); 
-                                $sql->bindParam(':municipio',$cbx_municipio, PDO::PARAM_INT); 
-                                $sql->bindParam(':estado',$cbx_estado, PDO::PARAM_INT); 
-                                $sql->bindParam(':sexo',$sexo, PDO::PARAM_STR, 10); 
-                                $sql->bindParam(':year',$hoy, PDO::PARAM_STR, 22);
+                    $sql->bindParam(':curp', $curp, PDO::PARAM_STR, 25);
+                    $sql->bindParam(':nombrecompleto',$nombrecompleto, PDO::PARAM_STR, 100);
+                    $sql->bindParam(':poblacionindigena',$poblacionindigena, PDO::PARAM_STR, 100);
+                    $sql->bindParam(':escolaridad',$escolaridad, PDO::PARAM_STR, 100);
+                    $sql->bindParam(':fechanacimiento',$fecha, PDO::PARAM_STR); 
+                    $sql->bindParam(':edad',$edad, PDO::PARAM_INT); 
+                    $sql->bindParam(':sexo',$sexo, PDO::PARAM_STR, 10); 
+                    $sql->bindParam(':raza',$raza, PDO::PARAM_STR, 100); 
+                    $sql->bindParam(':estado',$cbx_estado, PDO::PARAM_INT); 
+                    $sql->bindParam(':municipio',$cbx_municipio, PDO::PARAM_INT); 
+                    $sql->bindParam(':year',$hoy, PDO::PARAM_STR);
                             $sql->execute(); 
-            $query = $conexion2->query("SELECT id from dato_personal where curp = '".$curp."'");
+            $query = $conexion2->query("SELECT id from dato_usuario where curp = '".$curp."'");
                     $rows = mysqli_fetch_assoc($query);
 
                     $id_carga = $rows['id'];
-                $query2 = $conexion->prepare("INSERT into tratamiento(
+                $query2 = $conexionCancer->prepare("INSERT into tratamiento(
                 killipkimball, 
                 fevi, 
                 choquecardiogenico, 
@@ -133,7 +136,7 @@ $hoy = date("d-m-Y");
                             $query2->bindParam(':electroconcambios',$electrocardio, PDO::PARAM_STR);
                     $query2->execute();
 
-                    $sql_s = $conexion->prepare("INSERT into paraclinicos(
+                    $sql_s = $conexionCancer->prepare("INSERT into paraclinicos(
                         ck, 
                         ckmb, 
                         troponinas, 
@@ -190,7 +193,7 @@ $hoy = date("d-m-Y");
                 //echo "<p>Has seleccionado los siguientes ".$checked_contador." opcione(s):</p> <br/>";
                 // Bucle para almacenar y visualizar valores activados checkbox.
                 foreach($check_lista as $seleccion) {
-                    $sql = $conexion->prepare("INSERT into factores_riesgo(nombrefactor, id_paciente) 
+                    $sql = $conexionCancer->prepare("INSERT into factores_riesgo(nombrefactor, id_paciente) 
     
                     values ('".$seleccion."', '".$id_carga."')");
 
@@ -204,7 +207,7 @@ $hoy = date("d-m-Y");
                 //echo "<p>Has seleccionado los siguientes ".$checked_contador." opcione(s):</p> <br/>";
                 // Bucle para almacenar y visualizar valores activados checkbox.
                 foreach($check_lista2 as $seleccion2) {
-                    $sql = $conexion->prepare("INSERT into caracteristicasdolortipicas(descripcioncaracteristica, id_paciente) 
+                    $sql = $conexionCancer->prepare("INSERT into caracteristicasdolortipicas(descripcioncaracteristica, id_paciente) 
     
                     values ('".$seleccion2."', '".$id_carga."')");
 
@@ -217,7 +220,7 @@ $hoy = date("d-m-Y");
                 //echo "<p>Has seleccionado los siguientes ".$checked_contador." opcione(s):</p> <br/>";
                 // Bucle para almacenar y visualizar valores activados checkbox.
                 foreach($check_lista3 as $seleccion3) {
-                    $sql = $conexion->prepare("INSERT into caracteristicasdoloratipicas(descripcioncaracteristica, id_paciente) 
+                    $sql = $conexionCancer->prepare("INSERT into caracteristicasdoloratipicas(descripcioncaracteristica, id_paciente) 
     
                     values ('".$seleccion3."', '".$id_carga."')");
                         $sql->execute(array(
@@ -230,7 +233,7 @@ $hoy = date("d-m-Y");
                 //echo "<p>Has seleccionado los siguientes ".$checked_contador." opcione(s):</p> <br/>";
                 // Bucle para almacenar y visualizar valores activados checkbox.
                 foreach($check_lista4 as $seleccion4) {
-                    $sql = $conexion->prepare("INSERT into electrocardiograma(derivacionesafectadas, id_paciente) 
+                    $sql = $conexionCancer->prepare("INSERT into electrocardiograma(derivacionesafectadas, id_paciente) 
     
                     values ('".$seleccion4."', '".$id_carga."')");
                         $sql->execute(array(
