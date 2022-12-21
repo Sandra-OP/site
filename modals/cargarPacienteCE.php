@@ -922,7 +922,6 @@
                                         <strong>Fecha defuncion</strong>
                                         <input type="datetime-local" name="fechadefuncion" id="fechadefuncion"
                                             class="control col-md-12">
-
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Fecha de egreso</strong>
