@@ -87,24 +87,51 @@ date_default_timezone_set('America/Mexico_City');
 #th {
     background-color: #FFE2FE;
 }
+.container{
+    background: #EEEEEE;
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    position: fixed;
+}
+a {
+    margin-right: 10px;
+}
+#eliminarregistro {
+    color: red;
+}
+#expediente {
+    color: orange;
+}
+#editarregistro {
+    color: orange;
+}
+#expediente:hover,
+#editarregistro:hover {
+    color: blue;
+}
 </style>
 <div id="mensaje"></div>
 <input type="hidden" id="idcurp" value="<?php echo $id_paciente; ?>">
+<div class="container">
+<a href="#" class="mandaid" id="<?php echo $id_paciente ?>"
+            >Seguimiento</a>
+            <a href="consultaExpediente?id=<?php echo $id_paciente ?>" class="" id="expediente"
+            >Expediente</a>
+            <?php session_start();
+                if (isset($_SESSION['usuarioAdmin']) or isset($_SESSION['usuarioMedico'])) { ?>
+            <a href="#" onclick="editarRegistro();" id="editarregistro"
+            >Editar registro</a>
+                <?php };?>
+            <a href="#" onclick="eliminarRegistro();" id="eliminarregistro"
+            >Eliminar registro</a>
+                </div>
 <table id="tabla" class="table table-responsive  table-bordered table-hover display" cellspacing="0" width="100%">
     <tr>
         <th id="th">Datos personales</th>
         <td><?php echo 'Nombre:&nbsp'.$dataRegistro['nombrecompleto'].'<br>'.'CURP:&nbsp'.$dataRegistro['curp'].'<br>'.'Edad:&nbsp'.$dataRegistro['edad'].'&nbspAños'.'<br>'.'Sexo:&nbsp'.$dataRegistro['sexo'].'<br>'.'Estado:&nbsp'.$rows['estado'].'<br>'.'Municipio:&nbsp'.$rowsm['municipio']; ?>
-            <a href="#" class="mandaid" id="<?php echo $id_paciente ?>"
-                style="float: right; margin-top: -30px">Seguimiento</a><br>
-            <a href="consultaExpediente?id=<?php echo $id_paciente ?>" class="" id="expediente"
-                style="float: right; margin-top: -30px;">Expediente</a><br>
-            <?php session_start();
-                if (isset($_SESSION['usuarioAdmin']) or isset($_SESSION['usuarioMedico'])) { ?>
-            <a href="#" onclick="editarRegistro();" id="expediente"
-                style="float: right; margin-top: -30px; color: blue;">Editar registro</a>
-                <?php };?>
-            <a href="#" onclick="eliminarRegistro();" id="expediente"
-                style="float: right; margin-top: -10px; color: red;">Eliminar registro</a>
+            
         </td>
     </tr>
     <tr>
@@ -112,6 +139,7 @@ date_default_timezone_set('America/Mexico_City');
         <th id="th">Tipo de cancer</th>
         <td style="color: red;" onclick="canceredit();" id="cancer"><?php echo $dataRegistro['descripcioncancer']?>
         </td>
+        
         <script>
         function editarRegistro(){
             var mensaje = confirm("Si procede a editar, se quedara un registro del usuario, fecha y hora que realizo los cambios a los datos del paciente, Desea continuar?")
@@ -260,7 +288,6 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
 
 </table>
 </div>
-
 
 <script>
 function eliminarRegistro() {

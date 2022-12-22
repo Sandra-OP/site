@@ -35,7 +35,7 @@
 
 <input type="submit" data-bs-toggle="modal" data-bs-target="#cancerdeMama" value="+Cargar Paciente"
     id="boton_cancerdemama">
-<hr>
+<hr id="hrinicial">
 
     <input type="hidden" name="total_registro" id="total_registro" value="<?php echo $total_registro; ?>" />
         <?php

@@ -72,6 +72,7 @@
                                             outline: none;
                                             border-bottom: 1px solid grey;
                                             font-size: 12px;
+                                            color: grey;
                                         }
                                         </style>
                                     <div class="col-md-6" autocomplete="off">

@@ -34,8 +34,8 @@
 <input type="submit" id="totalregistro" value="<?php echo $total_registro; ?>">
 
 <input type="submit" data-bs-toggle="modal" data-bs-target="#pacienteconelevacion" value="+Cargar Paciente"
-    id="boton_paciente">
-<hr>
+    id="boton_infarto">
+<hr id="hrinicial">
     <input type="hidden" name="total_registro" id="total_registro" value="<?php echo $total_registro; ?>" />
         <?php
         $query->execute();
