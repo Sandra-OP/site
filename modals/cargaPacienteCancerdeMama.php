@@ -13,7 +13,7 @@
         <div class="modal-content">
             <div class="modal-header" id="cabeceraModalMama">
                 <button type="button" class="close" data-bs-dismiss="modal" onclick="limpiar();">&times;</button>
-                <h5 class="modal-title">Datos paciente</h5>
+                <h5 class="modal-title">Datos de un paciente</h5>
             </div>
             <div class="modal-body">
 
