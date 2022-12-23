@@ -46,7 +46,13 @@ date_default_timezone_set('America/Mexico_City');
         ?>
 <style>
 #th {
-    background-color: #F0F0F0;
+    background-color: #FFE2FE;
+    font-family: monospace;
+ 
+}
+td{
+    font-family: monospace;
+        white-space: nowrap; 
 }
 .container{
     background: #EEEEEE;
@@ -88,7 +94,7 @@ a {
             <a href="#" onclick="eliminarRegistro();" id="eliminarregistro"
             >Eliminar registro</a>
                 </div>
-<table id="tabla" class="table table-responsive  table-bordered table-hover display" cellspacing="0" width="100%">
+<table id="tabla" class="table table-responsive  table-bordered " cellspacing="0" width="100%">
     <tr>
         <th id="th">Datos personales</th>
         <td><?php echo 'Nombre:&nbsp'.$dataRegistro['nombrecompleto'].'<br>'.'CURP:&nbsp'.$dataRegistro['curp'].'<br>'.'Edad:&nbsp'.$dataRegistro['edad'].'&nbspAños'.'<br>'.'Sexo:&nbsp'.$dataRegistro['sexo'].'<br>'.'Estado:&nbsp'.$rows['estado'].'<br>'.'Municipio:&nbsp'.$rowsm['municipio']; ?>

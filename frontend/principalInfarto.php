@@ -1,3 +1,26 @@
+<?php ob_start("comprimir_pagina"); 
+ // Función para eliminar todos los espacios en blanco
+function comprimir_pagina($buffer) {
+
+   $search = array(
+       '/\>[^\S ]+/s',     // elimina espacios en blanco después de las etiquetas, excepto el espacio
+       '/[^\S ]+\</s',     // elimina en blanco antes de las etiquetas, excepto el espacio
+       '/(\s)+/s',         // Acortar múltiples secuencias de espacios en blanco.
+       '/<!--(.|\s)*?-->/' // Borrar comentarios html
+   );
+
+   $replace = array(
+       '>',
+       '<',
+       '\\1',
+       ''
+   );
+
+   $buffer = preg_replace($search, $replace, $buffer);
+
+   return $buffer;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/estilosMenuNew.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <script defer src="https://app.embed.im/snow.js"></script>
     <title>Infarto</title>
 </head>
 

@@ -1,3 +1,28 @@
+<?php ob_start("comprimir_pagina"); 
+ // Función para eliminar todos los espacios en blanco
+
+function comprimir_pagina($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',     // elimina espacios en blanco después de las etiquetas, excepto el espacio
+        '/[^\S ]+\</s',     // elimina en blanco antes de las etiquetas, excepto el espacio
+        '/(\s)+/s',         // Acortar múltiples secuencias de espacios en blanco.
+        '/<!--(.|\s)*?-->/' // Borrar comentarios html
+    );
+ 
+    $replace = array(
+        '>',
+        '<',
+        '\\1',
+        ''
+    );
+ 
+    $buffer = preg_replace($search, $replace, $buffer);
+ 
+    return $buffer;
+    
+   }
+?>
 <div class="modal fade in" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" id="pacienteconelevacion">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
@@ -8,11 +33,48 @@
     <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
+        <style>
+    #datos_paciente{
+        display: block;
+        font-family: monospace;
+        white-space: nowrap;
+        border-right: 4px solid;
+        width: 18ch;
+        font-size: 22px;
 
+        animation: typing 2s steps(18),
+        blink .5s infinite step-end alternate;
+        overflow: hidden;
+    }
+    @keyframes typing {
+        from { width: 0}
+    }
+    @keyframes blink {
+        50% { border-color: transparent}
+    }
+
+    .form-title{
+        display: block;
+        font-family: monospace;
+        white-space: nowrap;
+        border-right: 4px solid;
+        width: 100%;
+        font-size: 28px;
+        text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;
+        animation: typing 2s steps(18),
+        blink .5s infinite step-end alternate;
+        overflow: hidden; 
+    }
+    strong{
+        font-family: monospace;
+        white-space: nowrap; 
+    }
+
+</style>
         <div class="modal-content">
             <div class="modal-header" id="cabeceraModalInfarto">
                 <button type="button" class="close" data-bs-dismiss="modal" onclick="limpiar();">&times;</button>
-                <h5 class="modal-title">Datos paciente</h5>
+                <span id="datos_paciente">Datos de paciente</span>
             </div>
             <div class="modal-body">
 
@@ -952,3 +1014,6 @@
 </div>
 </div>
 </div>
+<?php
+
+   ?>
