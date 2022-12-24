@@ -66,7 +66,20 @@ function comprimir_pagina($buffer) {
     }
     strong{
         font-family: monospace;
-        white-space: nowrap; 
+        font-size: 11px;
+        /*white-space: nowrap;*/ 
+    }
+    #inmuno-title{
+        font-family: monospace;
+        font-size: 11px;
+    }
+    label{
+        font-family: monospace;
+        font-size: 11px;
+        /*white-space: nowrap;*/ 
+    }
+    #titulos{
+        font-size: 14px;
     }
 
 </style>
@@ -332,9 +345,9 @@ function comprimir_pagina($buffer) {
                                     }-->
                                     </script>
 
-                                    <div class="col-md-12" id="titulos"
+                                    <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>ANTECEDENTES HEREDOFAMILIARES</strong>
+                                        <strong id="titulos">ANTECEDENTES HEREDOFAMILIARES</strong>
                                     </div>
                                     <div class="col-md-6">
                                         <strong>Cancer</strong>
@@ -370,7 +383,7 @@ function comprimir_pagina($buffer) {
 
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>ANTECEDENTES GINECOOBSTETRICOS</strong>
+                                        <strong id="titulos">ANTECEDENTES GINECOOBSTETRICOS</strong>
                                     </div>
                                     <div class="col-md-2">
                                         <strong>Menarca</strong>
@@ -454,7 +467,7 @@ function comprimir_pagina($buffer) {
 
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>ANTECEDENTES PERSONALES PATOLOGICOS</strong>
+                                        <strong id="titulos">ANTECEDENTES PERSONALES PATOLOGICOS</strong>
                                     </div>
                                     <div class="col-md-12">
                                         <strong>Antecedentes familiares</strong>
@@ -496,7 +509,7 @@ function comprimir_pagina($buffer) {
                                     -->
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>ATENCIÓN CLINICA</strong>
+                                        <strong id="titulos">ATENCIÓN CLINICA</strong>
                                     </div>
 
                                     <div class="col-md-3">
@@ -648,7 +661,7 @@ function comprimir_pagina($buffer) {
 
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>HISTOPATOLOGIA</strong>
+                                        <strong id="titulos">HISTOPATOLOGIA</strong>
                                     </div>
                                     <div class="col-md-3">
                                         <strong>DX HISTOPATOLOGICO</strong>
@@ -687,26 +700,26 @@ function comprimir_pagina($buffer) {
                                     </div>
                                     <div class="col-md-12"
                                         style="text-align: center; color: blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>INMUNOHISTOQUIMICA</strong>
+                                        <strong id="titulos">INMUNOHISTOQUIMICA</strong>
                                     </div>
                                     <div class="col-md-6">
 
                                         <div class="input-group pull-left">
-                                            <span>Receptores de estrogenos (RE)</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">Receptores de estrogenos (RE)</span>&nbsp;&nbsp;
                                             <input type="number" id="receptoresestrogenos" name="receptoresestrogenos"
                                                 placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group pull-left">
-                                            <span>Receptores de progesterona (RP)</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">Receptores de progesterona (RP)</span>&nbsp;&nbsp;
                                             <input type="number" id="receptoresprogesterona"
                                                 name="receptoresprogesterona" placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div><br><br>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <span>KI-67</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">KI-67</span>&nbsp;&nbsp;
                                             <input type="number" id="ki67" name="ki67" placeholder="%"
                                                 class="control control col-md-12">
                                         </div>
@@ -714,7 +727,7 @@ function comprimir_pagina($buffer) {
 
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <span>Triple negativo</span>
+                                            <span id="inmuno-title">Triple negativo</span>
                                             <select name="triplenegativo" id="triplenegativo" class="control control col-md-12">
                                                 <option value="0">Seleccione</option>
                                                 <option value="Si">Si</option>
@@ -736,7 +749,7 @@ function comprimir_pagina($buffer) {
                                     </fieldset><br><br>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <span>PDL</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">PDL</span>&nbsp;&nbsp;
                                             <input type="number" id="pdl" name="pdl" placeholder="%"
                                                 class="control control col-md-12" value="0">
                                         </div>
@@ -766,7 +779,7 @@ function comprimir_pagina($buffer) {
                                     <hr>
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>TRATAMIENTO</strong>
+                                        <strong id="titulos">TRATAMIENTO</strong>
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6; ">
                                         <strong>QUIRURGICO</strong>
@@ -910,7 +923,7 @@ function comprimir_pagina($buffer) {
 
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>QUIMIOTERAPIA</strong>
+                                        <strong id="titulos">QUIMIOTERAPIA</strong>
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6;">
                                         <strong>QUIMIOTERAPIA</strong>
@@ -1063,7 +1076,7 @@ function comprimir_pagina($buffer) {
 
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>RADIOTERAPIA</strong>
+                                        <strong id="titulos">RADIOTERAPIA</strong>
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6; ">
                                         <strong>RADIOTERAPIA</strong>
@@ -1093,7 +1106,7 @@ function comprimir_pagina($buffer) {
                                     </div>
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
-                                        <strong>BRAQUITERAPIA</strong>
+                                        <strong id="titulos">BRAQUITERAPIA</strong>
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6; ">
                                         <strong>BRAQUITERAPIA</strong>

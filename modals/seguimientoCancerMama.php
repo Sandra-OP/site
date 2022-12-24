@@ -43,7 +43,7 @@
 
 
                             <div class="form-header">
-                                <h3 class="form-title"><i class="fa fa-user"></i>Seguimiento paciente</h3>
+                                <h3 class="form-title">Seguimiento paciente</h3>
 
                             </div>
                             <style>
