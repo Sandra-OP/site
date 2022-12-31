@@ -1,5 +1,5 @@
 <?php session_start();
-
+error_reporting(0);
 /*if(isset($_SESSION['usuarioDatos'])) {
     header('location: index');
 }
@@ -58,7 +58,7 @@ for( $i=0 ; $i < strlen($correo) ; $i++ ) {
     continue;
   }
   if ( ord($source_char) < 32 || ord($source_char) > 128 ) {
-    // Todos los caracteres codificados por debajo de 32 o encima de 128 son especiales
+    //Todos los caracteres codificados por debajo de 32 o encima de 128 son especiales
     $sane_char = "_";
     $sane .= $sane_char;
     continue;

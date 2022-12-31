@@ -159,10 +159,10 @@ height: 100%;
   left: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: .2rem;
   background-color: #900C3F;
   z-index: 99;
-  transition: .5s
+  transition: .5s;
 }
 .headercancermama {
   width: 100%;
@@ -207,7 +207,7 @@ height: 100%;
   color: rgb(255, 255, 255); 
   font-style: normal; 
   font-size: 30px;
-  text-align: center;
+
 }
 #tabla_resultado{
     font-size: 12px; 

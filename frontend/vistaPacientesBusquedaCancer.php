@@ -91,7 +91,7 @@ date_default_timezone_set('America/Mexico_City');
 }
 td{
     font-family: monospace;
-        white-space: nowrap; 
+        /*white-space: nowrap; */
 }
 .container{
     background: #EEEEEE;
@@ -156,7 +156,7 @@ a {
             icon: 'success',
 
         });
-           
+        
     } else {
         swal({
             title: 'Cancelado!',

@@ -46,7 +46,7 @@ date_default_timezone_set('America/Mexico_City');
         ?>
 <style>
 #th {
-    background-color: #FFE2FE;
+    background-color: #E5E5E5;
     font-family: monospace;
  
 }

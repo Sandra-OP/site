@@ -9,14 +9,14 @@
   <div class="text-center mt-4 name">
     HRAEI (G.D.S)
   </div>
-  <form class="p-3 mt-3" action="login" method="post">
+  <form class="p-3 mt-3" action="login" method="post" autocomplete="off">
     <div class="form-field d-flex align-items-center">
       <span class="far fa-user"></span>
-      <input type="text" name="usuario" id="userName" placeholder="Username">
+      <input type="email" name="usuario" id="userName" placeholder="Username" required>
     </div>
     <div class="form-field d-flex align-items-center">
       <span class="fas fa-key"></span>
-      <input type="password" name="password" id="pwd" placeholder="Password">
+      <input type="password" name="password" id="pwd" placeholder="Password" required>
     </div>
     <button class="btn mt-3">Login</button>
   </form>
@@ -72,7 +72,7 @@ body {
     margin: 80px auto;
     padding: 40px 30px 30px 30px;
     background-color: #ecf0f3;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 13px 13px 20px #13322b, -13px -13px 20px #fff;
 }
 
@@ -94,8 +94,8 @@ body {
 
 .wrapper .name {
     font-weight: 600;
-    font-size: 1.4rem;
-    letter-spacing: 1.3px;
+    font-size: 1rem;
+    letter-spacing: 1.1px;
     padding-left: 10px;
     color: #555;
 }
@@ -106,17 +106,17 @@ body {
     border: none;
     outline: none;
     background: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #666;
-    padding: 10px 15px 10px 10px;
+    padding: 10px 10px 10px 10px;
     /* border: 1px solid red; */
 }
 
 .wrapper .form-field {
     padding-left: 10px;
     margin-bottom: 20px;
-    border-radius: 20px;
-    box-shadow: inset 8px 8px 8px #13322b, inset -8px -8px 8px #fff;
+    border-radius: 10px;
+    box-shadow: inset 4px 4px 4px #13322b, inset -4px -4px 4px rgb(255, 255, 255);
 }
 
 .wrapper .form-field .fas {
@@ -129,7 +129,7 @@ body {
     height: 40px;
     background-color: #285c4d;
     color: #fff;
-    border-radius: 25px;
+    border-radius: 10px;
     box-shadow: 3px 3px 3px #b1b1b1,
         -3px -3px 3px #fff;
     letter-spacing: 1.3px;

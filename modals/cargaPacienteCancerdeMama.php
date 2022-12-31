@@ -1,26 +1,3 @@
-<?php ob_start("comprimir_pagina"); 
- // Función para eliminar todos los espacios en blanco
-function comprimir_pagina($buffer) {
-
-   $search = array(
-       '/\>[^\S ]+/s',     // elimina espacios en blanco después de las etiquetas, excepto el espacio
-       '/[^\S ]+\</s',     // elimina en blanco antes de las etiquetas, excepto el espacio
-       '/(\s)+/s',         // Acortar múltiples secuencias de espacios en blanco.
-       '/<!--(.|\s)*?-->/' // Borrar comentarios html
-   );
-
-   $replace = array(
-       '>',
-       '<',
-       '\\1',
-       ''
-   );
-
-   $buffer = preg_replace($search, $replace, $buffer);
-
-   return $buffer;
-  }
-?>
 <div class="modal fade in" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" id="cancerdeMama">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
@@ -55,14 +32,14 @@ function comprimir_pagina($buffer) {
     .form-title{
         display: block;
         font-family: monospace;
-        white-space: nowrap;
+       /* white-space: nowrap;*/
         border-right: 4px solid;
         width: 100%;
         font-size: 28px;
         text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;
-        animation: typing 2s steps(18),
+        /*animation: typing 2s steps(18),
         blink .5s infinite step-end alternate;
-        overflow: hidden; 
+        overflow: hidden; */
     }
     strong{
         font-family: monospace;
@@ -108,13 +85,14 @@ function comprimir_pagina($buffer) {
                                     <div id="mensaje"></div>
                                     <script>
                                     $("#formulario").on("submit", function(e) {
-                                        if ($('input[name=curp]').val().length == 0 || $(
+                                            if($('input[name=curp]').val().length == 0 || $(
                                                 'input[name=nombrecompleto]')
                                             .val().length == 0 || $('select[name=cbx_estado]').val().length == 0
                                         ) {
                                             alert('Ingrese los datos requeridos');
 
                                             return false;
+                                            
                                         }
                                         let checked = this.querySelectorAll('input[type=checkbox]:checked');
                                         e.preventDefault();
