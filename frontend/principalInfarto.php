@@ -326,6 +326,13 @@ function comprimir_pagina($buffer) {
         </article>
         <br>
         <?php
+        require '../cisfa/conexion.php';
+        $statement = $conexion->prepare("SELECT correo_electronico, nombre_trabajador, rol_acceso FROM login WHERE correo_electronico= :correo_electronico AND rol_acceso = :rol_acceso");
+        $statement->execute(array(
+            ':correo_electronico' => $usernameSesion,
+            ':rol_acceso' => 5
+        ));
+        $rw = $statement->fetch();
                  }else if($admin == 'antonioflores35@yahoo.com.mx') {
 
                     ?>
