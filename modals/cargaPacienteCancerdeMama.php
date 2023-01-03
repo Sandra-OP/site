@@ -683,7 +683,7 @@
                                         style="text-align: center; color: blueviolet; background-color:antiquewhite; margin-top: 5px;">
                                         <strong id="titulos">INMUNOHISTOQUIMICA</strong>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
 
                                         <div class="input-group pull-left">
                                             <span id="inmuno-title">Receptores de estrogenos (RE)</span>
@@ -691,13 +691,13 @@
                                                 placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
                                             <span id="inmuno-title">Receptores de progesterona (RP)</span>
                                             <input type="number" id="receptoresprogesterona"
                                                 name="receptoresprogesterona" placeholder="%" class="control control col-md-12">
                                         </div>
-                                    </div><br><br>
+                                    </div>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
                                             <span id="inmuno-title">KI-67</span>
@@ -705,7 +705,6 @@
                                                 class="control control col-md-12">
                                         </div>
                                     </div>
-
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
                                             <span id="inmuno-title">Triple negativo</span>
@@ -718,14 +717,14 @@
                                         </div>
                                     </div>
                                     <fieldset class="col-md-4">
-                                            <strong>&nbsp;&nbsp;Se realizó PDL &nbsp;</strong><br>
-                                            &nbsp;Si&nbsp;&nbsp;
+                                            <strong>&nbsp;&nbsp;Se realizó PDL</strong><br>
+                                            &nbsp;Si
                                             <input type="radio" name="pdlrealizo" id="pdlrealizo1"
                                                 onclick="aplicopdlsi();" class="check" value="si">
-                                            &nbsp;&nbsp;No&nbsp;&nbsp;
+                                            &nbsp;No
                                             <input type="radio" name="pdlrealizo" id="pdlrealizo2"
                                                 onclick="aplicopdlno();" class="check" value="no">   
-                                    </fieldset><br><br>
+                                    </fieldset>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
                                             <span id="inmuno-title">PDL</span>
@@ -734,7 +733,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
                                         <div class="input-group pull-left">
                                             <strong>ONCOGEN HER2</strong>
                                             <select name="oncogen" id="oncogen" class="control control col-md-12">
@@ -746,7 +745,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-12" id="muestrafish">
+                                    <div class="col-md-6" id="muestrafish">
+                                    <div class="input-group pull-left">
                                         <strong>FISH</strong>
                                         <select name="fish" id="fish" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
@@ -754,6 +754,7 @@
                                             <option value="Negativo">Negativo</option>
 
                                         </select>
+                                    </div>
                                     </div>
                                     <hr>
                                     <div class="col-md-12"
@@ -904,7 +905,7 @@
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
                                         <strong id="titulos">QUIMIOTERAPIA</strong>
                                     </div>
-                                    <div class="col-md-3" style="color: #BD9FD6;">
+                                    <div class="col-md-2" style="color: #BD9FD6;">
                                         <strong>QUIMIOTERAPIA</strong>
                                         <select name="aplicoquimio" id="aplicoquimio" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
@@ -913,7 +914,7 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-3" id="fechainicioquimio">
+                                    <div class="col-md-2" id="fechainicioquimio">
                                         <strong>Fecha inicio</strong>
                                         <input type="date" id="fechadeinicioquimio" name="fechadeinicioquimio"
                                             class="control control col-md-12">
@@ -948,7 +949,7 @@
                                         <input type="radio" name="her" id="her2" onclick="aplicoherno();" class="check"
                                             value="noaplico">&nbsp;No&nbsp;&nbsp;
                                     </fieldset>
-                                    <div class="col-md-4" id="esquemaher">
+                                    <div class="col-md-3" id="esquemaher">
                                         <strong>Esquema HER 2 ++</strong>
                                         <select name="esquemaherdos" id="esquemaherdos" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
@@ -963,7 +964,7 @@
                                         <input type="radio" name="triplenegativo" id="triplenegativo2"
                                             onclick="tripleno();" class="check" value="no">&nbsp;No&nbsp;&nbsp;
                                     </fieldset>
-                                    <div class="col-md-4" id="tripleesquema">
+                                    <div class="col-md-3" id="tripleesquema">
                                         <strong>Esquema triple negativo</strong>
                                         <select name="esquematriple" id="esquematriple" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
@@ -972,14 +973,14 @@
                                             <option value="OLAPARIB">OLAPARIB</option>
                                         </select>
                                     </div>
-                                    <fieldset class="col-md-3">
+                                    <fieldset class="col-md-2">
                                         <strong>Hormonosensible</strong><br>
                                         <input type="radio" name="hormonosensibles" id="hormonosensibles1"
                                             onclick="hormonosi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;
                                         <input type="radio" name="hormonosensibles" id="hormonosensibles2"
                                             onclick="hormonono();" class="check" value="no">&nbsp;No&nbsp;&nbsp;
                                     </fieldset>
-                                    <div class="col-md-4" id="hormonoesquema">
+                                    <div class="col-md-3" id="hormonoesquema">
                                         <strong>Esquema hormonosensible</strong>
                                         <select name="esquemahormonosensible" id="esquemahormonosensible"
                                             class="control control col-md-12">
@@ -998,7 +999,7 @@
                                             <option value="PALIATIVO">PALIATIVO</option>
                                         </select>
                                     </div>
-                                    <fieldset class="col-md-3">
+                                    <fieldset class="col-md-2">
                                         <strong>Completo quimio</strong><br>
                                         <input type="radio" name="completoquimio" id="completoquimio1"
                                             onclick="quimiocompletosi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;

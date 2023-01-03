@@ -652,15 +652,18 @@ $(document).ready(function() {
     let cantidad = parseFloat($("#gestas").val());
         let sumar = parto + aborto + cesarea;
 
-    if(sumar != cantidad || parto > cantidad || aborto > cantidad || cesarea > cantidad){
+        if (sumar > cantidad) {
         swal({
             title: 'Warning!',
             text: 'Error! Las sumas de Parto, Aborto y Cesarea no empatan con la cantidad de gestas, Favor de verificar!',
             icon: 'error',
             
         });
-        
+    } else if (cantidad === 0) {
+
     }
+
+
 });
 });
 

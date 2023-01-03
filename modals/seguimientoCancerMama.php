@@ -99,18 +99,30 @@
                                     <div class="col-md-6">
                                         <strong>Fecha inicio de vigilancia</strong>
                                         <input type="date" id="fechainiciovigilancia" name="fechainiciovigilancia"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <div class="col-md-6">
                                         <strong>CURP paciente:&nbsp;</strong>
-                                        <input id="curps" name="curps" class="form-control" type="text" value=""
+                                        <input id="curps" name="curps" class="control control col-md-12" type="text" value=""
                                             readonly>
                                         <span id="curp" class="curp" name="curp"></span>
                                     </div>
                                     <div class="col-md-4">
+                                        <strong>Frecuencia cardiaca</strong>
+                                        <input type="text" class="control control col-md-12" id="frecuenciacardiaca"
+                                            name="frecuenciacardiaca">
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>Presión arterial</strong>
+                                        <input type="text" class="control control col-md-12" id="presionarterial"
+                                            name="presionarterial">
+
+                                    </div>
+                                    <div class="col-md-4">
                                         <strong>Fecha de reintervención</strong>
                                         <input type="date" id="fechareintenvencion" name="fechareintenvencion"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
                                     <script>
                                     $(document).ready(function() {
@@ -137,7 +149,7 @@
 
                                     <div class="col-md-4">
                                         <strong>Lateralidad reintervención QX</strong>
-                                        <select name="lateralidadsegundo" id="lateralidadsegundo" class="form-control">
+                                        <select name="lateralidadsegundo" id="lateralidadsegundo" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Derecha">Derecha</option>
                                             <option value="Izquierda">Izquierda</option>
@@ -149,11 +161,11 @@
                                     <div class="col-md-4">
                                         <strong>Fecha de recurrencia</strong>
                                         <input type="date" id="fecharecurrencia" name="fecharecurrencia"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <strong>Cuidados paliativos</strong>
-                                        <select name="cuidadospaliativos" id="cuidadospaliativos" class="form-control">
+                                        <select name="cuidadospaliativos" id="cuidadospaliativos" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -170,7 +182,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <strong>Protocolo clínico</strong>
-                                        <select name="protocoloclinico" id="protocoloclinico" class="form-control">
+                                        <select name="protocoloclinico" id="protocoloclinico" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -181,7 +193,7 @@
                                     <div class="col-md-6">
                                         <strong>Protocolo de investigación</strong>
                                         <select name="protocoloinvestigacion" id="protocoloinvestigacion"
-                                            class="form-control">
+                                            class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
@@ -194,7 +206,7 @@
                                     <br>
 
 
-                                    <input type="submit" id="registrar" value="Registrar">
+                                    <input type="submit" id="registrar" value="Registrar">&nbsp;&nbsp;
                                     <input type="button" id="recargar" onclick="window.location.reload();"
                                         value="Finalizar">
                                     <br>
