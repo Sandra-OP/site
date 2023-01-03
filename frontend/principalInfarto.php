@@ -326,6 +326,7 @@ function comprimir_pagina($buffer) {
         </article>
         <br>
         <?php
+        $usernameSesion = $_SESSION['usuarioJefe'];
         require '../cisfa/conexion.php';
         $statement = $conexion->prepare("SELECT correo_electronico, nombre_trabajador, rol_acceso FROM login WHERE correo_electronico= :correo_electronico AND rol_acceso = :rol_acceso");
         $statement->execute(array(

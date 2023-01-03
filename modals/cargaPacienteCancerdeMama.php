@@ -43,7 +43,7 @@
     }
     strong{
         font-family: monospace;
-        font-size: 11px;
+        font-size: 12px;
         /*white-space: nowrap;*/ 
     }
     #inmuno-title{
@@ -137,8 +137,21 @@
                                     </div>
                                     <div class="col-md-3">
                                         <strong>CURP</strong>
-                                        <input id="curp" name="curp" type="text" class="control col-md-12" value=""
+                                        <input list="curpusuario" id="curp" name="curp" type="text" class="control col-md-12" value=""
                                             onblur="curp2date();" minlength="18" maxlength="18" required>
+                                            <datalist id="curpusuario">
+                                            <option value="">Seleccione</option>
+                                            <?php 
+                                            require 'conexionCancer.php';
+				        $query = $conexionCancer->prepare("SELECT curp FROM dato_usuario");
+                        $query->execute();
+                        $query->setFetchMode(PDO::FETCH_ASSOC);
+				                    while($row = $query->fetch()) { ?>
+                                            <option value="<?php echo $row['curp']; ?>">
+                                                <?php echo $row['curp']; ?></option>
+                                            <?php } ?>
+
+                                        </datalist>
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Nombre Completo</strong>

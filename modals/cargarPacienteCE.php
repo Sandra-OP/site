@@ -41,7 +41,6 @@ function comprimir_pagina($buffer) {
         border-right: 4px solid;
         width: 18ch;
         font-size: 22px;
-
         animation: typing 2s steps(18),
         blink .5s infinite step-end alternate;
         overflow: hidden;
@@ -61,13 +60,14 @@ function comprimir_pagina($buffer) {
         width: 100%;
         font-size: 28px;
         text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;
-        animation: typing 2s steps(18),
+        /*animation: typing 2s steps(18),
         blink .5s infinite step-end alternate;
-        overflow: hidden; 
+        overflow: hidden;*/
     }
     strong{
         font-family: monospace;
-        white-space: nowrap; 
+        /*white-space: nowrap;*/ 
+        font-size: 12px;
     }
 
 </style>
@@ -150,8 +150,21 @@ function comprimir_pagina($buffer) {
                                     </div>
                                     <div class="col-md-12">
                                         <strong>CURP</strong>
-                                        <input id="curp" name="curp" type="text" class="control col-md-12" value=""
+                                        <input list="curpusuario" id="curp" name="curp" type="text" class="control col-md-12" value=""
                                             onblur="curp2date();" minlength="18" maxlength="18" required>
+                                            <datalist id="curpusuario">
+                                            <option value="">Seleccione</option>
+                                            <?php 
+                                            require 'conexionCancer.php';
+				        $query = $conexionCancer->prepare("SELECT curp FROM dato_usuario");
+                        $query->execute();
+                        $query->setFetchMode(PDO::FETCH_ASSOC);
+				                    while($row = $query->fetch()) { ?>
+                                            <option value="<?php echo $row['curp']; ?>">
+                                                <?php echo $row['curp']; ?></option>
+                                            <?php } ?>
+
+                                        </datalist>
                                     </div>
                                     <div class="col-md-3">
                                         <strong>Nombre Completo</strong>
