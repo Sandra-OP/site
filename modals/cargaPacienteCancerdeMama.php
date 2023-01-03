@@ -197,6 +197,7 @@
                                             name="raza">
 
                                     </div>
+                                    <!--
                                     <div class="col-md-3">
                                         <strong>Frecuencia cardiaca</strong>
                                         <input type="text" class="control control col-md-12" id="frecuenciacardiaca"
@@ -209,10 +210,12 @@
                                             name="presionarterial">
 
                                     </div>
+                                    -->
                                     <script>
+                                        /*
                                     $(document).ready(function() {
                                         $('#presionarterial').mask('000/000');
-                                    });
+                                    });*/
                                     $(document).ready(function() {
                                         $('#talla').mask('0.00');
                                     });
@@ -346,7 +349,7 @@
                                         <strong>Antecedentes familiares</strong>
                                         <select id="mscancer" name="mscancer[]" multiple="multiple"
                                             class="control control col-md-12">
-
+                                           
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT relacion FROM antecedentescancer");
                         $query->execute();
@@ -399,7 +402,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-2">
-                                        <strong>Parto</strong>
+                                        <strong>Paras</strong>
                                         <input type="number" class="control control col-md-12" id="parto" onblur="validaparto();"
                                             name="parto">
 
@@ -448,7 +451,7 @@
                                         <strong id="titulos">ANTECEDENTES PERSONALES PATOLOGICOS</strong>
                                     </div>
                                     <div class="col-md-12">
-                                        <strong>Antecedentes familiares</strong>
+                                        <strong>Antecedentes</strong>
                                         <select id="mspato" name="check_listapato[]" multiple="multiple"
                                             class="control control col-md-12">
 
@@ -683,21 +686,21 @@
                                     <div class="col-md-6">
 
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">Receptores de estrogenos (RE)</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">Receptores de estrogenos (RE)</span>
                                             <input type="number" id="receptoresestrogenos" name="receptoresestrogenos"
                                                 placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">Receptores de progesterona (RP)</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">Receptores de progesterona (RP)</span>
                                             <input type="number" id="receptoresprogesterona"
                                                 name="receptoresprogesterona" placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div><br><br>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">KI-67</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">KI-67</span>
                                             <input type="number" id="ki67" name="ki67" placeholder="%"
                                                 class="control control col-md-12">
                                         </div>
@@ -715,19 +718,17 @@
                                         </div>
                                     </div>
                                     <fieldset class="col-md-4">
-                                        <div class="input-group pull-left">
-                                            <strong>Se realizó PDL &nbsp;</strong>
+                                            <strong>&nbsp;&nbsp;Se realizó PDL &nbsp;</strong><br>
                                             &nbsp;Si&nbsp;&nbsp;
                                             <input type="radio" name="pdlrealizo" id="pdlrealizo1"
                                                 onclick="aplicopdlsi();" class="check" value="si">
                                             &nbsp;&nbsp;No&nbsp;&nbsp;
                                             <input type="radio" name="pdlrealizo" id="pdlrealizo2"
-                                                onclick="aplicopdlno();" class="check" value="no">
-                                        </div>
+                                                onclick="aplicopdlno();" class="check" value="no">   
                                     </fieldset><br><br>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">PDL</span>&nbsp;&nbsp;
+                                            <span id="inmuno-title">PDL</span>
                                             <input type="number" id="pdl" name="pdl" placeholder="%"
                                                 class="control control col-md-12" value="0">
                                         </div>
@@ -735,7 +736,7 @@
 
                                     <div class="col-md-8">
                                         <div class="input-group pull-left">
-                                            <strong>ONCOGEN HER2</strong>&nbsp;&nbsp;
+                                            <strong>ONCOGEN HER2</strong>
                                             <select name="oncogen" id="oncogen" class="control control col-md-12">
                                                 <option value="0">Seleccione</option>
                                                 <option value="Una cruz">+</option>
@@ -956,7 +957,7 @@
                                         </select>
                                     </div>
                                     <fieldset class="col-md-2">
-                                        <strong>Triple negativo</strong><br>&nbsp;&nbsp;&nbsp;
+                                        <strong>Triple negativo</strong><br>
                                         <input type="radio" name="triplenegativo" id="triplenegativo1"
                                             onclick="triplesi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;
                                         <input type="radio" name="triplenegativo" id="triplenegativo2"
@@ -972,7 +973,7 @@
                                         </select>
                                     </div>
                                     <fieldset class="col-md-3">
-                                        <strong>Hormonosensible</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <strong>Hormonosensible</strong><br>
                                         <input type="radio" name="hormonosensibles" id="hormonosensibles1"
                                             onclick="hormonosi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;
                                         <input type="radio" name="hormonosensibles" id="hormonosensibles2"
@@ -998,7 +999,7 @@
                                         </select>
                                     </div>
                                     <fieldset class="col-md-3">
-                                        <strong>Completo quimio</strong><br>&nbsp;&nbsp;&nbsp;
+                                        <strong>Completo quimio</strong><br>
                                         <input type="radio" name="completoquimio" id="completoquimio1"
                                             onclick="quimiocompletosi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;
                                         <input type="radio" name="completoquimio" id="completoquimio2"

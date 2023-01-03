@@ -47,12 +47,10 @@ $hoy = date("d-m-Y");
                             $row = $sql->fetch();
                             $id_usuario = $row['id'];
 
-                            $sql = $conexionCancer->prepare("INSERT into signosvitales(frecuenciacardiaca, presionarterial, talla, peso, imc, id_paciente) 
+                            $sql = $conexionCancer->prepare("INSERT into signosvitales(talla, peso, imc, id_paciente) 
     
-                                    values (:frecuenciacardiaca, :presionarterial, :talla, :peso, :imc, :id_paciente)");
-                    
-                                $sql->bindParam(':frecuenciacardiaca', $frecuenciacardiaca, PDO::PARAM_STR, 10);
-                                $sql->bindParam(':presionarterial',$presionarterial, PDO::PARAM_STR, 15);
+                                    values (:talla, :peso, :imc, :id_paciente)");
+                                    
                                 $sql->bindParam(':talla',$talla, PDO::PARAM_STR, 10);
                                 $sql->bindParam(':peso',$peso, PDO::PARAM_STR, 10);
                                 $sql->bindParam(':imc',$imc, PDO::PARAM_STR); 

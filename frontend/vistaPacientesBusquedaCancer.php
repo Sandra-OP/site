@@ -100,6 +100,7 @@ td{
     justify-content: center;
     padding: 0px;
     position: fixed;
+    width: 100%;
 }
 a {
     margin-right: 10px;
