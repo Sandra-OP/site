@@ -18,7 +18,7 @@
 
             </li>
             <li class="has-subnav">
-                <a href="misDatos">
+                <a href="#">
                     <i class="fa fa-user fa-2x" id="icon-color"></i>
                     <span class="nav-text">
                         Mis datos
@@ -63,8 +63,21 @@
             </li>
 
             <?php
-                }
+                }elseif($admin == 'antonioflores35@yahoo.com.mx') {
+                    ?>
+            <li class="has-subnav">
+                <a href="../cisfa/principal">
+                    <i class="fa fa-medkit fa-2x" id="icon-color"></i>
+                    <span class="nav-text">
+                        Cisfa
+                    </span>
+                </a>
+
+            </li>
+            <?php
+
         }
+    }
             ?>
 
 

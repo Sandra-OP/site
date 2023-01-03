@@ -270,7 +270,7 @@ function comprimir_pagina($buffer) {
 
             <hr id="hr1datostrabajador">
             <p>Mis datos personales</p>
-            <a id="linkdatostrabajador" href="misDatos" class="btn btn-success">Mis datos</a>
+            <!--<a id="linkdatostrabajador" href="misDatos" class="btn btn-success">Mis datos</a>-->
 
         </article>
         <!--
@@ -325,6 +325,18 @@ function comprimir_pagina($buffer) {
             </a>
         </article>
         <br>
+        <?php
+                 }else if($admin == 'antonioflores35@yahoo.com.mx') {
+
+                    ?>
+                    <article class="card" id="cisfa">
+            <a href="../cisfa/principal">
+                <hr id="hr2">
+                <p>CISFA</p>
+                <a id="link" href="../cisfa/principal" class="btn btn-primary">CISFA</a>
+
+            </a>
+        </article>
         <?php
                  }
         }
