@@ -36,7 +36,7 @@ function comprimir_pagina($buffer) {
         <style>
     #datos_paciente{
         display: block;
-        font-family: monospace;
+        font-family: italic;
         white-space: nowrap;
         border-right: 4px solid;
         width: 18ch;
@@ -54,7 +54,7 @@ function comprimir_pagina($buffer) {
 
     .form-title{
         display: block;
-        font-family: monospace;
+        font-family: italic;
         white-space: nowrap;
         border-right: 4px solid;
         width: 100%;
@@ -65,7 +65,7 @@ function comprimir_pagina($buffer) {
         overflow: hidden;*/
     }
     strong{
-        font-family: monospace;
+        font-family: italic;
         /*white-space: nowrap;*/ 
         font-size: 12px;
     }
@@ -499,21 +499,21 @@ function comprimir_pagina($buffer) {
                                     <div class="col-md-4"><br>
 
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">CK</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">CK</strong>&nbsp;&nbsp;
                                             <input type="text" id="ck" name="ck" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">CK-MB</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">CK-MB</strong>&nbsp;&nbsp;
                                             <input type="text" id="ckmb" name="ckmb" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">TROPONINAS</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">TROPONINAS</strong>&nbsp;&nbsp;
                                             <input type="text" id="troponinas" name="troponinas" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
@@ -521,77 +521,77 @@ function comprimir_pagina($buffer) {
 
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">GlUCOSA</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">GlUCOSA</strong>&nbsp;&nbsp;
                                             <input type="text" id="glucosa" name="glucosa" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">UREA</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">UREA</strong>&nbsp;&nbsp;
                                             <input type="text" id="urea" name="urea" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">CREATININA</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">CREATININA</strong>&nbsp;&nbsp;
                                             <input type="text" id="creatinina" name="creatinina" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">COLESTEROL</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">COLESTEROL</strong>&nbsp;&nbsp;
                                             <input type="text" id="colesterol" name="colesterol" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">TRIGLICERIDOS</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">TRIGLICERIDOS</strong>&nbsp;&nbsp;
                                             <input type="text" id="trigliceridos" name="trigliceridos"
                                                 placeholder="Describa" class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">ACIDO URICO</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">ACIDO URICO</strong>&nbsp;&nbsp;
                                             <input type="text" id="acidourico" name="acidourico" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">HB GLUCOSILADA</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">HB GLUCOSILADA</strong>&nbsp;&nbsp;
                                             <input type="text" id="hbglucosilada" name="hbglucosilada"
                                                 placeholder="Describa" class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">PROTEINAS</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">PROTEINAS</strong>&nbsp;&nbsp;
                                             <input type="text" id="proteinas" name="proteinas" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">COLESTEROL TOTAL</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">COLESTEROL TOTAL</strong>&nbsp;&nbsp;
                                             <input type="text" id="colesteroltotal" name="colesteroltotal"
                                                 placeholder="Describa" class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-6"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">LDL</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">LDL</strong>&nbsp;&nbsp;
                                             <input type="text" id="ldl" name="ldl" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-6"><br>
                                         <div class="input-group pull-left">
-                                            <span id="paraclinic">HDL</span>&nbsp;&nbsp;
+                                            <strong id="paraclinic">HDL</strong>&nbsp;&nbsp;
                                             <input type="text" id="hdl" name="hdl" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>

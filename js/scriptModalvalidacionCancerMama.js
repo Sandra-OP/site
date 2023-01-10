@@ -806,6 +806,17 @@ $(document).ready(function() {
             $('#fechainicioquimio').prop("hidden", false);
             $('#atracicilassi').prop("hidden", false);
             $('#quimiomomento').prop("hidden", false);
+            $('#quimiono').prop("hidden", false);
+            $('#quimiono2').prop("hidden", false);
+            $('#quimiono3').prop("hidden", false);
+            $('#quimiono4').prop("hidden", false);
+            $('#quimiono5').prop("hidden", false);
+
+            $('#her2').prop("checked", true);
+            $('#triplenegativo2').prop("checked", true);
+            $('#hormonosensibles2').prop("checked", true);
+            $('#quimiono4').prop("checked", true);
+            $('#completoquimio1').prop("checked", true);
         } else {
             $('#fechainicioquimio').prop("hidden", true);
             $('#atracicilassi').prop("hidden", true);
@@ -820,7 +831,34 @@ $(document).ready(function() {
             $('#quimioesquema').prop("selectedIndex", 0);
             $("input[type=radio][name=completoquimio]").prop('checked', false);
             $('#esquemaquimio').prop("hidden", true);
+            $('#esquemaher').prop("hidden", true);
+            $('#esquemaherdos').prop("selectedIndex", 0);
+            $('#tripleesquema').prop("hidden", true);
+            $('#esquematriple').prop("selectedIndex", 0);
+            $('#hormonoesquema').prop("hidden", true);
+            $('#esquemahormonosensible').prop("selectedIndex", 0);
             $('#eventoadverso').prop("hidden", true);
+            $('#quimiono').prop("hidden", true);
+            $('#quimiono2').prop("hidden", true);
+            $('#quimiono3').prop("hidden", true);
+            $('#quimiono4').prop("hidden", true);
+            $('#quimiono5').prop("hidden", true);
+            $('#esquemahormosensible').prop("selectedIndex", 0);
+            $('#eventoprogresivo').prop("hidden", true);
+            $('#fechaprogresion').val('');
+            $('#eventorecurrencia').prop("hidden", true);
+            $('#eventodefuncion').prop("hidden", true);
+            $('#causaonco').prop("hidden", true);
+            $('#especausa').prop("hidden", true);
+            $('#fechadefuncion').val('');
+            $('#otracausa').prop("selectedIndex", 0);
+            $('#especifiquecausa').val('');
+
+
+
+
+
+
         
         }
     
@@ -1033,6 +1071,8 @@ $(document).ready(function(){
         $('#fechadelaradio').prop("hidden", true);
         $('#sesionescantidad').prop("hidden", true);
         $('#aplicoradioterapia').prop("selectedIndex", 0);
+        $('#fechainicioradio').val('');
+        $('#numerosesiones').val('');
     }
 
     })
@@ -1043,6 +1083,8 @@ $(function() {
     $('#fechadelaradio').prop("hidden", true);
     $('#sesionescantidad').prop("hidden", true);
     $('#aplicoradioterapia').prop("selectedIndex", 0);
+    $('#fechainicioradio').val('');
+    $('#numerosesiones').val('');
 
 
 })
@@ -1054,9 +1096,9 @@ $(document).ready(function(){
 
         $('#fechadebraquiterapia').prop("disabled", false);
 
-    
     }else{
         $('#fechadebraquiterapia').prop("disabled", true);
+        $('#fechadebraquiterapia').val('');
     }
 
     })
@@ -1064,6 +1106,7 @@ $(document).ready(function(){
 
 $(function() {
     $('#fechadebraquiterapia').prop("disabled", true);
+    $('#fechadebraquiterapia').val('');
 
 
 })
@@ -1086,10 +1129,32 @@ function aplicopdlno(){
     }
 
 }
+function defusi() {
+    if ($("#defunsionsi").val() === "si") {
+
+        $('#defuncionfecha').prop("hidden", false);
+        $('#defuncioncausa').prop("hidden", false);
+
+    }
+
+}
+function defuno() {
+    if ($("#defunsionno").val() === "no") {
+
+        $('#defuncionfecha').prop("hidden", true);
+        $('#defuncioncausa').prop("hidden", true);
+        $('#causadefuncion').prop("selectedIndex", 0);
+        $('#fechadeladefuncion').val('');
+    }
+
+}
 
 $(function() {
     $('#pdl').prop("disabled", true);
-
+    $('#defuncionfecha').prop("hidden", true);
+    $('#defuncioncausa').prop("hidden", true);
+    $('#causadefuncion').prop("selectedIndex", 0);
+    $('#fechadeladefuncion').val('');
 
 })
 
@@ -1111,9 +1176,23 @@ $(document).ready(function(){
 
 $(function() {
     $('#tiempolactancia').prop("disabled", true);
+    $('#antecedentesfamiliares').prop("hidden", true);
 
 
 })
+$(document).ready(function () {
+    $("#tipodecancer").change(function (e) {
+        if ($(this).val() != "0") {
+
+            $('#antecedentesfamiliares').prop("hidden", false);
+
+
+    } else if ($(this).val() === "0") {
+        $('#antecedentesfamiliares').prop("hidden", true);
+    }
+
+    })
+});
 /*finaliza lactancia*/
 /*cuidados paliativos*/
 $(document).ready(function() {
@@ -1132,6 +1211,11 @@ $(document).ready(function() {
 
 $(function() {
     $('#paliativaclinica').prop("hidden", true);
+    $('#quimiono').prop("hidden", true);
+    $('#quimiono2').prop("hidden", true);
+    $('#quimiono3').prop("hidden", true);
+    $('#quimiono4').prop("hidden", true);
+    $('#quimiono5').prop("hidden", true);
 
 
 })

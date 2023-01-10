@@ -8,7 +8,7 @@
                     ));
                     $rw = $statement->fetch();
                     if($rw != false){
-                         $_SESSION['usuarioAdmin'] = $usernameSesion;
+                         //$_SESSION['usuarioAdmin'] = $usernameSesion;
                             require 'frontend/cancer.php';
                     }else{
                         echo "<script>alert('No tienes acceso a este apartado');
@@ -24,7 +24,7 @@
                     ));
                     $rw = $statement->fetch();
                     if($rw != false){
-                         $_SESSION['usuarioJefe'] = $usernameSesion;
+                         //$_SESSION['usuarioJefe'] = $usernameSesion;
                             require 'frontend/cancer.php';
                     }else{
                         echo "<script>alert('No tienes acceso a este apartado');

@@ -86,21 +86,22 @@ date_default_timezone_set('America/Mexico_City');
 <style>
 #th {
     background-color: #FFE2FE;
-    font-family: monospace;
+    font-family: italic;
  
 }
 td{
-    font-family: monospace;
+    font-family: italic;
         /*white-space: nowrap; */
 }
-.container{
+.containerr{
     background: #EEEEEE;
     margin-top: 45px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     padding: 0px;
     position: fixed;
     width: 100%;
+    height: 15px;
 }
 a {
     margin-right: 10px;
@@ -121,9 +122,12 @@ a {
 </style>
 <div id="mensaje"></div>
 <input type="hidden" id="idcurp" value="<?php echo $id_paciente; ?>">
-<div class="container">
+<div class="containerr">
+    <?php
+    if($dataRegistro['curp'] != ''){ ?>
 <a href="#" class="mandaid" id="<?php echo $id_paciente ?>"
             >Seguimiento</a>
+           
             <a href="consultaExpediente?id=<?php echo $id_paciente ?>" class="" id="expediente"
             >Expediente</a>
             <?php session_start();
@@ -133,6 +137,8 @@ a {
                 <?php };?>
             <a href="#" onclick="eliminarRegistro();" id="eliminarregistro"
             >Eliminar registro</a>
+            <?php
+    }?>
                 </div>
 <table id="tabla" class="table table-responsive  table-bordered " cellspacing="0" width="100%">
     <tr>
@@ -285,6 +291,14 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
     <tr>
         <th id="th">Radioterapia</th>
         <td><?php echo 'Se aplico radioterapia:&nbsp'.$dataRegistro['aplicoradio'].'<br>'.'Tipo radioterapia:&nbsp'.$dataRegistro['decripcionradio'].'<br>'.'Fecha de incio de radioterapia:&nbsp'.$dataRegistro['fecharadio'].'<br>'.'N° de sesiones:&nbsp'.$dataRegistro['numerosesiones'];?>
+        </td>
+    </tr>
+    <tr>
+        <th id="th">Quimioterapia</th>
+        <td><?php echo 'Se aplico quimioterapia:&nbsp'.$dataRegistro['aplicoquimio'].'<br>'.'Fecha:&nbsp'.$dataRegistro['fechainicio'].'<br>'.'Antraciclinas:&nbsp'.$dataRegistro['antraciclinas'].'<br>'.'Momento de la Qt:&nbsp'.$dataRegistro['momentodelaqt'].'<br>'.'Her 2 ++:&nbsp'.$dataRegistro['her2'].'<br>'.
+        'Esquema her 2 ++:&nbsp'.$dataRegistro['esquemaher2'].'<br>'.'Triple negativo:&nbsp'.$dataRegistro['triplenegativo'].'<br>'.'Esquema triple negativo:&nbsp'.$dataRegistro['esquematrilpenegativo'].'<br>'.'Hormonosensible:&nbsp'.$dataRegistro['hormonosensible'].'<br>'.
+        'Esquema hormonosensible:&nbsp'.$dataRegistro['esquemahormonosensible'].'<br>'.'Tipo tratameinto:&nbsp'.$dataRegistro['tipotratamiento'].'<br>'.'Completo quimio:&nbsp'.$dataRegistro['completoquimio'].'<br>'.'Causa quimio incompleta:&nbsp'.$dataRegistro['causaqtincompleta'].'<br>'.'Fecha evento adverso:&nbsp'.$dataRegistro['fechaeventoadverso'].'<br>'.
+        'Fecha progresión:&nbsp'.$dataRegistro['fechaprogresion'].'<br>'.'Fecha recurrencia:&nbsp'.$dataRegistro['fecharecurrencia'].'<br>'.'Fecha fallecio:&nbsp'.$dataRegistro['fechafallecio'].'<br>'.'Causa fallecio:&nbsp'.$dataRegistro['causafallecio'].'<br>'.'Especifique:&nbsp'.$dataRegistro['especifique'];?>
         </td>
     </tr>
     <tr>

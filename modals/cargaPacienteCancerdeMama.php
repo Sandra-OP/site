@@ -12,10 +12,10 @@
 <style>
     #datos_paciente{
         display: block;
-        font-family: monospace;
+        font-family: italic;
         white-space: nowrap;
         border-right: 4px solid;
-        width: 18ch;
+        width: 15ch;
         font-size: 22px;
 
         animation: typing 2s steps(18),
@@ -31,7 +31,7 @@
 
     .form-title{
         display: block;
-        font-family: monospace;
+        font-family: italic;
        /* white-space: nowrap;*/
         border-right: 4px solid;
         width: 100%;
@@ -42,17 +42,17 @@
         overflow: hidden; */
     }
     strong{
-        font-family: monospace;
-        font-size: 12px;
+        font-family: italic;
+        font-size: 13px;
         /*white-space: nowrap;*/ 
     }
     #inmuno-title{
-        font-family: monospace;
-        font-size: 11px;
+        font-family: italic;
+        font-size: 13px;
     }
     label{
-        font-family: monospace;
-        font-size: 11px;
+        font-family: italic;
+        font-size: 13px;
         /*white-space: nowrap;*/ 
     }
     #titulos{
@@ -143,7 +143,7 @@
                                             <option value="">Seleccione</option>
                                             <?php 
                                             require 'conexionCancer.php';
-				        $query = $conexionCancer->prepare("SELECT curp FROM dato_usuario");
+				        $query = $conexionCancer->prepare("SELECT curp FROM dato_usuario ");
                         $query->execute();
                         $query->setFetchMode(PDO::FETCH_ASSOC);
 				                    while($row = $query->fetch()) { ?>
@@ -359,7 +359,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <strong>Antecedentes familiares</strong>
+                                        <strong>Familiar(es)</strong>
                                         <select id="mscancer" name="mscancer[]" multiple="multiple"
                                             class="control control col-md-12">
                                            
@@ -374,6 +374,9 @@
 
                                         </select>
                                     </div>
+                                    <input type="button" name="enviar" value="Guardar Antecedentes" onclick="antecedentesheredo();"
+                                        id="antecedentesfamiliares"
+                                        style="width: 170px; height: 27px; color: white; font-size: 12px; background-color: #00B6FF; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
 
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
@@ -385,7 +388,7 @@
 
                                     </div>
                                     <div class="col-md-3">
-                                        <strong>Ultima mestruación</strong>
+                                        <strong>Ultima menstruación</strong>
                                         <input type="date" class="control control col-md-12" id="fechaultimamestruacion"
                                             name="fechaultimamestruacion" onblur="calcularmestruacion();">
 
@@ -552,6 +555,22 @@
 
                                         </select>
                                     </div>
+                                    <div class="col-md-4" id="lateralidadinicio">
+                                        <strong>Estadio clinico</strong>
+                                        <select name="estadioclinico" id="estadioclinico" class="control control col-md-12">
+                                            <option value="0">Seleccione</option>
+                                            <option value="0">0</option>
+                                            <option value="I">I</option>
+                                            <option value="II A">II A</option>
+                                            <option value="II B">II B</option>
+                                            <option value="III A">III A</option>
+                                            <option value="III B">III B</option>
+                                            <option value="III C">III C</option>
+                                            <option value="IV">IV</option>
+                                         
+
+                                        </select>
+                                    </div>
                                     <div class="col-md-4">
                                         <strong>Etapa clinica</strong>
                                         <select name="etapasclinicas" id="etapasclinicas" class="control control col-md-12" readonly>
@@ -658,7 +677,7 @@
                                         <strong id="titulos">HISTOPATOLOGIA</strong>
                                     </div>
                                     <div class="col-md-3">
-                                        <strong>DX HISTOPATOLOGICO</strong>
+                                        <strong>Dx histopatologico</strong>
                                         <select name="dxhistopatologico" id="dxhistopatologico" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
@@ -678,7 +697,18 @@
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-6">
-                                        <strong>ESCALA SBR (SCARLET-BLOOM-RICHARDSON)</strong>
+                                        <strong>Nottinghan</strong>
+                                        <select name="nottingham" id="nottingham" class="control control col-md-12">
+                                            <option value="0">Seleccione</option>
+                                            <option value="Grado I Bien diferenciado">Grado I Bien diferenciado</option>
+                                            <option value="Grado II Moderadamente diferenciado">Grado II Moderadamente diferenciado</option>
+                                            <option value="Grado III Escasamente diferenciado">Grado III Escasamente diferenciado</option>
+                                           
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <strong>Escala SBR (SCARLET-BLOOM-RICHARDSON)</strong>
                                         <select name="escalasbr" id="escalasbr" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
@@ -699,28 +729,45 @@
                                     <div class="col-md-4">
 
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">Receptores de estrogenos (RE)</span>
+                                            <strong>Receptores de estrogenos (RE)</strong>
                                             <input type="number" id="receptoresestrogenos" name="receptoresestrogenos"
                                                 placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">Receptores de progesterona (RP)</span>
+                                            <strong>Receptores de progesterona (RP)</strong>
                                             <input type="number" id="receptoresprogesterona"
                                                 name="receptoresprogesterona" placeholder="%" class="control control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">KI-67</span>
+                                            <strong>KI-67</strong>
                                             <input type="number" id="ki67" name="ki67" placeholder="%"
                                                 class="control control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">Triple negativo</span>
+                                            <strong>K</strong>
+                                            <input type="number" id="k" name="k" placeholder="%"
+                                                class="control control col-md-12">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="input-group pull-left">
+                                            <strong>P 53</strong>
+                                            <select name="p53" id="p53" class="control control col-md-12">
+                                                <option value="0">Seleccione</option>
+                                                <option value="Positivo">Positivo</option>
+                                                <option value="Negativo">Negativo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="input-group pull-left">
+                                            <strong>Triple negativo</strong>
                                             <select name="triplenegativo" id="triplenegativo" class="control control col-md-12">
                                                 <option value="0">Seleccione</option>
                                                 <option value="Si">Si</option>
@@ -731,16 +778,16 @@
                                     </div>
                                     <fieldset class="col-md-4">
                                             <strong>&nbsp;&nbsp;Se realizó PDL</strong><br>
-                                            &nbsp;Si
+                                            &nbsp;<strong>Si</strong>
                                             <input type="radio" name="pdlrealizo" id="pdlrealizo1"
                                                 onclick="aplicopdlsi();" class="check" value="si">
-                                            &nbsp;No
+                                            &nbsp;<strong>No</strong>
                                             <input type="radio" name="pdlrealizo" id="pdlrealizo2"
-                                                onclick="aplicopdlno();" class="check" value="no">   
+                                                onclick="aplicopdlno();" class="check" checked value="no">   
                                     </fieldset>
                                     <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <span id="inmuno-title">PDL</span>
+                                            <strong id="inmuno-title">PDL</strong>
                                             <input type="number" id="pdl" name="pdl" placeholder="%"
                                                 class="control control col-md-12" value="0">
                                         </div>
@@ -748,7 +795,7 @@
 
                                     <div class="col-md-6">
                                         <div class="input-group pull-left">
-                                            <strong>ONCOGEN HER2</strong>
+                                            <strong>Oncogen HER2</strong>
                                             <select name="oncogen" id="oncogen" class="control control col-md-12">
                                                 <option value="0">Seleccione</option>
                                                 <option value="Una cruz">+</option>
@@ -772,6 +819,40 @@
                                     <hr>
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
+                                        <strong id="titulos">MOLECULAR</strong>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group pull-left">
+                                            <strong id="inmuno-title">Luminal A</strong>
+                                            <input type="number" id="luminala" name="luminala" placeholder="%"
+                                                class="control control col-md-12" value="0">
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-4">
+                                        <div class="input-group pull-left">
+                                            <strong id="inmuno-title">Luminal B</strong>
+                                            <input type="number" id="luminalb" name="luminalb" placeholder="%"
+                                                class="control control col-md-12" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group pull-left">
+                                            <strong id="inmuno-title">Enriquecido en Her 2 +</strong>
+                                            <input type="number" id="enriquecidoherdos" name="enriquecidoherdos" placeholder="%"
+                                                class="control control col-md-12" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group pull-left">
+                                            <strong id="inmuno-title">Basal</strong>
+                                            <input type="number" id="basal" name="basal" placeholder="%"
+                                                class="control control col-md-12" value="0">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="col-md-12"
+                                        style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
                                         <strong id="titulos">TRATAMIENTO</strong>
                                     </div>
                                     <div class="col-md-3" style="color: #BD9FD6; ">
@@ -784,7 +865,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3" id="lateralidad">
-                                        <strong>Lateralidad QX</strong>
+                                        <strong>Lateralidad Qx</strong>
                                         <select name="lateralidadsegundo" id="lateralidadsegundo" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Derecha">Derecha</option>
@@ -858,7 +939,7 @@
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-12"></div>
-                                    <input type="button" name="enviar" value="Save Tratamiento" onclick="Hola();"
+                                    <input type="button" name="enviar" value="Guardar Tratamiento" onclick="Hola();"
                                         id="guardaApartado"
                                         style="width: 170px; height: 27px; color: white; background-color: red; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none;">
                                     <script>
@@ -955,12 +1036,12 @@
                                             <option value="Coadyuvante">Coadyuvante</option>
                                         </select>
                                     </div>
-                                    <fieldset class="col-md-2">
+                                    <fieldset class="col-md-2" id="quimiono">
                                         <strong>HER 2 ++</strong><br>
                                         <input type="radio" name="her" id="her1" onclick="aplicoher();" class="check"
-                                            value="si">&nbsp;Si&nbsp;&nbsp;
+                                            value="si">&nbsp;<strong>Si</strong>&nbsp;&nbsp;
                                         <input type="radio" name="her" id="her2" onclick="aplicoherno();" class="check"
-                                            value="noaplico">&nbsp;No&nbsp;&nbsp;
+                                            checked value="noaplico">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="esquemaher">
                                         <strong>Esquema HER 2 ++</strong>
@@ -970,12 +1051,12 @@
                                             <option value="TRASTUZUMAB/EMTANSINA">TRASTUZUMAB/EMTANSINA</option>
                                         </select>
                                     </div>
-                                    <fieldset class="col-md-2">
+                                    <fieldset class="col-md-2" id="quimiono2">
                                         <strong>Triple negativo</strong><br>
                                         <input type="radio" name="triplenegativo" id="triplenegativo1"
-                                            onclick="triplesi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;
+                                            onclick="triplesi();" class="check" value="si">&nbsp;<strong>Si</strong>&nbsp;&nbsp;
                                         <input type="radio" name="triplenegativo" id="triplenegativo2"
-                                            onclick="tripleno();" class="check" value="no">&nbsp;No&nbsp;&nbsp;
+                                            onclick="tripleno();" class="check" checked value="no">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="tripleesquema">
                                         <strong>Esquema triple negativo</strong>
@@ -986,12 +1067,12 @@
                                             <option value="OLAPARIB">OLAPARIB</option>
                                         </select>
                                     </div>
-                                    <fieldset class="col-md-2">
+                                    <fieldset class="col-md-2" id="quimiono3">
                                         <strong>Hormonosensible</strong><br>
                                         <input type="radio" name="hormonosensibles" id="hormonosensibles1"
-                                            onclick="hormonosi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;
+                                            onclick="hormonosi();" class="check" value="si">&nbsp;<strong>Si</strong>&nbsp;&nbsp;
                                         <input type="radio" name="hormonosensibles" id="hormonosensibles2"
-                                            onclick="hormonono();" class="check" value="no">&nbsp;No&nbsp;&nbsp;
+                                            onclick="hormonono();" class="check" checked value="no">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="hormonoesquema">
                                         <strong>Esquema hormonosensible</strong>
@@ -1003,21 +1084,21 @@
                                             <option value="ABEMACICLIB">ABEMACICLIB</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3" id="quimiono4">
                                         <strong>Tipo de tratamiento</strong>
-                                        <select name="esquemhormosensible" id="esquemahormosensible"
+                                        <select name="tipotratamiento" id="tipotratamiento"
                                             class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="ADYUVANTE">ADYUVANTE</option>
                                             <option value="PALIATIVO">PALIATIVO</option>
                                         </select>
                                     </div>
-                                    <fieldset class="col-md-2">
+                                    <fieldset class="col-md-2" id="quimiono5">
                                         <strong>Completo quimio</strong><br>
                                         <input type="radio" name="completoquimio" id="completoquimio1"
-                                            onclick="quimiocompletosi();" class="check" value="si">&nbsp;Si&nbsp;&nbsp;
+                                            onclick="quimiocompletosi();" class="check" checked value="si">&nbsp;<strong>Si</strong>&nbsp;&nbsp;
                                         <input type="radio" name="completoquimio" id="completoquimio2"
-                                            onclick="quimiocompletono();" class="check" value="no">&nbsp;No&nbsp;&nbsp;
+                                            onclick="quimiocompletono();" class="check" value="no">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="esquemaquimio">
                                         <strong>Causa QT incompleta</strong>
@@ -1048,7 +1129,7 @@
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="eventodefuncion">
-                                        <strong>Fecha defunción</strong>
+                                        <strong>Fecha fallecio</strong>
                                         <input type="date" id="fechadefuncion" name="fechadefuncion"
                                             class="control control col-md-12">
                                     </div>
@@ -1112,16 +1193,47 @@
                                     <div class="col-md-3">
                                         <strong>Fecha braquiterapia</strong>
                                         <input type="date" id="fechadebraquiterapia" name="fechadebraquiterapia"
-                                            class="control control col-md-12">
+                                            class="control control col-md-12" value="00/00/0000">
+                                    </div>
+                                
+                                <div class="col-md-12"
+                                        style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
+                                        <strong id="titulos">DEFUNCIÓN</strong>
+                                    </div>
+                                    
+                                     <fieldset class="col-md-2">
+                                         <strong>Defunción</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="defunsi" id="defunsionsi"
+                                                onclick="defusi();" class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="defunsi" id="defunsionno"
+                                                onclick="defuno();" class="check" value="no" checked>   
+                                    </fieldset>
+                                    <div class="col-md-3" id="defuncionfecha">
+                                        <strong>Fecha defunción</strong>
+                                        <input type="date" name="fechadeladefuncion" id="fechadeladefuncion" class="control control col-md-12" value="0000/00/00">
+                                          
+                                    </div>
+                                    <div class="col-md-3" id="defuncioncausa">
+                                     
+                                        <strong>Causa</strong>
+                                        <select name="causadefuncion" id="causadefuncion" class="control control col-md-12">
+                                            <option value="0">Seleccione</option>
+                                            <option value="Oncologica">Oncologica</option>
+                                            <option value="No oncologica">No oncologica</option>
+                                        </select>
                                     </div>
                                 </div>
+                                    
                                 <div class="col-md-12"></div>
                                 <br>
 
 
-                                <input type="submit" id="registrar" value="Registrar">
+                                <input type="submit" id="registrar" value="Registrar" style="width: 170px; height: 27px; color: white; background-color: #00B6FF; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
                                 <input type="button" id="recargar" onclick="window.location.reload();"
-                                    value="Finalizar">
+                                    value="Finalizar" style="width: 170px; height: 27px; color: white; background-color: #FA0000; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
+
 
                                 <br>
                         </div>
@@ -1138,3 +1250,5 @@
 </div>
 </div>
 </div>
+
+

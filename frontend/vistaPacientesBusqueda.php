@@ -47,11 +47,11 @@ date_default_timezone_set('America/Mexico_City');
 <style>
 #th {
     background-color: #E5E5E5;
-    font-family: monospace;
+    font-family: italic;
  
 }
 td{
-    font-family: monospace;
+    font-family: italic;
         white-space: nowrap; 
 }
 .container{
