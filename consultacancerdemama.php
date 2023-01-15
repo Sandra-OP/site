@@ -18,7 +18,7 @@
     $total_registro       = mysqli_num_rows($sqlQueryComentarios);
     
 
-    $query= $conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.curp, dato_usuario.nombrecompleto, dato_usuario.poblacionindigena, dato_usuario.escolaridad, dato_usuario.fechanacimiento, dato_usuario.edad, dato_usuario.sexo, dato_usuario.raza, dato_usuario.estado, dato_usuario.municipio, cancerpaciente.id_paciente FROM dato_usuario inner join cancerpaciente on cancerpaciente.id_paciente = dato_usuario.id order by dato_usuario.id DESC LIMIT 10 ");
+    $query= $conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.curp, dato_usuario.nombrecompleto, dato_usuario.poblacionindigena, dato_usuario.escolaridad, dato_usuario.fechanacimiento, dato_usuario.edad, dato_usuario.sexo, dato_usuario.raza, dato_usuario.estado, dato_usuario.municipio, cancerpaciente.id_paciente FROM dato_usuario inner join cancerpaciente on cancerpaciente.id_paciente = dato_usuario.id order by dato_usuario.id DESC LIMIT 20 ");
     if(isset($_POST['pacientes']))
 {
 	$q=$conexion2->real_escape_string($_POST['pacientes']);
@@ -46,13 +46,20 @@
         while($dataRegistro= $query->fetch())
         { ?>
         
-        <div class="item-comentario" id="<?php echo $dataRegistro['id']; ?>">
+        <div class="item-comentario" id="<?php echo $dataRegistro['id']; ?>" >
             <?php
+            error_reporting(0);
             $id = $dataRegistro['id'];
+             $sql_busqueda = $conexionCancer->prepare("SELECT id_paciente from seguimientocancer where id_paciente = $id");
+                $sql_busqueda->execute();
+                $sql_busqueda->setFetchMode(PDO::FETCH_ASSOC);
+                $validacion = $sql_busqueda->fetch();
+                $validaid = $validacion['id_paciente'];
             ?>
-           
-                <div id='<?php echo $id ?>' class='ver-info'>
-                    <?php echo '<strong style="font-family: monospace; white-space: nowrap; font-size: 12px; margin-left: 7px; text-transform: uppercase;">&nbsp'.$dataRegistro['nombrecompleto'].'</strong>'.'<br>'.'<strong style="font-size: 9px; margin-left: 7px;">&nbsp'.$dataRegistro['curp'].'</strong>'.'<br>'.'<strong style="float:right; font-size: 8px; margin-top: -20px; margin-right: 8px;">&nbsp'.$dataRegistro['sexo'].'</strong>' ?>
+                <div id='<?php echo $id ?>' class='ver-info' >
+                    <?php echo '<strong style="font-family: monospace; white-space: nowrap; font-size: 12px; margin-left: 7px; text-transform: uppercase;">&nbsp'.$dataRegistro['nombrecompleto'].'</strong>'.'<br>'.'<strong style="font-size: 9px; margin-left: 7px;">&nbsp'.$dataRegistro['curp'].'</strong>'.'<br>'.'<strong style="float:right; font-size: 8px; margin-top: -20px; margin-right: 8px;">&nbsp'.$dataRegistro['sexo'].'</strong>';
+                    if($validaid == $id){ 
+            ?><a href="#" style="color: red; float: right; margin-right: 10px; font-size: 8px; font-style: arial; margin-top: -30px;">En seguimiento</a><?php } ?>
             </div> 
             <hr>
             </div>
@@ -67,18 +74,28 @@
         Cargando más Registros...
     </div>
 </div>
-    
+<style>
 
+
+    .color {
+    cursor: pointer;
+    background-color: gold;
+  
+}
+    
+</style>   
+    
 <script>
 $(function() {
 
     $('.item-comentario').on('click', '.ver-info', function() {
 
         var id = $(this).prop('id');
-
+          
         let ob = {
             id: id
         };
+  
         $.ajax({
             type: "POST",
             url: "consultaCancerdeMamaBusqueda.php",
@@ -97,7 +114,8 @@ $(function() {
 });
 $(document).ready(function() {
     $('.item-comentario').on('click', '.ver-info', function() {
-
+//const nombre = document.querySelector(".ver-info");
+ //nombre.style.color = "blue";
         //Añadimos la imagen de carga en el contenedor
         $('#tabla_resultado').html(
             '<div id="tabla_resultado" style="position: fixed;  top: 0px; left: 0px;  width: 100%; height: 100%; z-index: 9999;  opacity: .7; background: url(imagenes/loader2.gif) 50% 50% no-repeat rgb(249,249,249);"><br/></div>'

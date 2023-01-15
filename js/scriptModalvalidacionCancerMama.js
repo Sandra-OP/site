@@ -82,9 +82,9 @@ $(document).ready(function() {
     $('#referenciado').change(function(e) {
         if ($(this).val() === "Si") {
 
-            $('#unidadreferencia').prop("disabled", false);
+            $('#medioreferencia').prop("hidden", false);
         } else {
-            $('#unidadreferencia').prop("disabled", true);
+            $('#medioreferencia').prop("hidden", true);
             $('#unidadreferencia').val('');
 
         }
@@ -92,7 +92,7 @@ $(document).ready(function() {
 });
 
 $(function() {
-    $('#unidadreferencia').prop("disabled", true);
+    $('#medioreferencia').prop("hidden", true);
 
 })
 //clasificacion tamaños tumorales
@@ -534,8 +534,8 @@ const fecha_compare_2 = new Date(fechaActual)
 fecha_compare_1.setMonth(fecha_compare_1.getMonth()+ 12);
 
 //alert(`fecha1 es mayor a 12 meses? > ${fecha_compare_1> fecha_compare_2} `  )
-const menopausea = 'Menopausea';
-const perimenopausea = 'Perimenopausea';
+    const menopausea = 'Menopausia';
+    const perimenopausea = 'Perimenopausia';
 if (fecha_compare_1< fecha_compare_2){
     $('#menopauperimenopau').prop("hidden", false);
     $('#menopausea').val(menopausea);
@@ -560,11 +560,16 @@ $(document).ready(function() {
             $('#parto').prop("disabled", false);
             $('#aborto').prop("disabled", false);
             $('#cesarea').prop("disabled", false);
-
+            $('#cesarea').val('0');
+            $('#aborto').val('0');
+            $('#parto').val('0');
         }else{
             $('#parto').prop("disabled", true);
             $('#aborto').prop("disabled", true);
             $('#cesarea').prop("disabled", true);
+            $('#cesarea').val('0');
+            $('#aborto').val('0');
+            $('#parto').val('0');
         }
 
     })
@@ -612,7 +617,7 @@ function validaparto(){
         }else{
             $('#aborto').prop("disabled", false);
         }
-        if(cantidad === 0){
+    if (cantidad === '0') {
             $('#cesarea').val('0');
             $('#aborto').val('0');
             $('#parto').val('0');
@@ -636,7 +641,14 @@ $(document).ready(function() {
             icon: 'error',
             
         });
-    }else if(cantidad === 0){
+    } else if (sumar < cantidad) {
+        swal({
+            title: 'Warning!',
+            text: 'Error! Las sumas de Parto, Aborto y Cesarea no empatan con la cantidad de gestas, Favor de verificar!',
+            icon: 'error',
+
+        });
+    } else if (cantidad === 0) {
 
     }
 
@@ -659,7 +671,14 @@ $(document).ready(function() {
             icon: 'error',
             
         });
-    } else if (cantidad === 0) {
+        } else if (sumar < cantidad) {
+            swal({
+                title: 'Warning!',
+                text: 'Error! Las sumas de Parto, Aborto y Cesarea no empatan con la cantidad de gestas, Favor de verificar!',
+                icon: 'error',
+
+            });
+        } else if (cantidad === 0) {
 
     }
 
@@ -1094,10 +1113,10 @@ $(document).ready(function(){
     $("#braquiterapia").change(function(e) {
     if ($(this).val() === "Si") {
 
-        $('#fechadebraquiterapia').prop("disabled", false);
+        $('#fechabraquiterapia').prop("hidden", false);
 
     }else{
-        $('#fechadebraquiterapia').prop("disabled", true);
+        $('#fechabraquiterapia').prop("hidden", true);
         $('#fechadebraquiterapia').val('');
     }
 
@@ -1105,7 +1124,7 @@ $(document).ready(function(){
 });
 
 $(function() {
-    $('#fechadebraquiterapia').prop("disabled", true);
+    $('#fechabraquiterapia').prop("hidden", true);
     $('#fechadebraquiterapia').val('');
 
 
@@ -1203,6 +1222,20 @@ $(document).ready(function() {
             $('#paliativaclinica').prop("hidden", false);
         } else {
             $('#paliativaclinica').prop("hidden", true);
+            $('#clinicapaliativa').prop("selectedIndex", 0);
+
+        }
+
+    })
+});
+$(document).ready(function () {
+
+    $('#tipodecancer').change(function (e) {
+        if ($(this).val() === "Sin antecedentes") {
+
+            $('#familiarescancer').prop("hidden", true);
+        } else {
+            $('#familiarescancer').prop("hidden", false);
         
         }
     
@@ -1211,11 +1244,13 @@ $(document).ready(function() {
 
 $(function() {
     $('#paliativaclinica').prop("hidden", true);
+    $('#clinicapaliativa').prop("selectedIndex", 0);
     $('#quimiono').prop("hidden", true);
     $('#quimiono2').prop("hidden", true);
     $('#quimiono3').prop("hidden", true);
     $('#quimiono4').prop("hidden", true);
     $('#quimiono5').prop("hidden", true);
+    $('#familiarescancer').prop("hidden", true);
 
 
 })

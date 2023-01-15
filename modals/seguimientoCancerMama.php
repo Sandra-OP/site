@@ -32,7 +32,7 @@
 
                             function limpiarformularioseguimiento() {
 
-                                setTimeout('document.formularioseguimiento.reset()', 1000);
+                                setTimeout('document.formularioseguimientocancer.reset()', 1000);
                                 return false;
                             }
                             </script>
@@ -55,21 +55,21 @@
                                 text-transform: uppercase;
                             }
                             </style>
-                            <form name="formularioseguimiento" id="formularioseguimiento" onSubmit="return limpiar()">
+                            <form name="formularioseguimientocancer" id="formularioseguimientocancer" onSubmit="return limpiar()">
                                 <div class="form-row">
                                     <div id="mensaje"></div>
                                     <script>
-                                    $("#formularioseguimiento").on("submit", function(e) {
+                                    $("#formularioseguimientocancer").on("submit", function(e) {
                                         let checked = this.querySelectorAll('input[type=checkbox]:checked');
                                         e.preventDefault();
 
                                         var formData = new FormData(document.getElementById(
-                                            "formularioseguimiento"));
+                                            "formularioseguimientocancer"));
                                         formData.append("dato", "valor");
 
                                         $.ajax({
 
-                                            url: "aplicacion/registrarSeguimientoPaciente.php",
+                                            url: "aplicacion/registrarSeguimientoPacienteCancer.php",
                                             type: "post",
                                             dataType: "html",
                                             data: formData,
@@ -100,18 +100,18 @@
 
                                     <input id="year" name="year" class="form-control" type="hidden" value="2022"
                                         required="required" onkeyup="mayus(this);" readonly>
-
-                                    <div class="col-md-6">
-                                        <strong>Fecha inicio de vigilancia</strong>
-                                        <input type="text" id="fechainiciovigilancia" name="fechainiciovigilancia"
-                                            class="control control col-md-12" value="<?php echo $fechaActual ?>">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <strong>CURP paciente:&nbsp;</strong>
-                                        <input id="curps" name="curps" class="control control col-md-12" type="text" value=""
+                                    <div class="col-md-12">
+                                        <strong>ID:&nbsp;</strong>
+                                        <input id="curps" name="curps" class="control control col-md-12" type="hidden" value=""
                                             readonly>
                                         <span id="curp" class="curp" name="curp"></span>
                                     </div>
+                                    <div class="col-md-4">
+                                        <strong>Fecha inicio de vigilancia</strong>
+                                        <input type="date" id="fechainiciovigilancia" name="fechainiciovigilancia"
+                                            class="control control col-md-12" onclick="obtenerid();">
+                                    </div>
+                                    
                                    <!-- <div class="col-md-4">
                                         <strong>Frecuencia cardiaca</strong>
                                         <input type="text" class="control control col-md-12" id="frecuenciacardiaca"
@@ -135,7 +135,7 @@
 
                                     </div>
                                     <div class="col-md-4" id="dxprogresion">
-                                        <strong>Fecha Dx progresión</strong>
+                                        <strong style="color:red;">Fecha Dx progresión</strong>
                                         <input type="date" id="fechadxprogresion" name="fechadxprogresion" 
                                             class="control control col-md-12">
                                     </div>
@@ -150,7 +150,7 @@
 
                                     </div>
                                     <div class="col-md-4" id="recurrenciadate">
-                                        <strong>Fecha de recurrencia</strong>
+                                        <strong style="color:red;">Fecha de recurrencia</strong>
                                         <input type="date" id="fecharecurrencia" name="fecharecurrencia"
                                             class="control control col-md-12">
                                     </div>
@@ -165,7 +165,7 @@
 
                                     </div>
                                     <div class="col-md-4" id="datereintervencion">
-                                        <strong>Fecha de reintervención</strong>
+                                        <strong style="color:red;">Fecha de reintervención</strong>
                                         <input type="date" id="fechareintenvencion" name="fechareintenvencion"
                                             class="control control col-md-12">
                                     </div>
@@ -193,7 +193,7 @@
                                     <br>
 
                                     <div class="col-md-4" id="lateralidadqt">
-                                        <strong>Lateralidad reintervención QX</strong>
+                                        <strong style="color:red;">Lateralidad reintervención QX</strong>
                                         <select name="lateralidadreintervencion" id="lateralidadreintervencion" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Derecha">Derecha</option>
@@ -214,12 +214,12 @@
 
                                     </div>
                                     <div class="col-md-4" id="fechadelanuevaqt">
-                                        <strong>Fecha de nueva QT</strong>
+                                        <strong style="color:red;">Fecha de nueva QT</strong>
                                         <input type="date" id="fechanuevaqt" name="fechanuevaqt"
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-4" id="tipodelaqt">
-                                        <strong>Tipo</strong>
+                                        <strong style="color:red;">Tipo</strong>
                                         <select name="tipoqt" id="tipoqt" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Neoadyuvante">Neoadyuvante</option>
@@ -227,7 +227,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-4" id="tratamientodelaqt">
-                                        <strong>Tratamiento QT</strong>
+                                        <strong style="color:red;">Tratamiento QT</strong>
                                         <select name="tratameintoqt" id="tratameintoqt" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <?php 
@@ -250,20 +250,20 @@
                                         </select>
                                     </div>
                                     <div class="col-md-4" id="aplicoradio">
-                                        <strong>Tipo Radioterapia</strong>
-                                        <select name="aplicoderadioterapia" id="aplicoderadioterapia" class="control control col-md-12">
+                                        <strong style="color:red;">Tipo Radioterapia</strong>
+                                        <select name="tipoderadioterapia" id="tipoderadioterapia" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="CICLO MAMARIO COMPLETO">CICLO MAMARIO COMPLETO</option>
                                             <option value="TANGENCIAL">TANGENCIAL</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4" id="fecharadio">
-                                        <strong>Fecha de inicio</strong>
+                                        <strong style="color:red;">Fecha de inicio</strong>
                                         <input type="date" id="fechadeinicioradio" name="fechadeinicioradio"
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-4" id="sesionescanti">
-                                        <strong>N° de sesiones</strong>
+                                        <strong style="color:red;">N° de sesiones</strong>
                                         <input type="number" id="numerodesesiones" name="numerodesesiones"
                                             class="control control col-md-12">
                                     </div>
@@ -276,7 +276,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-4" id="fechadelabraqui">
-                                        <strong>Fecha de inicio</strong>
+                                        <strong style="color:red;">Fecha de inicio</strong>
                                         <input type="date" id="fechabraquiterapia" name="fechabraquiterapia"
                                             class="control control col-md-12">
                                     </div>
@@ -289,7 +289,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-4" id="paliativaclinica">
-                                        <strong>Tipo de cuidado paliativo</strong>
+                                        <strong style="color:red;">Tipo de cuidado paliativo</strong>
                                         <select name="clinicapaliativa" id="clinicapaliativa" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="Clinca del dolor">Clinca del dolor</option>
@@ -323,9 +323,9 @@
                                     <br>
 
 
-                                    <input type="submit" id="registrar" value="Registrar">&nbsp;&nbsp;
+                                    <input type="submit" id="registrar" value="Registrar" style="width: 170px; height: 27px; color: white; background-color: #00B6FF; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">&nbsp;&nbsp;
                                     <input type="button" id="recargar" onclick="window.location.reload();"
-                                        value="Finalizar">
+                                        value="Finalizar" style="width: 170px; height: 27px; color: white; background-color: #FA0000; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
                                     <br>
                                 </div>
                             </form>

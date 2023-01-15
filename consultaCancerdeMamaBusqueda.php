@@ -14,7 +14,8 @@ cancerpaciente.descripcioncancer,
 radioterapia.aplicoradio,
 tiporadioterapia.*,
 quimioterapia.*,
-braquiterapia.*
+braquiterapia.*,
+seguimientocancer.*
 FROM dato_usuario 
 left outer join antecedentesgineco on antecedentesgineco.id_paciente = dato_usuario.id
 left outer join signosvitales on signosvitales.id_paciente = dato_usuario.id
@@ -26,6 +27,7 @@ left outer join radioterapia on radioterapia.id_paciente = dato_usuario.id
 left outer join tiporadioterapia on tiporadioterapia.id_radio = radioterapia.id_radio
 left outer join quimioterapia on quimioterapia.id_paciente = dato_usuario.id
 left outer join braquiterapia on braquiterapia.id_paciente = dato_usuario.id
+left outer join seguimientocancer on seguimientocancer.id_paciente = dato_usuario.id
 where dato_usuario.id = $id");
 $query->setFetchMode(PDO::FETCH_ASSOC);
 $query->execute();

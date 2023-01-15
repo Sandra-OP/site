@@ -51,9 +51,11 @@ $(document).ready(function () {
 
             $('#tipodelaqt').prop("hidden", false);
             $('#tratamientodelaqt').prop("hidden", false);
+            $('#fechadelanuevaqt').prop("hidden", false);
         } else {
             $('#tipodelaqt').prop("hidden", true);
             $('#tratamientodelaqt').prop("hidden", true);
+            $('#fechadelanuevaqt').prop("hidden", true);
             $('#fechanuevaqt').val('');
             $('#tipoqt').prop("selectedIndex", 0);
             $('#tratameintoqt').prop("selectedIndex", 0);

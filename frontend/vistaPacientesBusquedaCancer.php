@@ -122,12 +122,48 @@ a {
 </style>
 <div id="mensaje"></div>
 <input type="hidden" id="idcurp" value="<?php echo $id_paciente; ?>">
+<input type="hidden" id="cancer" value="<?php echo $dataRegistro['descripcioncancer']; ?>">
+<input type="hidden" id="nombrepaciente" value="<?php echo $dataRegistro['nombrecompleto']; ?>">
 <div class="containerr">
     <?php
-    if($dataRegistro['curp'] != ''){ ?>
+
+        $sql_busqueda = $conexionCancer->prepare("SELECT id_paciente from seguimientocancer where id_paciente = $id_paciente");
+    $sql_busqueda->execute();
+    $sql_busqueda->setFetchMode(PDO::FETCH_ASSOC);
+    $validacion = $sql_busqueda->fetch();
+        $validaid = $validacion['id_paciente'];
+    if($dataRegistro['curp'] != ''){ 
+        if($validaid != $id_paciente){ ?>
 <a href="#" class="mandaid" id="<?php echo $id_paciente ?>"
-            >Seguimiento</a>
-           
+            >Seguimiento</a> <?php }else{ ?>
+            <input type="hidden" value="<?php echo $id_paciente ?>" id="seguimiento">
+            <a href="#" onclick="seguimiento();" style="color: blue;">
+            Ver seguimiento</a>
+            <?php }?>
+           <script>
+            function seguimiento(){
+
+            let id = $("#seguimiento").val();
+
+        let ob = {
+            id: id
+        };
+        $.ajax({
+            type: "POST",
+            url: "consultaCancerdeMamaBusquedaSeguimiento.php",
+            data: ob,
+            beforeSend: function() {
+
+            },
+            success: function(data) {
+
+                $("#tabla_resultado").html(data);
+
+            }
+        });
+
+    };
+    </script>
             <a href="consultaExpediente?id=<?php echo $id_paciente ?>" class="" id="expediente"
             >Expediente</a>
             <?php session_start();
@@ -143,7 +179,9 @@ a {
 <table id="tabla" class="table table-responsive  table-bordered " cellspacing="0" width="100%">
     <tr>
         <th id="th">Datos personales</th>
-        <td><?php echo 'Nombre:&nbsp'.$dataRegistro['nombrecompleto'].'<br>'.'CURP:&nbsp'.$dataRegistro['curp'].'<br>'.'Edad:&nbsp'.$dataRegistro['edad'].'&nbspAños'.'<br>'.'Sexo:&nbsp'.$dataRegistro['sexo'].'<br>'.'Estado:&nbsp'.$rows['estado'].'<br>'.'Municipio:&nbsp'.$rowsm['municipio']; ?>
+        <td><?php echo 'Nombre:&nbsp'.$dataRegistro['nombrecompleto'].'<br>'.'CURP:&nbsp'.$dataRegistro['curp'].'<br>'.'Edad:&nbsp'.$dataRegistro['edad'].'&nbspAños'.'<br>'.'Sexo:&nbsp'.$dataRegistro['sexo'].'<br>'.'Estado:&nbsp'.$rows['estado'].'<br>'.'Municipio:&nbsp'.$rowsm['municipio']; 
+        if($validaid == $id_paciente and $id_paciente != ''){ 
+            ?><a href="#" style="color: red; float: right; margin-right: 10px; font-size: 12px; font-style: arial;">En seguimiento</a><?php }?>
             
         </td>
     </tr>
@@ -206,8 +244,8 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
 
     <tr>
         <th id="th">Signos vitales</th>
-        <td><?php echo 'Frecuencia cardiaca:&nbsp'.$dataRegistro['frecuenciacardiaca'].'<br>'.'Presión arterial:&nbsp'.$dataRegistro['presionarterial'].'<br>'.'Talla:&nbsp'.$dataRegistro['talla'].'<br>'.'Peso:&nbsp'.$dataRegistro['peso'].'<br>'.
-        'IMC:&nbsp'.$dataRegistro['imc'].'&nbsp'.$showimc?></td>
+        <td><?php echo 'Talla:&nbsp'.$dataRegistro['talla'].'<br>'.'Peso:&nbsp'.$dataRegistro['peso'].'<br>'.
+        'IMC:&nbsp'.$dataRegistro['imc'].'&nbsp'; if($id_paciente != ''){ echo $showimc;}?></td>
     </tr>
 
     <tr>
@@ -313,9 +351,11 @@ echo '&nbsp&nbsp'.$dataRegist['descripcionantecedente'].'--'.'';} ?></td>
 <script>
 function eliminarRegistro() {
     var id = $("#idcurp").val();
+    var cancer = $("#cancer").val();
+    var nombrepaciente = $("#nombrepaciente").val();
     var mensaje = confirm("el registro se eliminara");
     let parametros = {
-        id: id
+        id: id, cancer:cancer, nombrepaciente:nombrepaciente
     }
     if (mensaje == true) {
         $.ajax({

@@ -18,9 +18,9 @@
         width: 15ch;
         font-size: 22px;
 
-        animation: typing 2s steps(18),
+        /*animation: typing 2s steps(18),
         blink .5s infinite step-end alternate;
-        overflow: hidden;
+        overflow: hidden;*/
     }
     @keyframes typing {
         from { width: 0}
@@ -279,7 +279,7 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" >
                                         <strong>Referenciado</strong>
                                         <select name="referenciado" id="referenciado" class="control control col-md-12">
                                             <option value="">Seleccione una opción</option>
@@ -287,7 +287,7 @@
                                             <option value="No">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6" id="medioreferencia">
+                                    <div class="col-md-12" id="medioreferencia">
                                         <strong>Unidad referencia</strong>
                                         <input list="referencias" name="unidadreferencia" id="unidadreferencia"
                                             class="control control col-md-12">
@@ -346,7 +346,7 @@
                                     <div class="col-md-6">
                                         <strong>Cancer</strong>
                                         <select name="tipodecancer" id="tipodecancer" class="control control col-md-12">
-                                            <option value="0">Seleccione</option>
+                                            <option value="Sin antecedentes">Sin antecedentes</option>
                                             <?php 
 				        $query = $conexionCancer->prepare("SELECT descripcioncancer FROM tipocancer");
                         $query->execute();
@@ -358,7 +358,7 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" id="familiarescancer">
                                         <strong>Familiar(es)</strong>
                                         <select id="mscancer" name="mscancer[]" multiple="multiple"
                                             class="control control col-md-12">
@@ -374,9 +374,9 @@
 
                                         </select>
                                     </div>
-                                    <input type="button" name="enviar" value="Guardar Antecedentes" onclick="antecedentesheredo();"
+                                    <!--<input type="button" name="enviar" value="Guardar Antecedentes" onclick="antecedentesheredo();"
                                         id="antecedentesfamiliares"
-                                        style="width: 170px; height: 27px; color: white; font-size: 12px; background-color: #00B6FF; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
+                                        style="width: 170px; height: 27px; color: white; font-size: 12px; background-color: #00B6FF; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">-->
 
                                     <div class="col-md-12"
                                         style="text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;">
@@ -402,7 +402,7 @@
 
                                     <div class="col-md-2">
                                         <strong>Gestas</strong>
-                                        <select name="gestas" id="gestas" class="control control col-md-12">
+                                        <select name="gestas" id="gestas" class="control control col-md-12" >
                                             <option value="0">Ninguna</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -941,7 +941,7 @@
                                     <div class="col-md-12"></div>
                                     <input type="button" name="enviar" value="Guardar Tratamiento" onclick="Hola();"
                                         id="guardaApartado"
-                                        style="width: 170px; height: 27px; color: white; background-color: red; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none;">
+                                        style="width: 170px; height: 27px; color: white; background-color: #00B6FF; margin-left: auto; margin-right: auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
                                     <script>
                                     function Hola() {
 
@@ -1044,7 +1044,7 @@
                                             checked value="noaplico">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="esquemaher">
-                                        <strong>Esquema HER 2 ++</strong>
+                                        <strong style="color:red;">Esquema HER 2 ++</strong>
                                         <select name="esquemaherdos" id="esquemaherdos" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="TRASTUZUMAB/PERTUZUMAB">TRASTUZUMAB/PERTUZUMAB</option>
@@ -1059,7 +1059,7 @@
                                             onclick="tripleno();" class="check" checked value="no">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="tripleesquema">
-                                        <strong>Esquema triple negativo</strong>
+                                        <strong style="color:red;">Esquema triple negativo</strong>
                                         <select name="esquematriple" id="esquematriple" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="ATEZOLIZUMAB">ATEZOLIZUMAB</option>
@@ -1075,7 +1075,7 @@
                                             onclick="hormonono();" class="check" checked value="no">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="hormonoesquema">
-                                        <strong>Esquema hormonosensible</strong>
+                                        <strong style="color:red;">Esquema hormonosensible</strong>
                                         <select name="esquemahormonosensible" id="esquemahormonosensible"
                                             class="control control col-md-12">
                                             <option value="0">Seleccione</option>
@@ -1101,7 +1101,7 @@
                                             onclick="quimiocompletono();" class="check" value="no">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="esquemaquimio">
-                                        <strong>Causa QT incompleta</strong>
+                                        <strong style="color:red;">Causa QT incompleta</strong>
                                         <select name="quimioesquema" id="quimioesquema" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="EVENTO ADVERSO">EVENTO ADVERSO</option>
@@ -1114,27 +1114,27 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3" id="eventoadverso">
-                                        <strong>Fecha evento adverso</strong>
+                                        <strong style="color:red;">Fecha evento adverso</strong>
                                         <input type="date" id="fechaeventoadverso" name="fechaeventoadverso"
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="eventoprogresivo">
-                                        <strong>Fecha progresion</strong>
+                                        <strong style="color:red;">Fecha progresion</strong>
                                         <input type="date" id="fechaprogresion" name="fechaprogresion"
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="eventorecurrencia">
-                                        <strong>Fecha recurrencia</strong>
+                                        <strong style="color:red;">Fecha recurrencia</strong>
                                         <input type="date" id="fecharecurrencia" name="fecharecurrencia"
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="eventodefuncion">
-                                        <strong>Fecha fallecio</strong>
+                                        <strong style="color:red;">Fecha fallecio</strong>
                                         <input type="date" id="fechadefuncion" name="fechadefuncion"
                                             class="control control col-md-12">
                                     </div>
                                     <div class="col-md-3" id="causaonco">
-                                        <strong>Causa</strong>
+                                        <strong style="color:red;">Causa</strong>
                                         <select name="otracausa" id="otracausa" class="control control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="ONCOLOGICA">ONCOLOGICA</option>
@@ -1143,7 +1143,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3" id="especausa">
-                                        <strong>Especifique</strong>
+                                        <strong style="color:red;">Especifique</strong>
                                         <input type="text" id="especifiquecausa" name="especifiquecausa"
                                             class="control control col-md-12">
                                     </div>
@@ -1190,10 +1190,10 @@
                                             <option value="No">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3" id="fechabraquiterapia">
                                         <strong>Fecha braquiterapia</strong>
                                         <input type="date" id="fechadebraquiterapia" name="fechadebraquiterapia"
-                                            class="control control col-md-12" value="00/00/0000">
+                                            class="control control col-md-12" >
                                     </div>
                                 
                                 <div class="col-md-12"
