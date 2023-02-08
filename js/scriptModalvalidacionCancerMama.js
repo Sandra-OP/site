@@ -16,10 +16,14 @@ function soloLetras(e) {
         }
 
         if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-            alert('No puedes comenzar escribiendo numeros');
-            return false;
+          swal({
+              title: 'Fatal!',
+              text: 'No puedes iniciar escribiendo numeros!',
+              icon: 'error',
+          });
+          return false;
 
-        }
+      }
     }
 }
 function Edad(FechaNacimiento) {
@@ -689,9 +693,9 @@ function validaparto(){
             $('#aborto').val('');
             $('#cesarea').val('');
         }else{
-        $('#abortoid').prop("hidden", false);
-        $('#cesareaid').prop("hidden", false);
-    }
+            $('#abortoid').prop("hidden", false);
+            $('#cesareaid').prop("hidden", false);
+        }
     if (aborto === cantidad) {
         $('#partoid').prop("hidden", true);
         $('#cesareaid').prop("hidden", true);
