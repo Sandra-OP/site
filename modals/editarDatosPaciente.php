@@ -739,7 +739,7 @@ return false;
 
                                         </select>
                                     </div>
-                                    <div class="col-md-2" id="probableparto">
+                                    <div class="col-md-2" id="probablepartoedit">
                                         <strong>F.P.P</strong>
                                         <input type="date" class="control control col-md-12" id="fechaprobablepartoedit"
                                             name="fechaprobablepartoedit" value="<?php echo $dataRegistro['fpp'] ?>" >
