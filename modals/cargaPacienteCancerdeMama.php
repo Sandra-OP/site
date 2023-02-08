@@ -2,9 +2,10 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!--la siguiente liga es para el icon de Agregar persona que se muestra en el Modal CargarPacienteArtritis-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="js/getCatalogos.js"></script>
+    <!--la siguiente liga es para el icon de Agregar persona que se muestra en el Modal CargarPacienteArtritis-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <script src="js/scriptModalvalidacionCancerMama.js"></script>
     <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
     <div class="modal-dialog modal-lg">
@@ -60,7 +61,10 @@
 </style>
         <div class="modal-content">
             <div class="modal-header" id="cabeceraModalMama">
-                
+                <span class="material-symbols-outlined">
+                    person_add
+                </span>
+
                 <button type="button" class="close" data-bs-dismiss="modal" onclick="limpiar();">&times;</button>
              
             </div>
@@ -203,7 +207,7 @@
                                     <div class="col-md-2">
                                         <strong>Raza</strong>
                                         <input type="text" class="control control col-md-12" id="raza" onclick="curp2date();"
-                                            name="raza">
+                                            name="raza" value="Sin registro">
 
                                     </div>
                                     <!--
@@ -1307,140 +1311,281 @@
                                         style="text-align: center; color: blueviolet; background-color:antiquewhite; margin-top: 5px; font-size: 0px;">
                                         <strong id="titulos">Mama derecha</strong>
                                     </div>
-                                    <div class="col-md-3" id="luminal1">
+                                    <fieldset class="col-md-3" id="luminal1">
+                                            <strong>&nbsp;&nbsp;Luminal A</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminala" id="luminala"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminala" id="luminala"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal1">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal A</strong>
                                             <input type="number" id="luminala" name="luminala" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal2">
+                                            <strong>&nbsp;&nbsp;Luminal B</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminalb" id="luminalb"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminalb" id="luminalb"
+                                                class="check" checked value="no">   
+                                    </fieldset>
                             
-                                    <div class="col-md-3" id="luminal2">
+                                    <!--<div class="col-md-3" id="luminal2">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal B</strong>
                                             <input type="number" id="luminalb" name="luminalb" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal3">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal3">
+                                            <strong>&nbsp;&nbsp;Enriquecido en Her 2 +</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="enriquecidoherdos" id="enriquecidoherdos"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="enriquecidoherdos" id="enriquecidoherdos"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal3">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Enriquecido en Her 2 +</strong>
                                             <input type="number" id="enriquecidoherdos" name="enriquecidoherdos" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal4">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal4">
+                                            <strong>&nbsp;&nbsp;Basal</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="basal" id="basal"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="basal" id="basal"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal4">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Basal</strong>
                                             <input type="number" id="basal" name="basal" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <!--Finaliza mama molecular derecha-->
                                     <!-- Inicia mama molecular region ganglionar derecha-->
                                     <div class="col-md-12" id="titulomolecularmamaderechammrgd"
                                         style="text-align: center; color: blueviolet; background-color:antiquewhite; margin-top: 5px; font-size: 0px;">
                                         <strong id="titulos">Region ganglionar derecha</strong>
                                     </div>
-                                    <div class="col-md-3" id="luminal1mmrgd">
+                                    <fieldset class="col-md-3" id="luminal1mmrgd">
+                                            <strong>&nbsp;&nbsp;Luminal A</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminalammrgd" id="luminalammrgd"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminalammrgd" id="luminalammrgd"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal1mmrgd">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal A</strong>
                                             <input type="number" id="luminalammrgd" name="luminalammrgd" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                            
-                                    <div class="col-md-3" id="luminal2mmrgd">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal2mmrgd">
+                                            <strong>&nbsp;&nbsp;Luminal B</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminalbmmrgd" id="luminalbmmrgd"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminalbmmrgd" id="luminalbmmrgd"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal2mmrgd">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal B</strong>
                                             <input type="number" id="luminalbmmrgd" name="luminalbmmrgd" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal3mmrgd">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal3mmrgd">
+                                            <strong>&nbsp;&nbsp;Enriquecido en Her 2 +</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="enriquecidoherdosmmrgd" id="enriquecidoherdosmmrgd"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="enriquecidoherdosmmrgd" id="enriquecidoherdosmmrgd"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal3mmrgd">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Enriquecido en Her 2 +</strong>
                                             <input type="number" id="enriquecidoherdosmmrgd" name="enriquecidoherdosmmrgd" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal4mmrgd">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal4mmrgd">
+                                            <strong>&nbsp;&nbsp;Basal</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="basalmmrgd" id="basalmmrgd"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="basalmmrgd" id="basalmmrgd"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal4mmrgd">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Basal</strong>
                                             <input type="number" id="basalmmrgd" name="basalmmrgd" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <!--finaliza mama molecular region ganglionar derecha-->
                                     <!--Inicia mama molecular izquierda-->
                                     <div class="col-md-12" id="titulomolecularmamaizquierda"
                                         style="text-align: center; color: blueviolet; background-color:antiquewhite; margin-top: 5px; font-size: 0px;">
                                         <strong id="titulos">Mama izquierda</strong>
                                     </div>
-                                    <div class="col-md-3" id="luminal5">
+                                    <fieldset class="col-md-3" id="luminal5">
+                                            <strong>&nbsp;&nbsp;Luminal A</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminalaiz" id="luminalaiz"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminalaiz" id="luminalaiz"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal5">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal A</strong>
                                             <input type="number" id="luminalaiz" name="luminalaiz" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                            
-                                    <div class="col-md-3" id="luminal6">
+                                    </div>-->
+                                        <fieldset class="col-md-3" id="luminal6">
+                                            <strong>&nbsp;&nbsp;Luminal B</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminalbiz" id="luminalbiz"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminalbiz" id="luminalbiz"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal6">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal B</strong>
                                             <input type="number" id="luminalbiz" name="luminalbiz" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal7">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal7">
+                                            <strong>&nbsp;&nbsp;Enriquecido en Her 2 +</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="enriquecidoherdosiz" id="enriquecidoherdosiz"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="enriquecidoherdosiz" id="enriquecidoherdosiz"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal7">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Enriquecido en Her 2 +</strong>
                                             <input type="number" id="enriquecidoherdosiz" name="enriquecidoherdosiz" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal8">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal8">
+                                            <strong>&nbsp;&nbsp;Basal</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="basaliz" id="basaliz"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="basaliz" id="basaliz"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal8">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Basal</strong>
                                             <input type="number" id="basaliz" name="basaliz" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <!--Finaliza mama molecular izquierda-->
                                     <!-- inicia mama molecular region ganglionar izquierda-->
                                     <div class="col-md-12" id="titulomolecularmamaizquierdammrgi"
                                         style="text-align: center; color: blueviolet; background-color:antiquewhite; margin-top: 5px; font-size: 0px;">
                                         <strong id="titulos">Region ganglionar izquierda</strong>
                                     </div>
-                                    <div class="col-md-3" id="luminal5mmrgi">
+                                    <fieldset class="col-md-3" id="luminal5mmrgi">
+                                            <strong>&nbsp;&nbsp;Luminal A</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminalaizmmrgi" id="luminalaizmmrgi"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminalaizmmrgi" id="luminalaizmmrgi"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal5mmrgi">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal A</strong>
                                             <input type="number" id="luminalaizmmrgi" name="luminalaizmmrgi" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                            
-                                    <div class="col-md-3" id="luminal6mmrgi">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal6mmrgi">
+                                            <strong>&nbsp;&nbsp;Luminal A</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="luminalbizmmrgi" id="luminalbizmmrgi"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="luminalbizmmrgi" id="luminalbizmmrgi"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal6mmrgi">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Luminal B</strong>
                                             <input type="number" id="luminalbizmmrgi" name="luminalbizmmrgi" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal7mmrgi">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal7mmrgi">
+                                            <strong>&nbsp;&nbsp;Enriquecido en Her 2 +</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="enriquecidoherdosizmmrgi" id="enriquecidoherdosizmmrgi"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="enriquecidoherdosizmmrgi" id="enriquecidoherdosizmmrgi"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal7mmrgi">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Enriquecido en Her 2 +</strong>
                                             <input type="number" id="enriquecidoherdosizmmrgi" name="enriquecidoherdosizmmrgi" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3" id="luminal8mmrgi">
+                                    </div>-->
+                                    <fieldset class="col-md-3" id="luminal8mmrgi">
+                                            <strong>&nbsp;&nbsp;Basal</strong><br>
+                                            &nbsp;<strong>Si</strong>
+                                            <input type="radio" name="basalizmmrgi" id="basalizmmrgi"
+                                                 class="check" value="si">
+                                            &nbsp;<strong>No</strong>
+                                            <input type="radio" name="basalizmmrgi" id="basalizmmrgi"
+                                                class="check" checked value="no">   
+                                    </fieldset>
+                                    <!--<div class="col-md-3" id="luminal8mmrgi">
                                         <div class="input-group pull-left">
                                             <strong id="inmuno-title">Basal</strong>
                                             <input type="number" id="basalizmmrgi" name="basalizmmrgi" placeholder="%"
                                                 class="control control col-md-12" value="">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <!--finaliza mama molecular region ganglionar izquierda-->
                                     <hr>
                                     <div class="col-md-12"
@@ -1667,7 +1812,7 @@
                                             onclick="hormonono();" class="check" checked value="no">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="hormonoesquema">
-                                        <strong style="color:red;">Esquema hormonosensible</strong>
+                                        <strong style="color:red;">Inhibidores de ciclinas</strong>
                                         <select name="esquemahormonosensible" id="esquemahormonosensible"
                                             class="control control col-md-12">
                                             <option value="Sin registro">Sin registro</option>
@@ -1823,8 +1968,8 @@
                                 <br>
 
 
-                                <input type="submit" id="registrar" value="Registrar" style="width: 170px; height: 27px; color: white; background-color: #6CCD06; float: right; margin-right: 5px; auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
-                                <input type="button" id="recargar" onclick="window.location.reload();"
+                                <input type="submit"  value="Registrar" style="width: 170px; height: 27px; color: white; background-color: #6CCD06; float: right; margin-right: 5px; auto; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
+                                <input type="button" onclick="window.location.reload();"
                                     value="Cerrar formulario" style="width: 170px; height: 27px; color: white; background-color: #FA0000; float: left; margin-left: 5px; margin-top: 5px; text-decoration: none; border: none; border-radius: 15px;">
 
 
