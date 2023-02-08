@@ -18,7 +18,7 @@
 
     <div class="box1">
         <header class="headercancermama">
-          <!--  <input type="text" class="form-control" id="busqueda" name="busqueda" value="" placeholder="Buscar...">-->
+        
             <span id="cabecera">Cancer de MAMA</span>
 
         </header>
@@ -89,6 +89,7 @@
 
 require 'modals/cargaPacienteCancerdeMama.php';
 require 'modals/seguimientoCancerMama.php';
+
 
 ?>
     <script type='text/javascript'

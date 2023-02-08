@@ -11,4 +11,17 @@ $(document).ready(function(){
         });
     })
 });
+$(document).ready(function () {
+    $("#cbx_estadoedit").change(function () {
+
+        $('#cbx_localidadedit').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+
+        $("#cbx_estadoedit option:selected").each(function () {
+            id_estado = $(this).val();
+            $.post("includes/getMunicipio.php", { id_estado: id_estado }, function (data) {
+                $("#cbx_municipioedit").html(data);
+            });
+        });
+    })
+});
 

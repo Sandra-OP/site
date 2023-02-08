@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -27,7 +28,7 @@
                 <!--  <ul>
                             <li><a href="#" id="nav-text" data-toggle="modal"
                     data-target="#myModal_cargamedicamento">Cargar paciente</a></li>
-                      
+                
                     </ul>-->
             </li>
             <hr>
@@ -49,7 +50,7 @@
                 <a href="cancer">
                     <i class="fa fa-child fa-2x" id="icon-color"></i>
                     <span class="nav-text">
-                        Cancer de mama
+                        Cancer
                     </span>
                 </a>
                 <!--  <ul>

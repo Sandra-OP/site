@@ -43,7 +43,16 @@
                 <a href="cancer">
                     <i class="fa fa-child fa-2x" id="icon-color"></i>
                     <span class="nav-text">
-                        Cancer de Mama
+                        Cancer
+                    </span>
+                </a>
+            </li>
+            <hr>
+            <li class="has-subnav">
+            <a href="artritis">
+                    <i class="fa fa-hand-spock-o fa-2x" id="icon-color"></i>
+                    <span class="nav-text">
+                        Artritis
                     </span>
                 </a>
             </li>

@@ -1,3 +1,27 @@
+function soloLetras(e) {
+    textoArea = document.getElementById("curp").value;
+    var total = textoArea.length;
+    if (total == 0) {
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toString();
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; //Se define todo el abecedario que se quiere que se muestre.
+        especiales = [8, 9, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+
+        tecla_especial = false
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+            alert('No puedes comenzar escribiendo numeros');
+            return false;
+
+        }
+    }
+}
 function Edad(FechaNacimiento) {
 
     var fechaNace = new Date(FechaNacimiento);
@@ -63,6 +87,45 @@ $(document).ready(function() {
         width: '100%'
     });
 });
+
+$(document).ready(function () {
+
+    $('#sitiometastasis2').change(function (e) {
+
+
+    }).multipleSelect({
+        width: '100%'
+    });
+});
+
+$(document).ready(function () {
+
+    $('#mamaseleccion').change(function (e) {
+
+
+    }).multipleSelect({
+        width: '100%'
+    });
+});
+$(document).ready(function () {
+
+    $('#mamaseleccioninmuno').change(function (e) {
+
+
+    }).multipleSelect({
+        width: '100%'
+    });
+});
+$(document).ready(function () {
+
+    $('#mamaseleccionmolecular').change(function (e) {
+
+
+    }).multipleSelect({
+        width: '100%'
+    });
+});
+
 Date.prototype.toString = function() {
     var anyo = this.getFullYear();
     var mes = this.getMonth() + 1;
@@ -150,42 +213,73 @@ $(function() {
 
 })
 //Etapas metastasicas
-$(document).ready(function() {
 
-    $('#metastasis').change(function(e) {
-        if ($(this).val() === "M1 Con enfermedad metastasica") {
-
-            $('#metastasissitio').prop("hidden", false);
-        } else {
-            $('#metastasissitio').prop("hidden", true);
-            $('#sitiometastasis').prop("selectedIndex", 0);
-        }
-    })
-});
-
-$(function() {
-    $('#metastasissitio').prop("hidden", true);
-    $('#sitiometastasis').prop("selectedIndex", 0);
-
-
-})
 //Etapa fish
 $(document).ready(function() {
 
     $('#oncogen').change(function(e) {
         if ($(this).val() === "Dos cruces") {
 
-            $('#muestrafish').prop("hidden", false);
+            $('#fish').prop("disabled", false);
         } else {
-            $('#muestrafish').prop("hidden", true);
+            $('#fish').prop("disabled", true);
             $('#fish').prop("selectedIndex", 0);
 
         }
     })
 });
+$(document).ready(function () {
+
+    $('#oncogeniz').change(function (e) {
+        if ($(this).val() === "Dos cruces") {
+
+            $('#fishiz').prop("disabled", false);
+        } else {
+            $('#fishiz').prop("disabled", true);
+            $('#fishiz').prop("selectedIndex", 0);
+
+        }
+    })
+});
+$(document).ready(function () {
+
+    $('#oncogenrgd').change(function (e) {
+        if ($(this).val() === "Dos cruces") {
+
+            $('#fishrgd').prop("disabled", false);
+        } else {
+            $('#fishrgd').prop("disabled", true);
+            $('#fishrgd').prop("selectedIndex", 0);
+
+        }
+    })
+});
+$(document).ready(function () {
+
+    $('#oncogenizrgi').change(function (e) {
+        if ($(this).val() === "Dos cruces") {
+
+            $('#fishizrgi').prop("disabled", false);
+        } else {
+            $('#fishizrgi').prop("disabled", true);
+            $('#fishizrgi').prop("selectedIndex", 0);
+
+        }
+    })
+});
+
+
 
 $(function() {
-    $('#muestrafish').prop("hidden", true);
+    $('#fish').prop("disabled", true);
+    $('#fishiz').prop("disabled", true);
+    $('#fishrgd').prop("disabled", true);
+    $('#fishizrgi').prop("disabled", true);
+    $('#pdlrgd').prop("disabled", true);
+    $('#pdliz').prop("disabled", true);
+    $('#pdlrgiz').prop("disabled", true);
+    $('#fishizrgi').prop("disabled", true);
+    $('#fishizrgi').prop("selectedIndex", 0);
 
 })
 function calculaIMC() {
@@ -547,7 +641,7 @@ if (fecha_compare_1< fecha_compare_2){
 }
 }
 $(function() {
-    $('#menopauperimenopau').prop("hidden", true);
+    $('#menopauperimenopau').prop("hidden", false);
     
 
 })
@@ -557,27 +651,28 @@ $(document).ready(function() {
     $('#gestas').change(function(e) {
         if ($(this).val() != 0) {
 
-            $('#parto').prop("disabled", false);
-            $('#aborto').prop("disabled", false);
-            $('#cesarea').prop("disabled", false);
-            $('#cesarea').val('0');
-            $('#aborto').val('0');
-            $('#parto').val('0');
+            $('#partoid').prop("hidden", false);
+            $('#abortoid').prop("hidden", false);
+            $('#cesareaid').prop("hidden", false);
+            $('#cesarea').val('');
+            $('#aborto').val('');
+            $('#parto').val('');
+
         }else{
-            $('#parto').prop("disabled", true);
-            $('#aborto').prop("disabled", true);
-            $('#cesarea').prop("disabled", true);
-            $('#cesarea').val('0');
-            $('#aborto').val('0');
-            $('#parto').val('0');
+            $('#partoid').prop("hidden", true);
+            $('#abortoid').prop("hidden", true);
+            $('#cesareaid').prop("hidden", true);
+            $('#cesarea').val('');
+            $('#aborto').val('');
+            $('#parto').val('');
         }
 
     })
 });
 $(function(){
-    $('#parto').prop("disabled", true);
-    $('#aborto').prop("disabled", true);
-    $('#cesarea').prop("disabled", true);
+    $('#partoid').prop("hidden", true);
+    $('#abortoid').prop("hidden", true);
+    $('#cesareaid').prop("hidden", true);
 });
 function validaparto(){
     let parto = parseFloat($("#parto").val());
@@ -585,42 +680,51 @@ function validaparto(){
     let cesarea = parseFloat($("#cesarea").val());
     let cantidad = parseFloat($("#gestas").val());
         let sumauno = parto + aborto;
-        let sumauno2 = parto + cesarea;
+    let sumados = parto + cesarea;
+    let sumatres = cesarea + aborto;
 
         if(parto === cantidad){
-            $('#aborto').prop("disabled", true);
-            $('#cesarea').prop("disabled", true);
-            $('#aborto').val('0');
-            $('#cesarea').val('0');
+            $('#abortoid').prop("hidden", true);
+            $('#cesareaid').prop("hidden", true);
+            $('#aborto').val('');
+            $('#cesarea').val('');
         }else{
-            $('#aborto').prop("disabled", false);
-            $('#cesarea').prop("disabled", false);
+        $('#abortoid').prop("hidden", false);
+        $('#cesareaid').prop("hidden", false);
+    }
+    if (aborto === cantidad) {
+        $('#partoid').prop("hidden", true);
+        $('#cesareaid').prop("hidden", true);
+        $('#parto').val('');
+        $('#cesarea').val('');
+    }
+    if (cesarea === cantidad) {
+        $('#abortoid').prop("hidden", true);
+        $('#partoid').prop("hidden", true);
+        $('#parto').val('');
+        $('#aborto').val('');
         }
-        if(sumauno === cantidad || parto === cantidad){
-            $('#cesarea').prop("disabled", true);
-            $('#cesarea').val('0');
-        }else{
-            $('#cesarea').prop("disabled", false);
-        }
-        if(sumauno === cantidad || cesarea === cantidad ){
-            $('#parto').prop("disabled", true);
-            $('#aborto').prop("disabled", true);
 
-        }else{
-            $('#parto').prop("disabled", false);
-            $('#aborto').prop("disabled", false);
+    if (sumauno === cantidad) {
+        $('#cesareaid').prop("hidden", true);
+        $('#cesarea').val('');
+
         }
-        if(sumauno2 === cantidad ){
-            $('#aborto').prop("disabled", true);
+
+    if (sumados === cantidad) {
+        $('#abortoid').prop("hidden", true);
+
+            $('#aborto').val('');
+        }
+    if (sumatres === cantidad) {
+        $('#partoid').prop("hidden", true);
         
-            $('#aborto').val('0');
-        }else{
-            $('#aborto').prop("disabled", false);
+            $('#parto').val('');
         }
     if (cantidad === '0') {
-            $('#cesarea').val('0');
-            $('#aborto').val('0');
-            $('#parto').val('0');
+        $('#cesarea').val('');
+        $('#aborto').val('');
+        $('#parto').val('');
         }
         
     
@@ -1059,12 +1163,12 @@ $(document).ready(function() {
 
             $('#eventodefuncion').prop("hidden", false);
             $('#causaonco').prop("hidden", false);
-            $('#especausa').prop("hidden", false);
+
 
         } else {
             $('#eventodefuncion').prop("hidden", true);
             $('#causaonco').prop("hidden", true);
-            $('#especausa').prop("hidden", true);
+
             $('#fechadefuncion').val('');
             $('#otracausa').val('');
         
@@ -1148,6 +1252,54 @@ function aplicopdlno(){
     }
 
 }
+function aplicopdlsirgd() {
+    if ($("#pdlrealizo1rgd").val() === "si") {
+
+        $('#pdlrgd').prop("disabled", false);
+
+    }
+
+}
+function aplicopdlnorgd() {
+    if ($("#pdlrealizo2rgd").val() === "no") {
+
+        $('#pdlrgd').prop("disabled", true);
+
+    }
+
+}
+function aplicopdlsirgiz() {
+    if ($("#pdlrealizo1izrgi").val() === "si") {
+
+        $('#pdlizrgi').prop("disabled", false);
+
+    }
+
+}
+function aplicopdlnorgiz() {
+    if ($("#pdlrealizo2izrgi").val() === "no") {
+
+        $('#pdlizrgi').prop("disabled", true);
+
+    }
+
+}
+function aplicopdlsimmiz() {
+    if ($("#pdlrealizo1iz").val() === "si") {
+
+        $('#pdliz').prop("disabled", false);
+
+    }
+
+}
+function aplicopdlnommiz() {
+    if ($("#pdlrealizo2iz").val() === "no") {
+
+        $('#pdliz').prop("disabled", true);
+
+    }
+
+}
 function defusi() {
     if ($("#defunsionsi").val() === "si") {
 
@@ -1170,10 +1322,12 @@ function defuno() {
 
 $(function() {
     $('#pdl').prop("disabled", true);
+    $('#pdliz').prop("disabled", true);
     $('#defuncionfecha').prop("hidden", true);
     $('#defuncioncausa').prop("hidden", true);
     $('#causadefuncion').prop("selectedIndex", 0);
     $('#fechadeladefuncion').val('');
+    $('#pdlizrgi').prop("disabled", true);
 
 })
 
@@ -1201,17 +1355,491 @@ $(function() {
 })
 $(document).ready(function () {
     $("#tipodecancer").change(function (e) {
-        if ($(this).val() != "0") {
+        if ($(this).val() == "Cancer de ovario") {
 
-            $('#antecedentesfamiliares').prop("hidden", false);
+            $('#familiarescancer').prop("hidden", false);
+        } else if ($(this).val() == "Cancer de mama") {
 
+            $('#familiarescancer').prop("hidden", false);
+            $('#COv').prop("disabled", true);
+        }
+        else if (tipodecancer.options[1].selected == false) {
 
-    } else if ($(this).val() === "0") {
-        $('#antecedentesfamiliares').prop("hidden", true);
-    }
+            $('#familiarescancer').prop("hidden", true);
+        } else if (tipodecancer.options[1].selected == true) {
+
+            $('#familiarescancer').prop("hidden", false);
+        }
 
     })
 });
+
+$(document).ready(function () {
+    $("#tipodecancer").change(function (e) {
+
+        if (tipodecancer.options[0].selected == true) {
+            //alert('Esta opción no está disponible');
+            tipodecancer.options[1].selected == true;
+            $('#familiarescancer').prop("hidden", true);
+
+
+        }
+
+    })
+});
+
+$(document).ready(function () {
+    $("#metastasis").change(function (e) {
+
+        if (metastasis.options[3].selected == true) {
+            //alert('Esta opción no está disponible');
+            //tipodecancer.options[1].selected == true;
+            $('#metastasissitio').prop("hidden", false);
+
+
+        } else if (metastasis.options[0].selected == true || metastasis.options[1].selected == true || metastasis.options[2].selected == true) {
+            $('#metastasissitio').prop("hidden", true);
+            $("#sitiometastasis2 option").prop("selected", false);
+
+
+
+        }
+
+    })
+});
+
+$(document).ready(function () {
+    $("#otracausa").change(function (e) {
+
+        if (otracausa.options[3].selected == true) {
+            //alert('Esta opción no está disponible');
+            //tipodecancer.options[1].selected == true;
+            $('#especausa').prop("hidden", false);
+
+
+        } else if (otracausa.options[0].selected == true || otracausa.options[1].selected == true || otracausa.options[2].selected == true) {
+            $('#especausa').prop("hidden", true);
+            $('#especifiquecausa').val('');
+        }
+
+    })
+});
+
+$(document).ready(function () {
+    $("#mastectomiaextrainstitucional").change(function (e) {
+
+        if (mastectomiaextrainstitucional.options[1].selected == true) {
+            //alert('Esta opción no está disponible');
+            //tipodecancer.options[1].selected == true;
+            $('#mstectoextra1').prop("hidden", false);
+            $('#mstectoextra2').prop("hidden", false);
+
+
+        } else if (mastectomiaextrainstitucional.options[2].selected == true) {
+            $('#mstectoextra1').prop("hidden", true);
+            $('#mstectoextra2').prop("hidden", true);
+            $('#lateralidadextrainstitucional').prop("selectedIndex", 0);
+            $('#fechamastectoextra').val('0000/00/00')
+        } else if (mastectomiaextrainstitucional.options[0].selected == true) {
+            $('#mstectoextra1').prop("hidden", true);
+            $('#mstectoextra2').prop("hidden", true);
+            $('#lateralidadextrainstitucional').prop("selectedIndex", 0);
+            $('#fechamastectoextra').val('0000/00/00')
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccion").change(function (e) {
+
+        if (mamaseleccion.options[0].selected == true) {
+
+            $('#dxhisto').prop("hidden", false);
+            $('#fechadx').prop("hidden", false);
+            $('#nothin').prop("hidden", false);
+            $('#escala').prop("hidden", false);
+            $('#titulomamaderecha').prop("hidden", false);
+        } else if (mamaseleccion.options[0].selected == false) {
+            $('#dxhisto').prop("hidden", true);
+            $('#fechadx').prop("hidden", true);
+            $('#nothin').prop("hidden", true);
+            $('#escala').prop("hidden", true);
+            $('#titulomamaderecha').prop("hidden", true);
+            $('#dxhistopatologico').prop('selectedIndex', 0);
+            $('#fechadxhistopatologico').val('0000/00/00');
+            $('#nottingham').prop('selectedIndex', 0);
+            $('#escalasbr').prop('selectedIndex', 0);
+
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccion").change(function (e) {
+
+        if (mamaseleccion.options[1].selected == true) {
+
+            $('#dxhistorgd').prop("hidden", false);
+            $('#fechadxrgd').prop("hidden", false);
+            $('#nothinrgd').prop("hidden", false);
+            $('#escalargd').prop("hidden", false);
+            $('#titulomamaderechargd').prop("hidden", false);
+        } else if (mamaseleccion.options[1].selected == false) {
+            $('#dxhistorgd').prop("hidden", true);
+            $('#fechadxrgd').prop("hidden", true);
+            $('#nothinrgd').prop("hidden", true);
+            $('#escalargd').prop("hidden", true);
+            $('#titulomamaderechargd').prop("hidden", true);
+            $('#dxhistopatologicorgd').prop('selectedIndex', 0);
+            $('#fechadxhistopatologicorgd').val('0000/00/00');
+            $('#nottinghamrgd').prop('selectedIndex', 0);
+            $('#escalasbrrgd').prop('selectedIndex', 0);
+
+        }
+
+    })
+});
+
+$(document).ready(function () {
+    $("#mamaseleccion").change(function (e) {
+
+        if (mamaseleccion.options[2].selected == true) {
+
+            $('#dxhistoiz').prop("hidden", false);
+            $('#fechadxiz').prop("hidden", false);
+            $('#nothiniz').prop("hidden", false);
+            $('#escalaiz').prop("hidden", false);
+            $('#titulomamaizquierda').prop("hidden", false);
+        } else if (mamaseleccion.options[2].selected == false) {
+            $('#dxhistoiz').prop("hidden", true);
+            $('#fechadxiz').prop("hidden", true);
+            $('#nothiniz').prop("hidden", true);
+            $('#escalaiz').prop("hidden", true);
+            $('#titulomamaizquierda').prop("hidden", true);
+            $('#dxhistopatologicoiz').prop('selectedIndex', 0);
+            $('#fechadxhistopatologicoiz').val('0000/00/00');
+            $('#nottinghamiz').prop('selectedIndex', 0);
+            $('#escalasbriz').prop('selectedIndex', 0);
+
+
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccion").change(function (e) {
+
+        if (mamaseleccion.options[3].selected == true) {
+
+            $('#dxhistorgi').prop("hidden", false);
+            $('#fechadxrgi').prop("hidden", false);
+            $('#nothinrgi').prop("hidden", false);
+            $('#escalargi').prop("hidden", false);
+            $('#titulomamaderechargi').prop("hidden", false);
+        } else if (mamaseleccion.options[3].selected == false) {
+            $('#dxhistorgi').prop("hidden", true);
+            $('#fechadxrgi').prop("hidden", true);
+            $('#nothinrgi').prop("hidden", true);
+            $('#escalargi').prop("hidden", true);
+            $('#titulomamaderechargi').prop("hidden", true);
+            $('#dxhistopatologicorgi').prop('selectedIndex', 0);
+            $('#fechadxhistopatologicorgi').val('0000/00/00');
+            $('#nottinghamrgi').prop('selectedIndex', 0);
+            $('#escalasbrrgi').prop('selectedIndex', 0);
+
+        }
+
+    })
+});
+/*mama inmuno*/
+$(document).ready(function () {
+    $("#mamaseleccioninmuno").change(function (e) {
+
+        if (mamaseleccioninmuno.options[0].selected == true) {
+
+            $('#inmunoderecha1').prop("hidden", false);
+            $('#inmunoderecha2').prop("hidden", false);
+            $('#inmunoderecha3').prop("hidden", false);
+            $('#inmunoderecha4').prop("hidden", false);
+            $('#inmunoderecha5').prop("hidden", false);
+            $('#inmunoderecha6').prop("hidden", false);
+            $('#inmunoderecha7').prop("hidden", false);
+            $('#inmunoderecha8').prop("hidden", false);
+            $('#inmunoderecha9').prop("hidden", false);
+            $('#inmunoderecha10').prop("hidden", false);
+            $('#tituloinmunomamaderecha').prop("hidden", false);
+        } else if (mamaseleccion.options[0].selected == false) {
+            $('#inmunoderecha1').prop("hidden", true);
+            $('#inmunoderecha2').prop("hidden", true);
+            $('#inmunoderecha3').prop("hidden", true);
+            $('#inmunoderecha4').prop("hidden", true);
+            $('#inmunoderecha5').prop("hidden", true);
+            $('#inmunoderecha6').prop("hidden", true);
+            $('#inmunoderecha7').prop("hidden", true);
+            $('#inmunoderecha8').prop("hidden", true);
+            $('#inmunoderecha9').prop("hidden", true);
+            $('#inmunoderecha10').prop("hidden", true);
+            $('#tituloinmunomamaderecha').prop("hidden", true);
+
+            $('#receptoresestrogenos').val('');
+            $('#receptoresprogesterona').val('');
+            $('#ki67').val('');
+            $('#k').val('');
+            $('#p53').prop('selectedIndex', 0);
+            $('#triplenegativo').prop('selectedIndex', 0);
+            $('#pdl').val('');
+            $('#oncogen').prop('selectedIndex', 0);
+            $('#fish').prop('selectedIndex', 0);
+            $('#fish').prop('disabled', true);
+
+
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccioninmuno").change(function (e) {
+
+        if (mamaseleccioninmuno.options[1].selected == true) {
+
+            $('#inmunoderecha1rgd').prop("hidden", false);
+            $('#inmunoderecha2rgd').prop("hidden", false);
+            $('#inmunoderecha3rgd').prop("hidden", false);
+            $('#inmunoderecha4rgd').prop("hidden", false);
+            $('#inmunoderecha5rgd').prop("hidden", false);
+            $('#inmunoderecha6rgd').prop("hidden", false);
+            $('#inmunoderecha7rgd').prop("hidden", false);
+            $('#inmunoderecha8rgd').prop("hidden", false);
+            $('#inmunoderecha9rgd').prop("hidden", false);
+            $('#inmunoderecha10rgd').prop("hidden", false);
+            $('#tituloinmunomamaderechargd').prop("hidden", false);
+        } else if (mamaseleccion.options[1].selected == false) {
+            $('#inmunoderecha1rgd').prop("hidden", true);
+            $('#inmunoderecha2rgd').prop("hidden", true);
+            $('#inmunoderecha3rgd').prop("hidden", true);
+            $('#inmunoderecha4rgd').prop("hidden", true);
+            $('#inmunoderecha5rgd').prop("hidden", true);
+            $('#inmunoderecha6rgd').prop("hidden", true);
+            $('#inmunoderecha7rgd').prop("hidden", true);
+            $('#inmunoderecha8rgd').prop("hidden", true);
+            $('#inmunoderecha9rgd').prop("hidden", true);
+            $('#inmunoderecha10rgd').prop("hidden", true);
+            $('#tituloinmunomamaderechargd').prop("hidden", true);
+
+            $('#receptoresestrogenosrgd').val('');
+            $('#receptoresprogesteronargd').val('');
+            $('#ki67rgd').val('');
+            $('#krgd').val('');
+            $('#p53rgd').prop('selectedIndex', 0);
+            $('#triplenegativorgd').prop('selectedIndex', 0);
+            $('#pdlrgd').val('');
+            $('#oncogenrgd').prop('selectedIndex', 0);
+            $('#fishrgd').prop('selectedIndex', 0);
+            $('#fishrgd').prop('disabled', true);
+
+
+        }
+
+    })
+});
+
+$(document).ready(function () {
+    $("#mamaseleccioninmuno").change(function (e) {
+
+        if (mamaseleccioninmuno.options[2].selected == true) {
+
+            $('#inmunoderechaiz1').prop("hidden", false);
+            $('#inmunoderechaiz2').prop("hidden", false);
+            $('#inmunoderechaiz3').prop("hidden", false);
+            $('#inmunoderechaiz4').prop("hidden", false);
+            $('#inmunoderechaiz5').prop("hidden", false);
+            $('#inmunoderechaiz6').prop("hidden", false);
+            $('#inmunoderechaiz7').prop("hidden", false);
+            $('#inmunoderechaiz8').prop("hidden", false);
+            $('#inmunoderechaiz9').prop("hidden", false);
+            $('#inmunoderechaiz10').prop("hidden", false);
+            $('#tituloinmunomamaizquierda').prop("hidden", false);
+        } else if (mamaseleccion.options[2].selected == false) {
+            $('#inmunoderechaiz1').prop("hidden", true);
+            $('#inmunoderechaiz2').prop("hidden", true);
+            $('#inmunoderechaiz3').prop("hidden", true);
+            $('#inmunoderechaiz4').prop("hidden", true);
+            $('#inmunoderechaiz5').prop("hidden", true);
+            $('#inmunoderechaiz6').prop("hidden", true);
+            $('#inmunoderechaiz7').prop("hidden", true);
+            $('#inmunoderechaiz8').prop("hidden", true);
+            $('#inmunoderechaiz9').prop("hidden", true);
+            $('#inmunoderechaiz10').prop("hidden", true);
+            $('#tituloinmunomamaizquierda').prop("hidden", true);
+
+            $('#receptoresestrogenosiz').val('');
+            $('#receptoresprogesteronaiz').val('');
+            $('#ki67iz').val('');
+            $('#kiz').val('');
+            $('#p53iz').prop('selectedIndex', 0);
+            $('#triplenegativoiz').prop('selectedIndex', 0);
+            $('#pdliz').val('');
+            $('#oncogeniz').prop('selectedIndex', 0);
+            $('#fishiz').prop('selectedIndex', 0);
+            $('#fishiz').prop('disabled', true);
+
+
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccioninmuno").change(function (e) {
+
+        if (mamaseleccioninmuno.options[3].selected == true) {
+
+            $('#inmunoderechaiz1rgi').prop("hidden", false);
+            $('#inmunoderechaiz2rgi').prop("hidden", false);
+            $('#inmunoderechaiz3rgi').prop("hidden", false);
+            $('#inmunoderechaiz4rgi').prop("hidden", false);
+            $('#inmunoderechaiz5rgi').prop("hidden", false);
+            $('#inmunoderechaiz6rgi').prop("hidden", false);
+            $('#inmunoderechaiz7rgi').prop("hidden", false);
+            $('#inmunoderechaiz8rgi').prop("hidden", false);
+            $('#inmunoderechaiz9rgi').prop("hidden", false);
+            $('#inmunoderechaiz10rgi').prop("hidden", false);
+            $('#tituloinmunomamaizquierdargi').prop("hidden", false);
+        } else if (mamaseleccion.options[3].selected == false) {
+            $('#inmunoderechaiz1rgi').prop("hidden", true);
+            $('#inmunoderechaiz2rgi').prop("hidden", true);
+            $('#inmunoderechaiz3rgi').prop("hidden", true);
+            $('#inmunoderechaiz4rgi').prop("hidden", true);
+            $('#inmunoderechaiz5rgi').prop("hidden", true);
+            $('#inmunoderechaiz6rgi').prop("hidden", true);
+            $('#inmunoderechaiz7rgi').prop("hidden", true);
+            $('#inmunoderechaiz8rgi').prop("hidden", true);
+            $('#inmunoderechaiz9rgi').prop("hidden", true);
+            $('#inmunoderechaiz10rgi').prop("hidden", true);
+            $('#tituloinmunomamaizquierdargi').prop("hidden", true);
+
+            $('#receptoresestrogenosizrgi').val('');
+            $('#receptoresprogesteronaizrgi').val('');
+            $('#ki67izrgi').val('');
+            $('#kizrgi').val('');
+            $('#p53izrgi').prop('selectedIndex', 0);
+            $('#triplenegativoizrgi').prop('selectedIndex', 0);
+            $('#pdlizrgi').val('');
+            $('#oncogenizrgi').prop('selectedIndex', 0);
+            $('#fishizrgi').prop('selectedIndex', 0);
+            $('#fishizrgi').prop('disabled', true);
+
+
+        }
+
+    })
+});
+/*finaliza mama inmuno*/
+/*inicia mama molecular*/
+$(document).ready(function () {
+    $("#mamaseleccionmolecular").change(function (e) {
+
+        if (mamaseleccionmolecular.options[0].selected == true) {
+
+            $('#luminal1').prop('hidden', false);
+            $('#luminal2').prop('hidden', false);
+            $('#luminal3').prop('hidden', false);
+            $('#luminal4').prop('hidden', false);
+            $('#titulomolecularmamaderecha').prop("hidden", false);
+        } else if (mamaseleccionmolecular.options[0].selected == false) {
+            $('#luminal1').prop('hidden', true);
+            $('#luminal2').prop('hidden', true);
+            $('#luminal3').prop('hidden', true);
+            $('#luminal4').prop('hidden', true);
+            $('#titulomolecularmamaderecha').prop("hidden", true);
+            $('#luminala').val('');
+            $('#luminalb').val('');
+            $('#enriquecidoherdos').val('');
+            $('#basal').val('');
+
+
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccionmolecular").change(function (e) {
+
+        if (mamaseleccionmolecular.options[1].selected == true) {
+
+            $('#luminal1mmrgd').prop('hidden', false);
+            $('#luminal2mmrgd').prop('hidden', false);
+            $('#luminal3mmrgd').prop('hidden', false);
+            $('#luminal4mmrgd').prop('hidden', false);
+            $('#titulomolecularmamaderechammrgd').prop("hidden", false);
+        } else if (mamaseleccionmolecular.options[1].selected == false) {
+            $('#luminal1mmrgd').prop('hidden', true);
+            $('#luminal2mmrgd').prop('hidden', true);
+            $('#luminal3mmrgd').prop('hidden', true);
+            $('#luminal4mmrgd').prop('hidden', true);
+            $('#titulomolecularmamaderechammrgd').prop("hidden", true);
+            $('#luminalammrgd').val('');
+            $('#luminalbmmrgd').val('');
+            $('#enriquecidoherdosmmrgd').val('');
+            $('#basalmmrgd').val('');
+
+
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccionmolecular").change(function (e) {
+
+        if (mamaseleccionmolecular.options[2].selected == true) {
+
+            $('#luminal5').prop('hidden', false);
+            $('#luminal6').prop('hidden', false);
+            $('#luminal7').prop('hidden', false);
+            $('#luminal8').prop('hidden', false);
+            $('#titulomolecularmamaizquierda').prop("hidden", false);
+        } else if (mamaseleccionmolecular.options[2].selected == false) {
+            $('#luminal5').prop('hidden', true);
+            $('#luminal6').prop('hidden', true);
+            $('#luminal7').prop('hidden', true);
+            $('#luminal8').prop('hidden', true);
+            $('#titulomolecularmamaizquierda').prop("hidden", true);
+            $('#luminalaiz').val('');
+            $('#luminalbiz').val('');
+            $('#enriquecidoherdosiz').val('');
+            $('#basaliz').val('');
+
+
+        }
+
+    })
+});
+$(document).ready(function () {
+    $("#mamaseleccionmolecular").change(function (e) {
+
+        if (mamaseleccionmolecular.options[3].selected == true) {
+
+            $('#luminal5mmrgi').prop('hidden', false);
+            $('#luminal6mmrgi').prop('hidden', false);
+            $('#luminal7mmrgi').prop('hidden', false);
+            $('#luminal8mmrgi').prop('hidden', false);
+            $('#titulomolecularmamaizquierdammrgi').prop("hidden", false);
+        } else if (mamaseleccionmolecular.options[2].selected == false) {
+            $('#luminal5mmrgi').prop('hidden', true);
+            $('#luminal6mmrgi').prop('hidden', true);
+            $('#luminal7mmrgi').prop('hidden', true);
+            $('#luminal8mmrgi').prop('hidden', true);
+            $('#titulomolecularmamaizquierdammrgi').prop("hidden", true);
+            $('#luminalaizmmrgi').val('');
+            $('#luminalbizmmrgi').val('');
+            $('#enriquecidoherdosizmmrgi').val('');
+            $('#basalizmmrgi').val('');
+
+
+        }
+
+    })
+});
+
 /*finaliza lactancia*/
 /*cuidados paliativos*/
 $(document).ready(function() {
@@ -1230,17 +1858,20 @@ $(document).ready(function() {
 });
 $(document).ready(function () {
 
-    $('#tipodecancer').change(function (e) {
-        if ($(this).val() === "Sin antecedentes") {
+    $('#embarazada').change(function (e) {
+        if ($(this).val() === "Si") {
 
-            $('#familiarescancer').prop("hidden", true);
+            $('#probableparto').prop("hidden", false);
         } else {
-            $('#familiarescancer').prop("hidden", false);
+            $('#probableparto').prop("hidden", true);
+            $('#fechaprobableparto').val('0000/00/00');
         
         }
     
     })
 });
+
+
 
 $(function() {
     $('#paliativaclinica').prop("hidden", true);
@@ -1251,6 +1882,177 @@ $(function() {
     $('#quimiono4').prop("hidden", true);
     $('#quimiono5').prop("hidden", true);
     $('#familiarescancer').prop("hidden", true);
+    $('#probableparto').prop("hidden", true);
+    $('#fechaprobableparto').val('0000/00/00');
+    $('#dxhisto').prop("hidden", true);
+    $('#fechadx').prop("hidden", true);
+    $('#nothin').prop("hidden", true);
+    $('#escala').prop("hidden", true);
+
+    $('#dxhistoiz').prop("hidden", true);
+    $('#fechadxiz').prop("hidden", true);
+    $('#nothiniz').prop("hidden", true);
+    $('#escalaiz').prop("hidden", true);
+
+    $('#dxhistoambas').prop("hidden", true);
+    $('#fechadxambas').prop("hidden", true);
+    $('#nothinambas').prop("hidden", true);
+    $('#escalaambas').prop("hidden", true);
+
+    $('#mstectoextra1').prop("hidden", true);
+    $('#mstectoextra2').prop("hidden", true);
+
+    $('#lateralidadextrainstitucional').prop("selectedIndex", 0);
+    $('#fechamastectoextra').val('0000/00/00');
+
+    $('#especausa').prop("hidden", true);
+    $('#metastasissitio').prop("hidden", true);
+    $('#titulomamaizquierda').prop("hidden", true);
+    $('#titulomamaderecha').prop("hidden", true);
+
+    $('#tituloinmunomamaderecha').prop("hidden", true);
+    $('#tituloinmunomamaizquierda').prop("hidden", true);
+    $('#inmunoderecha1').prop("hidden", true);
+    $('#inmunoderecha2').prop("hidden", true);
+    $('#inmunoderecha3').prop("hidden", true);
+    $('#inmunoderecha4').prop("hidden", true);
+    $('#inmunoderecha5').prop("hidden", true);
+    $('#inmunoderecha6').prop("hidden", true);
+    $('#inmunoderecha7').prop("hidden", true);
+    $('#inmunoderecha8').prop("hidden", true);
+    $('#inmunoderecha9').prop("hidden", true);
+    $('#inmunoderecha10').prop("hidden", true);
+
+    $('#inmunoderechaiz1').prop("hidden", true);
+    $('#inmunoderechaiz2').prop("hidden", true);
+    $('#inmunoderechaiz3').prop("hidden", true);
+    $('#inmunoderechaiz4').prop("hidden", true);
+    $('#inmunoderechaiz5').prop("hidden", true);
+    $('#inmunoderechaiz6').prop("hidden", true);
+    $('#inmunoderechaiz7').prop("hidden", true);
+    $('#inmunoderechaiz8').prop("hidden", true);
+    $('#inmunoderechaiz9').prop("hidden", true);
+    $('#inmunoderechaiz10').prop("hidden", true);
+
+    $('#receptoresestrogenos').val('');
+    $('#receptoresprogesterona').val('');
+    $('#ki67').val('');
+    $('#k').val('');
+    $('#p53').prop('selectedIndex', 0);
+    $('#triplenegativo').prop('selectedIndex', 0);
+    $('#pdl').val('');
+    $('#oncogen').prop('selectedIndex', 0);
+    $('#fish').prop('selectedIndex', 0);
+    $('#fish').prop('disabled', true);
+
+    $('#receptoresestrogenosiz').val('');
+    $('#receptoresprogesteronaiz').val('');
+    $('#ki67iz').val('');
+    $('#kiz').val('');
+    $('#p53iz').prop('selectedIndex', 0);
+    $('#triplenegativoiz').prop('selectedIndex', 0);
+    $('#pdliz').val('');
+    $('#oncogeniz').prop('selectedIndex', 0);
+    $('#fishiz').prop('selectedIndex', 0);
+    $('#fishiz').prop('disabled', true);
+
+    $('#luminal1').prop('hidden', true);
+    $('#luminal2').prop('hidden', true);
+    $('#luminal3').prop('hidden', true);
+    $('#luminal4').prop('hidden', true);
+    $('#titulomolecularmamaderecha').prop("hidden", true);
+
+    $('#luminal5').prop('hidden', true);
+    $('#luminal6').prop('hidden', true);
+    $('#luminal7').prop('hidden', true);
+    $('#luminal8').prop('hidden', true);
+    $('#titulomolecularmamaizquierda').prop("hidden", true);
+
+    $('#dxhistorgd').prop("hidden", true);
+    $('#fechadxrgd').prop("hidden", true);
+    $('#nothinrgd').prop("hidden", true);
+    $('#escalargd').prop("hidden", true);
+    $('#titulomamaderechargd').prop("hidden", true);
+    $('#dxhistopatologicorgd').prop('selectedIndex', 0);
+    $('#fechadxhistopatologicorgd').val('0000/00/00');
+    $('#nottinghamrgd').prop('selectedIndex', 0);
+    $('#escalasbrrgd').prop('selectedIndex', 0);
+
+    $('#dxhistorgi').prop("hidden", true);
+    $('#fechadxrgi').prop("hidden", true);
+    $('#nothinrgi').prop("hidden", true);
+    $('#escalargi').prop("hidden", true);
+    $('#titulomamaderechargi').prop("hidden", true);
+    $('#dxhistopatologicorgi').prop('selectedIndex', 0);
+    $('#fechadxhistopatologicorgi').val('0000/00/00');
+    $('#nottinghamrgi').prop('selectedIndex', 0);
+    $('#escalasbrrgi').prop('selectedIndex', 0);
+
+    $('#inmunoderecha1rgd').prop("hidden", true);
+    $('#inmunoderecha2rgd').prop("hidden", true);
+    $('#inmunoderecha3rgd').prop("hidden", true);
+    $('#inmunoderecha4rgd').prop("hidden", true);
+    $('#inmunoderecha5rgd').prop("hidden", true);
+    $('#inmunoderecha6rgd').prop("hidden", true);
+    $('#inmunoderecha7rgd').prop("hidden", true);
+    $('#inmunoderecha8rgd').prop("hidden", true);
+    $('#inmunoderecha9rgd').prop("hidden", true);
+    $('#inmunoderecha10rgd').prop("hidden", true);
+    $('#tituloinmunomamaderechargd').prop("hidden", true);
+
+    $('#receptoresestrogenosrgd').val('');
+    $('#receptoresprogesteronargd').val('');
+    $('#ki67rgd').val('');
+    $('#krgd').val('');
+    $('#p53rgd').prop('selectedIndex', 0);
+    $('#triplenegativorgd').prop('selectedIndex', 0);
+    $('#pdlrgd').val('');
+    $('#oncogenrgd').prop('selectedIndex', 0);
+    $('#fishrgd').prop('selectedIndex', 0);
+    $('#fishrgd').prop('disabled', true);
+
+    $('#inmunoderechaiz1rgi').prop("hidden", true);
+    $('#inmunoderechaiz2rgi').prop("hidden", true);
+    $('#inmunoderechaiz3rgi').prop("hidden", true);
+    $('#inmunoderechaiz4rgi').prop("hidden", true);
+    $('#inmunoderechaiz5rgi').prop("hidden", true);
+    $('#inmunoderechaiz6rgi').prop("hidden", true);
+    $('#inmunoderechaiz7rgi').prop("hidden", true);
+    $('#inmunoderechaiz8rgi').prop("hidden", true);
+    $('#inmunoderechaiz9rgi').prop("hidden", true);
+    $('#inmunoderechaiz10rgi').prop("hidden", true);
+    $('#tituloinmunomamaizquierdargi').prop("hidden", true);
+
+    $('#receptoresestrogenosizrgi').val('');
+    $('#receptoresprogesteronaizrgi').val('');
+    $('#ki67izrgi').val('');
+    $('#kizrgi').val('');
+    $('#p53izrgi').prop('selectedIndex', 0);
+    $('#triplenegativoizrgi').prop('selectedIndex', 0);
+    $('#pdlizrgi').val('');
+    $('#oncogenizrgi').prop('selectedIndex', 0);
+    $('#fishizrgi').prop('selectedIndex', 0);
+    $('#fishizrgi').prop('disabled', true);
+
+    $('#luminal1mmrgd').prop('hidden', true);
+    $('#luminal2mmrgd').prop('hidden', true);
+    $('#luminal3mmrgd').prop('hidden', true);
+    $('#luminal4mmrgd').prop('hidden', true);
+    $('#titulomolecularmamaderechammrgd').prop("hidden", true);
+    $('#luminalammrgd').val('');
+    $('#luminalbmmrgd').val('');
+    $('#enriquecidoherdosmmrgd').val('');
+    $('#basalmmrgd').val('');
+
+    $('#luminal5mmrgi').prop('hidden', true);
+    $('#luminal6mmrgi').prop('hidden', true);
+    $('#luminal7mmrgi').prop('hidden', true);
+    $('#luminal8mmrgi').prop('hidden', true);
+    $('#titulomolecularmamaizquierdammrgi').prop("hidden", true);
+    $('#luminalaizmmrgi').val('');
+    $('#luminalbizmmrgi').val('');
+    $('#enriquecidoherdosizmmrgi').val('');
+    $('#basalizmmrgi').val('');
 
 
 })

@@ -4,11 +4,11 @@ include("../conexionCancer.php");
     extract($_POST);
 
 
-        $sql = $conexionCancer->prepare("INSERT INTO seguimientocancer(fechainiciovigilancia, progresionenfermedad, fechadxprogresion, recurrenciaenfermedad, fecharecurrencia, ameritareintervencion, fechareintervencion, lateralidad, ameritanuevaqt, fechanuevaqt, tiponuevaqt, tratamientoqt, ameritaradioterapia,
-        tiporadioterapia, fechainicioradio, numerosesiones, ameritabraquiterapia, fechainiciobraquiterapia, cuidadospaliativos, tipocuidadopaliativo, protocoloclinico, protocoloinvestigacion, id_paciente) values(:fechainiciovigilancia, :progresionenfermedad, :fechadxprogresion, :recurrenciaenfermedad, :fecharecurrencia, :ameritareintervencion, :fechareintervencion, :lateralidad, :ameritanuevaqt, :fechanuevaqt, :tiponuevaqt, :tratamientoqt, :ameritaradioterapia,
+        $sql = $conexionCancer->prepare("INSERT INTO seguimientocancer(calidadvidaecog, progresionenfermedad, fechadxprogresion, recurrenciaenfermedad, fecharecurrencia, ameritareintervencion, fechareintervencion, lateralidad, ameritanuevaqt, fechanuevaqt, tiponuevaqt, tratamientoqt, ameritaradioterapia,
+        tiporadioterapia, fechainicioradio, numerosesiones, ameritabraquiterapia, fechainiciobraquiterapia, cuidadospaliativos, tipocuidadopaliativo, protocoloclinico, protocoloinvestigacion, id_paciente) values(:calidadvidaecog, :progresionenfermedad, :fechadxprogresion, :recurrenciaenfermedad, :fecharecurrencia, :ameritareintervencion, :fechareintervencion, :lateralidad, :ameritanuevaqt, :fechanuevaqt, :tiponuevaqt, :tratamientoqt, :ameritaradioterapia,
         :tiporadioterapia, :fechainicioradio, :numerosesiones, :ameritabraquiterapia, :fechainiciobraquiterapia, :cuidadospaliativos, :tipocuidadopaliativo, :protocoloclinico, :protocoloinvestigacion, :id_paciente)");
         
-                $sql->bindParam(':fechainiciovigilancia',$fechainiciovigilancia,PDO::PARAM_STR);
+                $sql->bindParam(':calidadvidaecog',$calidadvidaecog,PDO::PARAM_STR);
                 $sql->bindParam(':progresionenfermedad',$progresionenfermedad,PDO::PARAM_STR);
                 $sql->bindParam(':fechadxprogresion',$fechadxprogresion,PDO::PARAM_STR);
                 $sql->bindParam(':recurrenciaenfermedad',$recurrencianenfermedad,PDO::PARAM_STR);

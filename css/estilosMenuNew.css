@@ -134,9 +134,9 @@ nav.main-menu li.active>a,
 .dropdown-menu>.active>a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {
-  color: white;
-  background-color: #5fa2db;
-  width: 100%;
+   color: white;
+  background-color: #babcbf;
+    width: 100%;
 
 }
 
@@ -250,7 +250,7 @@ hr{
 }
 
 .card:hover {
-  box-shadow: 10px 5px 5px green;
+  box-shadow: 10px 5px 5px rgb(0, 23, 176);
 
 }
 
@@ -588,7 +588,13 @@ p:hover {
   background-position: 85% 90%;
 
 }
+#cancer-bucal {
+  background-image: url(../img/cancer_bucal.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
 
+}
 #infartoelevacion {
   background-image: url(../img/INFARTOELEVACION.jpg);
   background-repeat: no-repeat;
@@ -734,8 +740,22 @@ p:hover {
 
 }
 
-#evc {
-  background-image: url(../img/evc.jpg);
+#paladarhendido {
+  background-image: url(../img/paladarhendido.jpeg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#lupus {
+  background-image: url(../img/lupus.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#creheer {
+  background-image: url(../img/creheer.jpg);
   background-repeat: no-repeat;
   background-size: 70% 70%;
   background-position: 85% 90%;

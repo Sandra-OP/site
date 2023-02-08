@@ -52,7 +52,7 @@
                 <a href="cancer">
                     <i class="fa fa-child fa-2x" id="icon-color"></i>
                     <span class="nav-text">
-                        Cancer de mama
+                        Cancer
                     </span>
                 </a>
                 <!--  <ul>

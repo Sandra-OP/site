@@ -1,80 +1,73 @@
-<?php ob_start("comprimir_pagina"); 
- // Función para eliminar todos los espacios en blanco
-
-function comprimir_pagina($buffer) {
-
-    $search = array(
-        '/\>[^\S ]+/s',     // elimina espacios en blanco después de las etiquetas, excepto el espacio
-        '/[^\S ]+\</s',     // elimina en blanco antes de las etiquetas, excepto el espacio
-        '/(\s)+/s',         // Acortar múltiples secuencias de espacios en blanco.
-        '/<!--(.|\s)*?-->/' // Borrar comentarios html
-    );
- 
-    $replace = array(
-        '>',
-        '<',
-        '\\1',
-        ''
-    );
- 
-    $buffer = preg_replace($search, $replace, $buffer);
- 
-    return $buffer;
-    
-   }
-?>
 <div class="modal fade in" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" id="pacienteconelevacion">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="css/estilosMenu.css" rel="stylesheet">
+       
     <script src="js/getCatalogos.js"></script>
     <script src="js/scriptModalvalidacionCE.js"></script>
+    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
     <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <style>
     #datos_paciente{
         display: block;
-        font-family: italic;
+        font-family: arial;
         white-space: nowrap;
-        border-right: 4px solid;
-        width: 18ch;
+       
+        width: 15ch;
         font-size: 22px;
-        animation: typing 2s steps(18),
-        blink .5s infinite step-end alternate;
-        overflow: hidden;
-    }
-    @keyframes typing {
-        from { width: 0}
-    }
-    @keyframes blink {
-        50% { border-color: transparent}
-    }
 
-    .form-title{
-        display: block;
-        font-family: italic;
-        white-space: nowrap;
-        border-right: 4px solid;
-        width: 100%;
-        font-size: 28px;
-        text-align: center; color:blueviolet; background-color:antiquewhite; margin-top: 5px;
         /*animation: typing 2s steps(18),
         blink .5s infinite step-end alternate;
         overflow: hidden;*/
     }
-    strong{
-        font-family: italic;
-        /*white-space: nowrap;*/ 
-        font-size: 12px;
-    }
+    
 
+    .form-title{
+        display: block;
+        font-family: arial;
+       /* white-space: nowrap;*/
+       
+        width: 100%;
+        font-size: 28px;
+        text-align: center; 
+        color:blueviolet; 
+        background-color:antiquewhite; 
+        margin-top: 5px;
+        /*animation: typing 2s steps(18),
+        blink .5s infinite step-end alternate;
+        overflow: hidden; */
+    }
+    strong{
+        font-family: arial;
+        font-size: 13px;
+        /*white-space: nowrap;*/ 
+    }
+    #inmuno-title{
+        font-family: arial;
+        font-size: 13px;
+    }
+    label{
+        font-family: arial;
+        font-size: 13px;
+        /*white-space: nowrap;*/ 
+    }
+    #titulos{
+        font-size: 14px;
+    }
+     .control{
+        border: .5px solid grey;
+        border-radius: 5px 5px 5px 5px;
+        outline: none;
+        font-size: 11px;
+        color: black;
+    }
 </style>
         <div class="modal-content">
             <div class="modal-header" id="cabeceraModalInfarto">
+            
                 <button type="button" class="close" data-bs-dismiss="modal" onclick="limpiar();">&times;</button>
-                <span id="datos_paciente">Datos de paciente</span>
             </div>
             <div class="modal-body">
 
@@ -131,14 +124,7 @@ function comprimir_pagina($buffer) {
                                         })
                                     })
                                     </script>
-                                    <style>
-                                        .control{
-                                            border: none;
-                                            outline: none;
-                                            border-bottom: 1px solid grey;
-                                            font-size: 12px;
-                                        }
-                                        </style>
+                                  
                                     <div class="col-md-6" autocomplete="off">
 
                                         <input id="year" name="year" class="form-control" type="hidden" value="2022"
@@ -234,6 +220,15 @@ function comprimir_pagina($buffer) {
                                             required>
 
                                     </div>
+                                    <script>
+                                         $(document).ready(function() {
+                                        $('#talla').mask('0.00');
+                                    });
+                                     $(document).ready(function() {
+                                        $('#persionarterial').mask('000/00');
+                                    });
+                                    </script>
+                                   
                                     <div class="col-md-3">
                                         <strong>Peso</strong>
                                         <input type="number" step="any" class="control col-md-12" id="peso"
@@ -369,7 +364,7 @@ function comprimir_pagina($buffer) {
                                         <input type="checkbox" name="check_lista2[]" id="check_lista2[]" class="check"
                                             value="Nauseas">&nbsp;Nauseas&nbsp;&nbsp;
                                         <input type="checkbox" name="check_lista2[]" id="check_lista2[]" class="check"
-                                            value="Diaforesis">&nbsp;Diaforesis&nbsp;&nbsp;<br>
+                                            value="Diaforesis">&nbsp;Diaforesis&nbsp;&nbsp;
                                         <input type="checkbox" name="check_lista2[]" id="check_lista2[]" class="check"
                                             value="Sincupe">&nbsp;Sincope&nbsp;&nbsp;
 
@@ -447,7 +442,7 @@ function comprimir_pagina($buffer) {
                                         </select>
 
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <strong>Con o sin elevación</strong>
                                         <select name="identificador" id="identificador" class="control col-md-12" required>
                                             <option value="">Seleccione una opción</option>
@@ -456,26 +451,9 @@ function comprimir_pagina($buffer) {
 
                                         </select>
                                     </div>
-                                    <div class="col-md-3">
-                                        <!-- moverlos -->
-                                        <strong>MACE Hospitalario</strong>
-                                        <select name="killip" id="killip" class="control col-md-12" style="width: 100%;"
-                                            required>
-                                            <option value="0">Selecciona</option>
-                                            <?php 
-			
-				  $query = "SELECT * FROM killip_kimball ";
-	                $resultado=$conexion2->query($query);
-				while($row = $resultado->fetch_assoc()) { ?>
-                                            <option value="<?php echo $row['nombre_killip']; ?>">
-                                                <?php echo $row['nombre_killip']; ?></option>
-                                            <?php } ?>
-
-
-                                        </select>
-                                    </div>
                                     
-                                    <div class="col-md-3">
+                                    
+                                    <div class="col-md-6">
                                         <strong>Killip Kimball</strong>
                                         <select name="choque" id="choque" class="control col-md-12" style="width: 100%;"
                                             required>
@@ -496,102 +474,102 @@ function comprimir_pagina($buffer) {
                                         style="text-align: center; color:darkblue; background-color:gainsboro;">
                                         <strong>PARACLINICOS</strong>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
 
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">CK</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">CK</span>&nbsp;&nbsp;
                                             <input type="text" id="ck" name="ck" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">CK-MB</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">CK-MB</span>&nbsp;&nbsp;
                                             <input type="text" id="ckmb" name="ckmb" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">TROPONINAS</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">TROPONINAS</span>&nbsp;&nbsp;
                                             <input type="text" id="troponinas" name="troponinas" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">GlUCOSA</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">GlUCOSA</span>&nbsp;&nbsp;
                                             <input type="text" id="glucosa" name="glucosa" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">UREA</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">UREA</span>&nbsp;&nbsp;
                                             <input type="text" id="urea" name="urea" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">CREATININA</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">CREATININA</span>&nbsp;&nbsp;
                                             <input type="text" id="creatinina" name="creatinina" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">COLESTEROL</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">COLESTEROL</span>&nbsp;&nbsp;
                                             <input type="text" id="colesterol" name="colesterol" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">TRIGLICERIDOS</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">TRIGLICERIDOS</span>&nbsp;&nbsp;
                                             <input type="text" id="trigliceridos" name="trigliceridos"
                                                 placeholder="Describa" class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">ACIDO URICO</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">ACIDO URICO</span>&nbsp;&nbsp;
                                             <input type="text" id="acidourico" name="acidourico" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">HB GLUCOSILADA</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">HB GLUCOSILADA</span>&nbsp;&nbsp;
                                             <input type="text" id="hbglucosilada" name="hbglucosilada"
                                                 placeholder="Describa" class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">PROTEINAS</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">PROTEINAS</span>&nbsp;&nbsp;
                                             <input type="text" id="proteinas" name="proteinas" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"><br>
+                                    <div class="col-md-4">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">COLESTEROL TOTAL</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">COLESTEROL TOTAL</span>&nbsp;&nbsp;
                                             <input type="text" id="colesteroltotal" name="colesteroltotal"
                                                 placeholder="Describa" class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-6"><br>
+                                    <div class="col-md-6">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">LDL</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">LDL</span>&nbsp;&nbsp;
                                             <input type="text" id="ldl" name="ldl" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
                                     </div>
-                                    <div class="col-md-6"><br>
+                                    <div class="col-md-6">
                                         <div class="input-group pull-left">
-                                            <strong id="paraclinic">HDL</strong>&nbsp;&nbsp;
+                                            <span id="paraclinic">HDL</span>&nbsp;&nbsp;
                                             <input type="text" id="hdl" name="hdl" placeholder="Describa"
                                                 class="control col-md-12">
                                         </div>
@@ -606,28 +584,28 @@ function comprimir_pagina($buffer) {
                                         style="text-align: center; color:darkblue; background-color:gainsboro;">
                                         <strong>TRATAMIENTO</strong>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <strong>Trombolisis</strong>
                                         <select name="trombolisis" id="trombolisis" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="iniciotromb">
+                                    <div class="col-md-3" id="iniciotromb">
                                         <strong>Fecha/hora inicio</strong>
                                         <input type="datetime-local" id="iniciotrombolisis" name="iniciotrombolisis"
                                             placeholder="Describa" class="control col-md-12">
                                     </div>
-                                    <div class="col-md-4" id="finalizotromb">
+                                    <div class="col-md-3" id="finalizotromb">
                                         <strong>Fecha/hora finaliza</strong>
                                         <input type="datetime-local" id="finalizotrombolisis" name="finalizotrombolisis"
                                             placeholder="Describa" class="control col-md-12">
                                     </div>
-                                    <div class="col-md-4" id="fibrinolitico">
+                                    <div class="col-md-3" id="fibrinolitico">
                                         <strong>Tipo de fibrinolitico</strong>
                                         <select name="fibrinoliticos" id="fibrinoliticos" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="tecnecteplasa">Tecnecteplasa</option>
                                             <option value="Alteplasa">Alteplasa</option>
                                             <option value="Estreptoginasa">Estreptoquinasa</option>
@@ -635,20 +613,74 @@ function comprimir_pagina($buffer) {
                                     </div>
                                     <div class="col-md-12">
                                     </div>
-                                    <div class="col-md-4">
-                                        <strong>Procedimiento</strong>
-                                        <select name="procedimientorealizado" id="procedimientorealizado"
+                                    <div class="col-md-3">
+                                        <strong>Lesiones coronarias</strong>
+                                        <select name="lesionescoronarias" id="lesionescoronarias"
                                             class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="si">Si</option>
                                             <option value="no">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="tipoprocedimiento">
+                                    <div class="col-md-3">
+                                        <strong>Clasificación DUKE</strong>
+                                        <select name="clasificacionduke" id="clasificacionduke"
+                                            class="control col-md-12">
+                                            <option value="">Seleccione</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                            <option value="F">F</option>
+                                            <option value="G">G</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>Clasificación Medina</strong>
+                                        <select name="clasificacionmedina" id="clasificacionmedina"
+                                            class="control col-md-12">
+                                            <option value="">Seleccione</option>
+                                            <option value="MEDINA 1,0,0">MEDINA 1,0,0</option>
+                                            <option value="MEDINA 0,1,0">MEDINA 0,1,0</option>
+                                            <option value="MEDINA 1,1,0">MEDINA 1,1,0</option>
+                                            <option value="MEDINA 1,1,1">MEDINA 1,1,1</option>
+                                            <option value="MEDINA 0,0,1">MEDINA 0,0,1</option>
+                                            <option value="MEDINA 1,0,1">MEDINA 1,0,1</option>
+                                            <option value="MEDINA 0,1,1">MEDINA 0,1,1</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>CLASIFICACION ACC/AHA</strong>
+                                        <select name="lesionangeo" id="lesionangeo" class="control col-md-12">
+                                            <option value="0">Seleccione</option>
+                                            <?php 
+				   
+				  $query = "SELECT * FROM lesionangeografica";
+	                $resultado=$conexion2->query($query);
+				while($row = $resultado->fetch_assoc()) { ?>
+                                            <option value="<?php echo $row['tipolesion']; ?>">
+                                                <?php echo $row['tipolesion']; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <!--<a href="img/clasificacion cardio 1.png" style="color: red" target="_blank">
+                                            Consultar referencia</a>-->
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <strong>Procedimiento</strong>
+                                        <select name="procedimientorealizado" id="procedimientorealizado"
+                                            class="control col-md-12">
+                                            <option value="">Seleccione</option>
+                                            <option value="si">Si</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3" id="tipoprocedimiento">
                                         <strong>Tipo de procedimiento</strong>
                                         <select name="tipodeprocedimiento" id="tipodeprocedimiento"
                                             class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <?php
                                         
                                             $query = "SELECT * FROM procedimiento";
@@ -659,16 +691,16 @@ function comprimir_pagina($buffer) {
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="iniciodeprocedimiento">
+                                    <div class="col-md-3" id="iniciodeprocedimiento">
                                         <strong>Fecha/hora</strong>
                                         <input type="datetime-local" id="inicioprocedimiento" name="inicioprocedimiento"
                                             placeholder="Describa" class="control col-md-12">
                                     </div>
-                                    <div class="col-md-4" id="procedimientofueexitoso">
+                                    <div class="col-md-3" id="procedimientofueexitoso">
                                         <strong>Procedimiento exitoso</strong>
                                         <select name="procedimientoexitoso" id="procedimientoexitoso"
                                             class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="si">Si</option>
                                             <option value="no">No</option>
                                         </select>
@@ -690,10 +722,10 @@ function comprimir_pagina($buffer) {
                                         </select>
                                     </div>
                 -->
-                                    <div class="col-md-4" id="idsitiopuncion">
+                                    <div class="col-md-3" id="idsitiopuncion">
                                         <strong>Sitio de punción</strong>
                                         <select name="sitiodepuncion" id="sitiodepuncion" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <?php
                                         
                                             $query = "SELECT * FROM sitiopuncion";
@@ -705,10 +737,10 @@ function comprimir_pagina($buffer) {
                                         </select>
                                     </div>
 
-                                    <div class="col-md-4" id="idstend">
+                                    <div class="col-md-3" id="idstend">
                                         <strong>Stent</strong>
                                         <select name="stent" id="stent" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <?php
                                         
                                             $query = "SELECT * FROM stend";
@@ -719,8 +751,8 @@ function comprimir_pagina($buffer) {
                                             <?php } ?>
                                         </select>
                                     </div>
-                                     <div class="col-md-4" id="idstend">
-                                        <strong>Número de stent implantados</strong>
+                                     <div class="col-md-3" id="idstend">
+                                        <strong>N° stent implantados</strong>
                                         <select name="stent" id="stent" class="control col-md-12">
                                             <option value="0">Seleccione</option>
                                             <option value="1">1</option>
@@ -737,10 +769,10 @@ function comprimir_pagina($buffer) {
                                             
                                         </select>
                                     </div>
-                                    <div class="col-md-6" id="idolusion">
-                                        <strong>Vasos coronarios comprometidos</strong>
+                                    <div class="col-md-3" id="idolusion">
+                                        <strong>Vasos comprometidos</strong>
                                         <select name="olusion" id="olusion" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <?php
                                           
                                             $query = "SELECT * FROM olusionesdistalescronicas";
@@ -752,36 +784,36 @@ function comprimir_pagina($buffer) {
                                         </select>
                                     </div>
 
-                                    <div class="col-md-4" id="idseveridad">
+                                    <div class="col-md-3" id="idseveridad">
                                         <strong>Clasificacion severidad</strong>
                                         <select name="severidad" id="severidad" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="OTC">OTC</option>
                                             <option value="SINTAX">SINTAX</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="idotc">
+                                    <div class="col-md-3" id="idotc">
                                         <strong>Nivel de OTC</strong>
                                         <select name="otc" id="otc" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="0 a 1">0 a 1</option>
                                             <option value="2 a 3">2 a 3</option>
                                             <option value="4 a 5">4 a 5</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="idsintax">
+                                    <div class="col-md-3" id="idsintax">
                                         <strong>Nivel de SINTAX</strong>
                                         <select name="sintax" id="sintax" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="Menos de 22">Menos de 22</option>
                                             <option value="23 a 32">23 a 32</option>
                                             <option value="Mas de 33">Mas de 33</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="idolusion2">
+                                    <div class="col-md-3" id="idolusion2">
                                         <strong>Olusiones distales cronicas</strong>
                                         <select name="olusion2" id="olusion2" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <?php
                                          
                                             $query = "SELECT * FROM olusionesdistalescronicas";
@@ -792,59 +824,43 @@ function comprimir_pagina($buffer) {
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="idtratamientovaso">
+                                    <div class="col-md-3" id="idtratamientovaso">
                                         <strong>Tratamiento del vaso</strong>
                                         <select name="tratamientovaso" id="tratamientovaso" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="Lesion culpable">Lesion culpable</option>
                                             <option value="Todas las lesiones">Todas las lesiones</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="idtromboaspiracion">
+                                    <div class="col-md-3" id="idtromboaspiracion">
                                         <strong>Trombo aspiración</strong>
                                         <select name="tromboaspiracion" id="tromboaspiracion" class="control col-md-12">
-                                            <option value="">Seleccione una opción</option>
+                                            <option value="">Seleccione</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4" id="idtipoinjerto">
+                                    <div class="col-md-3" id="idtipoinjerto">
                                         <strong>Tipo de Injerto</strong>
                                         <input type="text" id="tipodeinjerto" name="tipodeinjerto"
                                             placeholder="Describa" class="control col-md-12">
                                     </div>
-                                    <div class="col-md-4" id="idmediocontraste">
+                                    <div class="col-md-3" id="idmediocontraste">
                                         <strong>Medio de contraste</strong>
                                         <input type="text" id="mediodecontraste" name="mediodecontraste"
                                             placeholder="Describa" class="control col-md-12">
                                     </div>
-                                    <div class="col-md-12"></div>
+                              
 
-                                    <div class="col-md-6" id="iniciofibri">
+                                    <div class="col-md-3" id="iniciofibri">
                                         <strong>Fecha/hora inicio</strong>
                                         <input type="datetime-local" id="iniciofibrilonitico" name="iniciofibrilonitico"
                                             placeholder="Describa" class="control col-md-12">
                                     </div>
-                                    <div class="col-md-6" id="finalizofibri">
+                                    <div class="col-md-3" id="finalizofibri">
                                         <strong>Fecha/hora finaliza</strong>
                                         <input type="datetime-local" id="finalizofibrilonitico"
                                             name="finalizofibrilonitico" placeholder="Describa" class="control col-md-12">
-                                    </div>
-                                    <div class="col-md-4" id="tipodelesionangio">
-                                        <strong>Tipo de lesión angiografica</strong>
-                                        <select name="lesionangeo" id="lesionangeo" class="control col-md-12">
-                                            <option value="0">Selecciona</option>
-                                            <?php 
-				   
-				  $query = "SELECT * FROM lesionangeografica";
-	                $resultado=$conexion2->query($query);
-				while($row = $resultado->fetch_assoc()) { ?>
-                                            <option value="<?php echo $row['tipolesion']; ?>">
-                                                <?php echo $row['tipolesion']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                        <a href="img/clasificacion cardio 1.png" style="color: red" target="_blank">
-                                            Consultar referencia</a>
                                     </div>
 
                                     <div class="col-md-3" id="revasculariza">
@@ -923,40 +939,7 @@ function comprimir_pagina($buffer) {
                                         <strong>SEGUIMIENTO POSTPROCEDIMIENTO</strong>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <strong>Flujo microvascular tmp</strong>
-                                        <select name="flujomicrovasculartmp" id="flujomicrovasculartmp"
-                                            class="control col-md-12" style="width: 100%;" required>
-                                            <option value="0">Selecciona</option>
-                                            <?php 
-				
-				  $query = "SELECT * FROM flujo_microvascular_tmp ";
-	                $resultado=$conexion2->query($query);
-				while($row = $resultado->fetch_assoc()) { ?>
-                                            <option value="<?php echo $row['nombre_flujo_microvascular']; ?>">
-                                                <?php echo $row['nombre_flujo_microvascular']; ?></option>
-                                            <?php } ?>
-
-
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <strong>TIMI Final</strong>
-                                        <select name="flujofinaltfg" id="flujofinaltfg" class="control col-md-12"
-                                            style="width: 100%;" required>
-                                            <option value="0">Selecciona</option>
-                                            <?php 
-				   
-				  $query = "SELECT * FROM flujo_final_tfg ";
-	                $resultado=$conexion2->query($query);
-				while($row = $resultado->fetch_assoc()) { ?>
-                                            <option value="<?php echo $row['nombre_flujo_final']; ?>">
-                                                <?php echo $row['nombre_flujo_final']; ?></option>
-                                            <?php } ?>
-
-
-                                        </select>
-                                    </div>
+                                    <!--
                                     <div class="col-md-3">
                                         <strong>Marca pasos temporal</strong>
                                         <select name="marcapasostemporal" id="marcapasostemporal" class="control col-md-12"
@@ -974,9 +957,27 @@ function comprimir_pagina($buffer) {
 
                                         </select>
                                     </div>
+-->
+<div class="col-md-3">
+                                        <!-- moverlos -->
+                                        <strong>MACE Hospitalario</strong>
+                                        <select name="killip" id="killip" class="control col-md-12" style="width: 100%;"
+                                            required>
+                                            <option value="0">Selecciona</option>
+                                            <?php 
+			
+				  $query = "SELECT * FROM killip_kimball ";
+	                $resultado=$conexion2->query($query);
+				while($row = $resultado->fetch_assoc()) { ?>
+                                            <option value="<?php echo $row['nombre_killip']; ?>">
+                                                <?php echo $row['nombre_killip']; ?></option>
+                                            <?php } ?>
 
+
+                                        </select>
+                                    </div>
                                   
-                                    <div class="col-md-3" id="defuncionopcion">
+                                    <div class="col-md-3" >
                                         <strong>Causa defunción</strong>
                                         <select name="causadefuncion" id="causadefuncion" class="control col-md-12"
                                             style="width: 100%;" required>
@@ -993,7 +994,7 @@ function comprimir_pagina($buffer) {
 
                                         </select>
                                     </div>
-                                    <div class="col-md-3" id="fechadefuncionopcion">
+                                    <div class="col-md-3" >
                                         <strong>Fecha defuncion</strong>
                                         <input type="datetime-local" name="fechadefuncion" id="fechadefuncion"
                                             class="control col-md-12">

@@ -142,7 +142,7 @@ for( $i=0 ; $i < strlen($correo) ; $i++ ) {
             
     }else{
         $statement4 = $conexion->prepare('SELECT correo_electronico, clave_acceso, rol_acceso from login where correo_electronico = :correo_electronico  AND clave_acceso = :clave_acceso and rol_acceso = :rol_acceso');
-   
+
         $statement4->execute(array(
             
             ':correo_electronico' => $correosanitizado,

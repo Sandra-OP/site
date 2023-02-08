@@ -107,9 +107,19 @@
                                         <span id="curp" class="curp" name="curp"></span>
                                     </div>
                                     <div class="col-md-4">
-                                        <strong>Fecha inicio de vigilancia</strong>
-                                        <input type="date" id="fechainiciovigilancia" name="fechainiciovigilancia"
-                                            class="control control col-md-12" onclick="obtenerid();">
+                                        <strong>Calidad de vida ECOG</strong>
+                                        <select name="calidadvidaecog" id="calidadvidaecog" class="control control col-md-12" onclick="obtenerid();">
+                                            <option value="Sin registro">Sin registro</option>
+                                            <?php 
+				        $query = $conexionCancer->prepare("SELECT descripcionecog FROM calidadvidaecog");
+                        $query->setFetchMode(PDO::FETCH_ASSOC);
+                            $query->execute();
+				                    while($row = $query->fetch()) { ?>
+                                            <option value="<?php echo $row['descripcionecog']; ?>">
+                                                <?php echo $row['descripcionecog']; ?></option>
+                                            <?php } ?>
+
+                                        </select>
                                     </div>
                                     
                                    <!-- <div class="col-md-4">

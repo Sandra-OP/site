@@ -1,26 +1,3 @@
-<?php ob_start("comprimir_pagina"); 
- // Función para eliminar todos los espacios en blanco
-function comprimir_pagina($buffer) {
-
-   $search = array(
-       '/\>[^\S ]+/s',     // elimina espacios en blanco después de las etiquetas, excepto el espacio
-       '/[^\S ]+\</s',     // elimina en blanco antes de las etiquetas, excepto el espacio
-       '/(\s)+/s',         // Acortar múltiples secuencias de espacios en blanco.
-       '/<!--(.|\s)*?-->/' // Borrar comentarios html
-   );
-
-   $replace = array(
-       '>',
-       '<',
-       '\\1',
-       ''
-   );
-
-   $buffer = preg_replace($search, $replace, $buffer);
-
-   return $buffer;
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -109,14 +86,29 @@ function comprimir_pagina($buffer) {
 
             </a>
         </article>
-        <!--
-        <article class="card" id="evc">
+        
+        <article class="card" id="paladarhendido">
             <a href=".#">
                 <hr id="hr7">
-                <p>Código EVC</p>
-                <a id="link" href="#" class="btn btn-dark">Código EVC</a>
+                <p>Paladar hendido</p>
+                <a id="link" href="#" class="btn btn-dark">Paladar hendido</a>
             </a>
-        </article>-->
+        </article>
+        <article class="card" id="lupus">
+            <a href=".#">
+                <hr id="hr7">
+                <p>Lupus</p>
+                <a id="link" href="#" class="btn btn-warning">Lupus</a>
+            </a>
+        </article>
+        <article class="card" id="creheer">
+            <a href=".#">
+                <hr id="hr7">
+                <p>CREHER</p>
+                <a id="link" href="#" class="btn btn-info">Creheer</a>
+            </a>
+        </article>
+        
         <article class="card" id="artritis">
             <a href="artritis">
                 <hr id="hr7">
@@ -200,7 +192,7 @@ function comprimir_pagina($buffer) {
 
             <hr id="hr1datostrabajador">
             <p>Mis datos personales</p>
-            <a id="linkdatostrabajador" href="misDatos" class="btn btn-success">Mis datos</a>
+            <!--<a id="linkdatostrabajador" href="misDatos" class="btn btn-success">Mis datos</a>-->
 
         </article>
         <!--

@@ -17,11 +17,8 @@ font-size:20px;
   color: rgb(11, 54, 24);
   margin-top: 4px;
 }
-#icon-color{
-  color: black;
-}
-#icon-color:hover{
-    color: black;
+#icon-color {
+  color: #022061;
 }
 
 .main-menu:hover,nav.main-menu.expanded {
@@ -30,8 +27,8 @@ overflow:visible;
 }
 
 .main-menu {
-background: #C3C3C3;
-border-right:1px solid #e5e5e5;
+  background: #ffffff;
+    border-right: 1px solid #e5e5e5;
 position: relative;
 margin-top: 50px;
 bottom:0;
@@ -56,18 +53,17 @@ width:250px;
 }
 
 .main-menu li>a {
-position:relative;
-display:table;
-border-collapse:collapse;
-border-spacing:0;
-color:rgb(255, 255, 255);
- font-family: arial;
-font-size: 14px;
-text-decoration:none;
--webkit-transform:translateZ(0) scale(1,1);
--webkit-transition:all .1s linear;
-transition:all .1s linear;
-  
+  position: relative;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: black;
+    font-family: arial;
+    font-size: 14px;
+  text-decoration: none;
+    -webkit-transform: translateZ(0) scale(1, 1);
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
 }
 
 .main-menu .nav-icon {
@@ -120,10 +116,18 @@ outline:0;
 margin:0;
 padding:0;
 }
-.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-color: black;
-background-color:#FAF9F9;
-width: 100%;
+.main-menu li:hover>a,
+nav.main-menu li.active>a,
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+   color: white;
+  background-color: #babcbf;
+    width: 100%;
 
 }
 
@@ -189,6 +193,45 @@ height: 100%;
   background-color: #14BEE0;
   z-index: 99;
   transition: .5s
+}
+.headercancerbucal {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #b02642;
+  z-index: 99;
+  transition: .5s
+}
+.headerartritis {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: #14BEE0;
+  z-index: 99;
+  transition: .5s
+}
+#boton_cancerBucal{
+  text-decoration: none; 
+  background-color: #6e0a1d; 
+  text-align: center;
+  color: white; 
+  cursor: pointer; 
+  width: 120px; 
+  height: 25px; 
+  font-size: 12px; 
+  border: 5px; 
+  margin-left: 0px; 
+  margin-top: 0px;
 }
 .header.white {
   background: #F2F3F4;
@@ -341,7 +384,14 @@ height: 100%;
 #cabeceramodalartritis{
   background-color: #14BEE0;
 }
+#cabeceramodalartritis{
+  background-color: #409FEA;
+}
 
+
+#cabeceraModalBucal{
+  background-color: #aa263e;
+}
 #recargar{
   width: 170px; 
   height: 27px; 

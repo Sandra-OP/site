@@ -68,6 +68,15 @@ require 'menu/menuPrincipal.php';
 
             </a>
         </article>
+        <article class="card" id="cancer-bucal">
+                <a href="cancerbucal">
+                    <hr id="hr3">
+                    <p>Cáncer Bucal</p>
+                    <a id="link" href="cancerbucal" class="btn btn-danger">Ver Información...</a>
+
+                </a>
+            </article>
+        
         <?php
 
     }else if(isset($_SESSION['usuarioJefe'])){

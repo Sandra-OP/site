@@ -1,8 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-</script>
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
     .ver-info:hover{
         background: grey;
@@ -14,11 +9,11 @@
 <?php 
 
 	require 'conexionCancer.php';
-    $sqlQueryComentarios  = $conexion2->query("SELECT dato_usuario.id, cancerpaciente.id_paciente FROM dato_usuario inner join cancerpaciente on cancerpaciente.id_paciente = dato_usuario.id");
+    $sqlQueryComentarios  = $conexion2->query("SELECT dato_usuario.id FROM dato_usuario inner join cancerpaciente on cancerpaciente.id_paciente = dato_usuario.id");
     $total_registro       = mysqli_num_rows($sqlQueryComentarios);
     
 
-    $query= $conexionCancer->prepare("SELECT dato_usuario.id, dato_usuario.curp, dato_usuario.nombrecompleto, dato_usuario.poblacionindigena, dato_usuario.escolaridad, dato_usuario.fechanacimiento, dato_usuario.edad, dato_usuario.sexo, dato_usuario.raza, dato_usuario.estado, dato_usuario.municipio, cancerpaciente.id_paciente FROM dato_usuario inner join cancerpaciente on cancerpaciente.id_paciente = dato_usuario.id order by dato_usuario.id DESC LIMIT 20 ");
+    $query= $conexionCancer->prepare("SELECT DISTINCT dato_usuario.id, dato_usuario.curp, dato_usuario.nombrecompleto, dato_usuario.poblacionindigena, dato_usuario.escolaridad, dato_usuario.fechanacimiento, dato_usuario.edad, dato_usuario.sexo, dato_usuario.raza, dato_usuario.estado, dato_usuario.municipio, cancerpaciente.id_paciente FROM dato_usuario inner join cancerpaciente on cancerpaciente.id_paciente = dato_usuario.id order by dato_usuario.id DESC LIMIT 20 ");
     if(isset($_POST['pacientes']))
 {
 	$q=$conexion2->real_escape_string($_POST['pacientes']);
@@ -74,16 +69,7 @@
         Cargando más Registros...
     </div>
 </div>
-<style>
-
-
-    .color {
-    cursor: pointer;
-    background-color: gold;
   
-}
-    
-</style>   
     
 <script>
 $(function() {
