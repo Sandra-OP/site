@@ -68,6 +68,20 @@ require 'menu/menuPrincipal.php';
 
             </a>
         </article>
+        <article class="card" id="leucemias">
+            <a href=".#">
+                <hr id="hr7">
+                <p>Leucemias</p>
+                <a id="link" href="#" class="btn btn-info">Leucemias</a>
+            </a>
+        </article>
+            <article class="card" id="creheer">
+            <a href=".#">
+                <hr id="hr7">
+                <p>CREHER</p>
+                <a id="link" href="#" class="btn btn-info">CREHER</a>
+            </a>
+        </article>
         <article class="card" id="cancer-bucal">
                 <a href="cancerbucal">
                     <hr id="hr3">
@@ -76,6 +90,35 @@ require 'menu/menuPrincipal.php';
 
                 </a>
             </article>
+        
+         <article class="card" id="paladarhendido">
+            <a href=".#">
+                <hr id="hr7">
+                <p>Paladar hendido</p>
+                <a id="link" href="#" class="btn btn-dark">Paladar hendido</a>
+            </a>
+        </article>
+        <article class="card" id="cirugiabariatrica">
+            <a href="#">
+                <hr id="hr7">
+                <p>Cirugia Bariatrica</p>
+                <a id="link" href="#" class="btn btn-warning">Cirugia bariatrica</a>
+            </a>
+        </article>
+        <article class="card" id="hepatitisc">
+            <a href="#">
+                <hr id="hr7">
+                <p>Hepatitis C</p>
+                <a id="link" href="#" class="btn btn-warning">Hepatitis C</a>
+            </a>
+        </article>
+        <article class="card" id="hemofilia">
+            <a href="#">
+                <hr id="hr7">
+                <p>Hemofilia</p>
+                <a id="link" href="#" class="btn btn-warning">Hemofilia</a>
+            </a>
+        </article>
         
         <?php
 

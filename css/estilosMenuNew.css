@@ -741,21 +741,21 @@ p:hover {
 }
 
 #paladarhendido {
-  background-image: url(../img/paladarhendido.jpeg);
+  background-image: url(../img/paladarhendido.jpg);
   background-repeat: no-repeat;
   background-size: 70% 70%;
   background-position: 85% 90%;
 
 }
 #lupus {
-  background-image: url(../img/lupus.jpg);
+  background-image: url(../img/lupus2.jpg);
   background-repeat: no-repeat;
   background-size: 70% 70%;
   background-position: 85% 90%;
 
 }
 #creheer {
-  background-image: url(../img/creheer.jpg);
+  background-image: url(../img/CREHER.jpg);
   background-repeat: no-repeat;
   background-size: 70% 70%;
   background-position: 85% 90%;
@@ -763,6 +763,48 @@ p:hover {
 }
 #artritis {
   background-image: url(../img/artritis.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#reconstruccioncraneal {
+  background-image: url(../img/rc.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#leucemias {
+  background-image: url(../img/lc.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#cirugiabariatrica {
+  background-image: url(../img/cirugiabariatrica.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  background-position: 85% 90%;
+
+}
+#hemofilia {
+  background-image: url(../img/hemofilia.jpg);
+  background-repeat: no-repeat;
+  background-size: 50% 70%;
+  background-position: 85% 90%;
+
+}
+#hepatitisc {
+  background-image: url(../img/hepatitisc.jpg);
+  background-repeat: no-repeat;
+  background-size: 50% 70%;
+  background-position: 85% 90%;
+
+}
+#carnetdigital {
+  background-image: url(../img/qrdigital.jpg);
   background-repeat: no-repeat;
   background-size: 70% 70%;
   background-position: 85% 90%;

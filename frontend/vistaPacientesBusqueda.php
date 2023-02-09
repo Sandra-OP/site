@@ -45,43 +45,90 @@ date_default_timezone_set('America/Mexico_City');
         
         ?>
 <style>
-#th {
-    background-color: #E5E5E5;
-    font-family: italic;
- 
-}
-td{
-    font-family: italic;
-        white-space: nowrap; 
-}
-.container{
-    background: #EEEEEE;
-    margin-top: 45px;
-    display: flex;
-    justify-content: center;
-    padding: 0px;
-    position: fixed;
-}
-a {
-    margin-right: 10px;
-}
-#eliminarregistro {
-    color: red;
-}
-#expediente {
-    color: #FCC600;
-}
-#editarregistro {
-    color: #FCC600;
-}
-#expediente:hover,
-#editarregistro:hover {
-    color: blue;
-}
+    #th {
+        color: white; background-color:#CD114E;
+        font-size: 12px;
+        width: 14rem;
+        float: right;
+        text-align: right;
+        padding: 3px;
+
+    }
+
+    #td {
+
+        font-size: 12px;
+        width: 100rem;
+        padding: 3px;
+
+    }
+
+    .containerr {
+        background: #EEEEEE;
+        margin-top: 45px;
+        display: flex;
+        justify-content: left;
+        position: fixed;
+        width: 100%;
+        height: 25px;
+        font-size: 13px;
+        padding: 8px;
+        border-radius: 15px;
+    }
+
+    .containerr2 {
+        background: grey;
+        margin-top: 70px;
+        display: flex;
+        justify-content: center;
+        border-radius: 15px 15px 0px 0px;
+        padding: 0px;
+        width: 100%;
+        height: 15px;
+        color: white;
+    }
+
+    .containerr3 {
+        background: grey;
+        margin-top: -12px;
+        display: flex;
+        justify-content: center;
+        border-radius: 15px 15px 0px 0px;
+        padding: 0px;
+        width: 100%;
+        height: 15px;
+        color: white;
+    }
+
+    table {
+        border-radius: 0px 0px 15px 15px;
+    }
+
+
+
+    #eliminarregistro {
+        color: red;
+    }
+
+    #expediente {
+        color: orange;
+    }
+
+    #editarregistro {
+        color: orange;
+    }
+
+    #expediente:hover,
+    #editarregistro:hover {
+        color: blue;
+    }
 </style>
 
+<div id="mensaje"></div>
 <input type="hidden" id="idcurp" value="<?php echo $id_paciente; ?>">
-<div class="container">
+<input type="hidden" id="cancer" value="<?php echo $dataRegistro['descripcioncancer']; ?>">
+<input type="hidden" id="nombrepaciente" value="<?php echo $dataRegistro['nombrecompleto']; ?>">
+<div class="containerr">
 <a href="#" class="mandaid" id="<?php echo $id_paciente ?>"
             >Seguimiento</a>
             <a href="consultaExpediente?id=<?php echo $id_paciente ?>" class="" id="expediente"
@@ -94,15 +141,39 @@ a {
             <a href="#" onclick="eliminarRegistro();" id="eliminarregistro"
             >Eliminar registro</a>
                 </div>
-<table id="tabla" class="table table-responsive  table-bordered " cellspacing="0" width="100%">
+<table class="table table-responsive  table-bordered " cellspacing="0" width="100%">
+    <div class="containerr2">Datos del Paciente</div>
+
     <tr>
-        <th id="th">Datos personales</th>
-        <td><?php echo 'Nombre:&nbsp'.$dataRegistro['nombrecompleto'].'<br>'.'CURP:&nbsp'.$dataRegistro['curp'].'<br>'.'Edad:&nbsp'.$dataRegistro['edad'].'&nbspAños'.'<br>'.'Sexo:&nbsp'.$dataRegistro['sexo'].'<br>'.'Estado:&nbsp'.$rows['estado'].'<br>'.'Municipio:&nbsp'.$rowsm['municipio']; ?>
-        </td>
+        <th id="th">CURP:</th>
+        <td id="td"><?php echo $dataRegistro['curp'] ?>
+    </tr>
+
+    <tr>
+        <th id="th">Nombre:</th>
+        <td id="td"><?php echo $dataRegistro['nombrecompleto'] ?>
+    </tr>
+
+    <tr>
+        <th id="th">Escolaridad:</th>
+        <td id="td"><?php  ?>
+    </tr>
+
+    <tr>
+        <th id="th">Edad:</th>
+        <td id="td"><?php echo $dataRegistro['edad'] ?>
     </tr>
     <tr>
+        <th id="th">Sexo:</th>
+        <td id="td"><?php echo $dataRegistro['sexo'] ?>
+    </tr>
+</table>
+<table class="table table-responsive  table-bordered " cellspacing="0" width="100%">
+
+    <div class="containerr3">Somatometria</div>
+    <tr>
         <th id="th">Peso</th>
-        <td><?php echo $dataRegistro['peso'].'&nbsp'.'Kilos' ?></td>
+        <td><?php echo $dataRegistro['peso'] ?></td>
     </tr>
     <tr>
         <th id="th">Talla</th>
@@ -112,6 +183,10 @@ a {
         <th id="th">IMC</th>
         <td><?php echo $dataRegistro['imc'].'&nbsp'.$showimc ?></td>
     </tr>
+    </table>
+<table class="table table-responsive  table-bordered " cellspacing="0" width="100%">
+
+    <div class="containerr3">Atnecion clinica</div>
     <tr>
         <th id="th">Killip Kimball</th>
         <td><?php echo $dataRegistro['killipkimball'] ?></td>

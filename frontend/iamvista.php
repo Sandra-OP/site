@@ -18,7 +18,7 @@
 
     <div class="box1">
         <header class="headerinfarto">
-            <span id="cabecera">Infarto CE</span>
+            <span id="cabecera">Sindrome Coronario Agudo</span>
 
         </header>
 

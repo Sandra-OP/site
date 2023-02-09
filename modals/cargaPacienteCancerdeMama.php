@@ -1774,14 +1774,14 @@
                                         </select>
                                     </div>
                                     <fieldset class="col-md-2" id="quimiono">
-                                        <strong>HER 2 ++</strong><br>
+                                        <strong>HER 2 +++</strong><br>
                                         <input type="radio" name="her" id="her1" onclick="aplicoher();" class="check"
                                             value="si">&nbsp;<strong>Si</strong>&nbsp;&nbsp;
                                         <input type="radio" name="her" id="her2" onclick="aplicoherno();" class="check"
                                             checked value="noaplico">&nbsp;<strong>No</strong>&nbsp;&nbsp;
                                     </fieldset>
                                     <div class="col-md-3" id="esquemaher">
-                                        <strong style="color:red;">Esquema HER 2 ++</strong>
+                                        <strong style="color:red;">Esquema HER 2 +++</strong>
                                         <select name="esquemaherdos" id="esquemaherdos" class="control control col-md-12">
                                             <option value="Sin registro">Sin registro</option>
                                             <option value="TRASTUZUMAB/PERTUZUMAB">TRASTUZUMAB/PERTUZUMAB</option>

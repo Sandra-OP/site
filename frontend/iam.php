@@ -42,12 +42,12 @@ require 'menu/menuPrincipal.php';
         <article class="card" id="infartoelevacion">
             <a href="iam">
                 <hr id="hrinfarto">
-                <p>IAM con elevacion del ST</p>
+                <p>S.C.A</p>
                 <a id="link" href="iam" class="btn btn-success">Ver Información</a>
 
             </a>
         </article>
-
+<!--
         <article class="card" id="infartosinelevacion">
             <a href="iamse">
                 <hr id="hr2">
@@ -64,7 +64,7 @@ require 'menu/menuPrincipal.php';
 
             </a>
         </article>
-
+-->
         <article class="card" id="tresmeses">
             <a href="seguimiento3meses">
                 <hr id="hr3">

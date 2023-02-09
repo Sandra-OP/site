@@ -85,7 +85,7 @@
 
                             <div class="form-header">
                                 <h3 class="form-title"
-                                    style="text-align: center; color:darkblue; background-color:gainsboro;">FICHA DE
+                                    style="text-align: center; color: white; background-color:#CD114E;">FICHA DE
                                     DATOS</h3>
 
                             </div>
@@ -270,7 +270,7 @@
                                         </select>
                                     </div><br><br><br>
                                     <div class="col-md-12"
-                                        style="text-align: center; color:darkblue; background-color:gainsboro;">
+                                        style="text-align: center; color: white; background-color:#CD114E;">
                                         <strong>FACTORES DE RIESGO</strong>
                                     </div>
                                     <div class="col-md-12">
@@ -323,7 +323,7 @@
 
                                     </fieldset>--><br><br>
                                     <div class="col-md-12"
-                                        style="text-align: center; color:darkblue; background-color:gainsboro;">
+                                        style="text-align: center; color: white; background-color:#CD114E;">
                                         <strong>ATENCIÓN CLINICA</strong>
                                     </div>
                                     <div class="col-md-3">
@@ -471,7 +471,7 @@
                                         </select>
                                     </div><br><br><br>
                                     <div class="col-md-12"
-                                        style="text-align: center; color:darkblue; background-color:gainsboro;">
+                                        style="text-align: center; color: white; background-color:#CD114E;">
                                         <strong>PARACLINICOS</strong>
                                     </div>
                                     <div class="col-md-4">
@@ -581,7 +581,7 @@
                                         }
                                     </style>
                                     <div class="col-md-12"
-                                        style="text-align: center; color:darkblue; background-color:gainsboro;">
+                                        style="text-align: center; color: white; background-color:#CD114E;">
                                         <strong>TRATAMIENTO</strong>
                                     </div>
                                     <div class="col-md-3">
@@ -882,7 +882,7 @@
                                     </div>
 
                                     <div class="col-md-12"
-                                        style="text-align: center; color:darkblue; background-color:gainsboro;">
+                                        style="text-align: center; color: white; background-color:#CD114E;">
                                         <strong>COMPLICACIONES</strong>
                                     </div>
 
@@ -935,7 +935,7 @@
                                     </div>
 
                                     <div class="col-md-12"
-                                        style="text-align: center; color:darkblue; background-color:gainsboro; margin-top: 15px;">
+                                        style="text-align: center; color: white; background-color:#CD114E; margin-top: 15px;">
                                         <strong>SEGUIMIENTO POSTPROCEDIMIENTO</strong>
                                     </div>
 

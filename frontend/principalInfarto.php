@@ -65,19 +65,19 @@
         <article class="card" id="cancer">
             <a href="cancer">
                 <hr id="hrcancermama">
-                <p>Cancer</p>
+                <p>Clinicas/Cancer</p>
                 <a id="linkcancer" href="cancer" class="btn btn-warning">Cancer</a>
             </a>
         </article>
-
-        <article class="card" id="cisfa">
-            <a href="../cisfa/principal">
-                <hr id="hr2">
-                <p>CISFA</p>
-                <a id="link" href="../cisfa/principal" class="btn btn-primary">CISFA</a>
+ <article class="card" id="reconstruccioncraneal">
+            <a href="ace.php">
+                <hr id="hr4">
+                <p>Reconstrucción Craneal</p>
+                <a id="link" href="iam" class="btn btn-dark">R.C</a>
 
             </a>
         </article>
+        
         <article class="card" id="esclerosis">
             <a href="../esclerosis/principal">
                 <hr id="hr3">
@@ -87,13 +87,7 @@
             </a>
         </article>
         
-        <article class="card" id="paladarhendido">
-            <a href=".#">
-                <hr id="hr7">
-                <p>Paladar hendido</p>
-                <a id="link" href="#" class="btn btn-dark">Paladar hendido</a>
-            </a>
-        </article>
+       
         <article class="card" id="lupus">
             <a href=".#">
                 <hr id="hr7">
@@ -101,14 +95,15 @@
                 <a id="link" href="#" class="btn btn-warning">Lupus</a>
             </a>
         </article>
+        <!--
         <article class="card" id="creheer">
             <a href=".#">
                 <hr id="hr7">
                 <p>CREHER</p>
-                <a id="link" href="#" class="btn btn-info">Creheer</a>
+                <a id="link" href="#" class="btn btn-info">CREHER</a>
             </a>
         </article>
-        
+        -->
         <article class="card" id="artritis">
             <a href="artritis">
                 <hr id="hr7">
@@ -116,7 +111,23 @@
                 <a id="link" href="artritis" class="btn btn-warning">Artritis</a>
             </a>
         </article>
-            
+        <article class="card" id="carnetdigital">
+            <a href="#">
+                <hr id="hr2">
+                <p>Mi carnet digital</p>
+                <a id="link" href="#" class="btn btn-primary">Mi carnet digital</a>
+
+            </a>
+        </article>
+        <article class="card" id="cisfa">
+            <a href="../cisfa/principal">
+                <hr id="hr2">
+                <p>CISFA</p>
+                <a id="link" href="../cisfa/principal" class="btn btn-primary">CISFA</a>
+
+            </a>
+        </article>
+         <!--    
         <article class="card" id="hemodinamia">
             <a href="ace.php">
                 <hr id="hr4">
@@ -125,7 +136,7 @@
 
             </a>
         </article>
-        <!--
+       
         <article class="card" id="rehabilitacion">
             <a href="api">
                 <hr id="hr5">

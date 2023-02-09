@@ -159,8 +159,11 @@ $rowsm = mysqli_fetch_assoc($sqlsm);
         border-radius: 0px 0px 15px 15px;
     }
 
+<<<<<<< HEAD
    
 
+=======
+>>>>>>> e8d6c74 (cambios en archivos 2023.02.09)
     #eliminarregistro {
         color: red;
     }
