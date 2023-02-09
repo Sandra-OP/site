@@ -28,7 +28,7 @@
 		dato_usuario.curp LIKE '%".$q."%' group by dato_usuario.id");
 }
         ?>
-<input type="submit" id="totalregistro" value="Total:&nbsp;<?php echo $fila['total']; ?>">
+<input type="submit" id="totalregistro" value="<?php echo $fila['total']; ?>">
 
 <input type="submit" data-bs-toggle="modal" data-bs-target="#artritis" value="+Cargar Paciente"
     id="boton_artritis">

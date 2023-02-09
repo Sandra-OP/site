@@ -445,7 +445,7 @@
 
 
                                 <!-- Maxilar Superior Derecho -->
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <strong>Maxilar Superior Derecho</strong>
                                     <!-- En el select se deben reemplazar los datos de la tabla 'antecedentescancer' por los siguientes datos,
                                         también debe considerarse que es un múltiple select:
@@ -471,10 +471,7 @@
                                 </div>
 
                                 <!-- Máxilar Inferior Derecho -->
-                                <div class="col-md-4">
-                                    <strong>Maxilar Inferior Derecho</strong>
-                                    <!-- En el select se deben reemplazar los datos de la tabla 'antecedentescancer' por los siguientes datos,
-                                        también debe considerarse que es un múltiple select:
+                                <!-- Debe ser un select múltiple, se deben reemplazar los datos de la tabla 'antecedentescancer' por los siguientes datos:
                                             41,
                                             42,
                                             43,
@@ -484,23 +481,13 @@
                                             47,
                                             48
                                         -->
-                                    <select id="mscancer" name="mscancer[]" multiple="multiple" class="form-control">
-                                        <?php
-                                        $query = $conexionCancer->prepare("SELECT relacion FROM antecedentescancer");
-                                        $query->execute();
-                                        $query->setFetchMode(PDO::FETCH_ASSOC);
-                                        while ($row = $query->fetch()) { ?>
-                                            <option value="<?php echo $row['relacion']; ?>">
-                                                <?php echo $row['relacion']; ?></option>
-                                        <?php } ?>
-                                    </select>
+                                <div class="col-md-3" id="maxilarinferiorderecho">
+                                    <strong>Maxilar Inferior Derecho:</strong>
+                                    <input id="maxilarinferiorderecho" name="maxilarinferiorderecho" type="text" class="form-control" value="" required>
                                 </div>
 
                                 <!-- Maxilar Superior Izquierdo -->
-                                <div class="col-md-4">
-                                    <strong>Maxilar Superior Izquierdo</strong>
-                                    <!-- En el select se deben reemplazar los datos de la tabla 'antecedentescancer' por los siguientes datos,
-                                        también debe considerarse que es un múltiple select:
+                                <!-- En el select se deben reemplazar los datos de la tabla 'antecedentescancer' por los siguientes datos:
                                             21,
                                             22,
                                             23,
@@ -510,23 +497,13 @@
                                             27,
                                             28
                                         -->
-                                    <select id="mscancer" name="mscancer[]" multiple="multiple" class="form-control">
-                                        <?php
-                                        $query = $conexionCancer->prepare("SELECT relacion FROM antecedentescancer");
-                                        $query->execute();
-                                        $query->setFetchMode(PDO::FETCH_ASSOC);
-                                        while ($row = $query->fetch()) { ?>
-                                            <option value="<?php echo $row['relacion']; ?>">
-                                                <?php echo $row['relacion']; ?></option>
-                                        <?php } ?>
-                                    </select>
+                                <div class="col-md-3" id="maxilarsuperiorderecho">
+                                    <strong>Maxilar Superior Izquierdo:</strong>
+                                    <input id="maxilarsuperiorderecho" name="maxilarsuperiorderecho" type="text" class="form-control" value="" required>
                                 </div>
 
                                 <!-- Maxilar Inferior Izquierdo -->
-                                <div class="col-md-4">
-                                    <strong>Maxilar Inferior Izquierdo</strong>
-                                    <!-- En el select se deben reemplazar los datos de la tabla 'antecedentescancer' por los siguientes datos,
-                                        también debe considerarse que es un múltiple select:
+                                <!-- En el select se deben reemplazar los datos de la tabla 'antecedentescancer' por los siguientes datos:
                                             31,
                                             32,
                                             33,
@@ -536,28 +513,56 @@
                                             37,
                                             38
                                         -->
-                                    <select id="mscancer" name="mscancer[]" multiple="multiple" class="form-control">
-                                        <?php
-                                        $query = $conexionCancer->prepare("SELECT relacion FROM antecedentescancer");
-                                        $query->execute();
-                                        $query->setFetchMode(PDO::FETCH_ASSOC);
-                                        while ($row = $query->fetch()) { ?>
-                                            <option value="<?php echo $row['relacion']; ?>">
-                                                <?php echo $row['relacion']; ?></option>
-                                        <?php } ?>
+                                <div class="col-md-3" id="maxilarinferiorizquierdo">
+                                    <strong>Maxilar Inferior Izquierdo:</strong>
+                                    <input id="maxilarinferiorizquierdo" name="maxilarinferiorizquierdo" type="text" class="form-control" value="" required>
+                                </div>
+                                <!--Finaliza sección de Órgano dental fracturado-->
+
+
+                                <!--continua el formulario de Afectaciones orales-->
+                                <div class="form-title" style="text-align: center; color:aliceblue; background-color:#eb768d; margin-top: 10px; font-size: 12px;"> ...
+                                </div>
+
+                                <div class="col-md-4">
+                                    <strong>Lesiones Orales:</strong>
+                                    <select name="lesionesorales" id="lesionesorales" class="form-control">
+                                        <option value="Seleccione">Seleccione...</option>
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
                                     </select>
                                 </div>
 
+                                <!--Si se selecciona Sí se habilitan:-->
+                                <div class="col-md-4">
+                                    <strong>Tipo de Tejido:</strong>
+                                    <select name="tipotejido" id="tipotejido" class="form-control">
+                                        <option value="Seleccione">Seleccione...</option>
+                                        <option value="duro">Duro</option>
+                                        <option value="blando">Blando</option>
+                                    </select>
+                                </div>
 
+                                <div class="col-md-4">
+                                    <strong>Tipo de Lesión:</strong>
+                                    <select name="tipolesion" id="tipolesion" class="form-control">
+                                        <option value="Seleccione">Seleccione...</option>
+                                        <option value="nodulo">Duro</option>
+                                        <option value="tumor">Tumor</option>
+                                        <option value="pigmentada">Pigmentada</option>
+                                    </select>
+                                </div>
 
-
-
-
-
-                                <!--Finaliza formulario de Antecedentes Personales Patológicos-->
-
-
-
+                                <!--Si se selecciona la opción Pigmentada, se debe habilitar el siguiente select-->
+                                <div class="col-md-4">
+                                    <strong>Tipo Pigmentación:</strong>
+                                    <select name="tipopigmentacion" id="tipopigmentacion" class="form-control">
+                                        <option value="Seleccione">Seleccione...</option>
+                                        <option value="blanca">Blanca</option>
+                                        <option value="roja">Roja</option>
+                                        <option value="blancaroja">Blanca/Roja</option>
+                                    </select>
+                                </div>
 
 
 
