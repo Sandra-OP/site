@@ -21,7 +21,7 @@
 
     <header class="header">
 
-        <span id="cabecera">HRAEI-GESTIÓN DIGITAL EN SALUD</span>
+        <span id="cabecera">HRAEI-GESTIÓN DIGITAL EN SALUD----</span>
 
     </header>
 
